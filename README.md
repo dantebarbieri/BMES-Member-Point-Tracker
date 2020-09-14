@@ -25,7 +25,7 @@ https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-
 If you are willing to create and register a GPG key, I highly recommend it. It allows you to verify that you are the one who completed your work. I sign all of my commits with a GPG key. Here's how to generate your own:
 https://docs.github.com/en/github/authenticating-to-github/managing-commit-signature-verification
 
-### Ruby Versioning
+## Ruby Versioning
 You will need to install ruby 2.7.1 with the devkit to most easily use the rails application.
 Download here: https://rubyinstaller.org/downloads/
 
