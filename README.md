@@ -24,3 +24,13 @@ https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-
 ### GPG Keys
 If you are willing to create and register a GPG key, I highly recommend it. It allows you to verify that you are the one who completed your work. I sign all of my commits with a GPG key. Here's how to generate your own:
 https://docs.github.com/en/github/authenticating-to-github/managing-commit-signature-verification
+
+### Ruby Versioning
+You will need to install ruby 2.7.1 with the devkit to most easily use the rails application.
+Download here: https://rubyinstaller.org/downloads/
+
+Once you have ruby 2.7.1 installed, clone this repo, and run bundle install.
+You may also be asked to run the following command:
+yarn install --check-files
+
+
