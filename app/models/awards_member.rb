@@ -1,0 +1,2 @@
+class AwardsMember < ApplicationRecord
+end
