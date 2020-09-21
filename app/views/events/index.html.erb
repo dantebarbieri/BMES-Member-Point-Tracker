@@ -1,2 +1,30 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+
+<div class="events index">
+<h2>Events</h2>
+
+<!--<%= link_to("Add New Event", new_event_path, :class => 'action new') %>-->
+
+<table class="listing" summary="Events list">
+    <tr class="header">
+        <th>Name</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Type</th>
+        <th>Actions</th>
+    </tr>
+    <% @events.each do |event| %>
+    <tr>
+        <td><%= event.name %></td>
+        <td><%= event.date %></td>
+        <td><%= event.time %></td>
+        <td><%= event.type %></td>
+        <td class="actions">
+            <!--<%= link_to("Show", event_path(book), :class => 'action show') %>-->
+            <!--<%= link_to("Edit", edit_event_path(book), :class => 'action edit') %>-->
+            <!--<%= link_to("Delete", delete_event_path(book), :class => 'action delete') %>-->
+        </td>
+    </tr>
+    <% end %>
+</table>
+<!-- <p>Find me in app/views/events/index.html.erb</p> -->
+</div>
