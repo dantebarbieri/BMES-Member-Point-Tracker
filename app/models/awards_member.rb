@@ -1,2 +1,0 @@
-class AwardsMember < ApplicationRecord
-end

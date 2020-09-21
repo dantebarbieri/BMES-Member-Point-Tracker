@@ -1,2 +1,0 @@
-class EventsMember < ApplicationRecord
-end
