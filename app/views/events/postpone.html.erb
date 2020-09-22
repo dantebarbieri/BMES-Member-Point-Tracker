@@ -1,2 +1,41 @@
-<h1>Events#postpone</h1>
-<p>Find me in app/views/events/postpone.html.erb</p>
+<%= link_to("<< Back to List", events_path, :class => 'back-link') %>
+
+<div class="book postpone">
+    <h2>Postpone Event</h2>
+    <table class="single item" summary="Event details">
+        <tr>
+            <th>Name</th>
+            <td><%= @event.name %></td>
+        </tr>
+        <tr>
+            <th>Type</th>
+            <td><%= @event.event_type %></td>
+        </tr>
+        <tr>
+            <th>Created</th>
+            <td><%= @event.created_at %></td>
+        </tr>
+        <tr>
+            <th>Updated</th>
+            <td><%= @event.updated_at %></td>
+        </tr>
+    </table>
+
+    <%= form_for(@event, :url => event_path(@event), :method => 'patch') do |f| %>
+      <tr>
+          <th>Date</th>
+          <td><%= f.date_select(:date) %></td>
+      </tr>
+      <tr>
+          <th>Time</th>
+          <td><%= f.time_select(:time) %></td>
+      </tr>
+
+      <p>Save changes to this event?</p>
+      <div class="form-buttons">
+          <%= f.submit("Save") %>
+      </div>
+    <% end %>
+</div>
+
+<!-- <p>Find me in app/views/events/postpone.html.erb</p> -->

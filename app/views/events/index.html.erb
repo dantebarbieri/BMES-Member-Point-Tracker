@@ -2,7 +2,7 @@
 <div class="events index">
 <h2>Events</h2>
 
-<!--<%= link_to("Add New Event", new_event_path, :class => 'action new') %>-->
+<%= link_to("Add New Event", new_event_path, :class => 'action new') %>
 
 <table class="listing" summary="Events list">
     <tr class="header">
@@ -17,11 +17,13 @@
         <td><%= event.name %></td>
         <td><%= event.date %></td>
         <td><%= event.time %></td>
-        <td><%= event.type %></td>
+        <td><%= event.event_type %></td>
+        <td><%= event.attendance_points %></td>
         <td class="actions">
-            <!--<%= link_to("Show", event_path(book), :class => 'action show') %>-->
-            <!--<%= link_to("Edit", edit_event_path(book), :class => 'action edit') %>-->
-            <!--<%= link_to("Delete", delete_event_path(book), :class => 'action delete') %>-->
+            <%= link_to("Show", event_path(event), :class => 'action show') %>
+            <%= link_to("Edit", edit_event_path(event), :class => 'action edit') %>
+            <%= link_to("Postpone", postpone_event_path(event), :class => 'action postpone') %>
+            <%= link_to("Delete", delete_event_path(event), :class => 'action delete') %>
         </td>
     </tr>
     <% end %>
