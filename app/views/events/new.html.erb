@@ -1,0 +1,36 @@
+<%= link_to("<< Back to List", events_path, :class => 'back-link') %>
+
+<div class="new event">
+    <h2>New Event</h2>
+    <%= form_for(@event) do |f| %>
+        <table summary="Event form fields">
+            <tr>
+                <th>Name</th>
+                <td><%= f.text_field(:name) %></td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td><%= f.date_select(:date) %></td>
+            </tr>
+            <tr>
+                <th>Time</th>
+                <td><%= f.time_select(:time) %></td>
+            </tr>
+            <tr>
+                <th>Event Type</th>
+                <td><%= f.text_field(:event_type) %></td>
+            </tr>
+            <tr>
+                <th>Attendance Points</th>
+                <td><%= f.number_field(:attendance_points, in: 0.0..1000.0, step: 0.001) %></td>
+            </tr>
+        </table>
+        
+        <div class="form-buttons">
+            <%= f.submit("Create Event") %>
+        </div>
+        
+    <% end %>
+</div>
+
+<!-- <p>Find me in app/views/events/new.html.erb</p> -->

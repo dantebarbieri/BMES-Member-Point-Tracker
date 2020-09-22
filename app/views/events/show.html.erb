@@ -1,0 +1,37 @@
+<%= link_to("<< Back to List", events_path, :class => 'back-link') %>
+
+<div class="event show">
+    <h2>Event Details</h2>
+    <table class="single item" summary="Event details">
+        <tr>
+            <th>Name</th>
+            <td><%= @event.name %></td>
+        </tr>
+        <tr>
+            <th>Date</th>
+            <td><%= @event.date %></td>
+        </tr>
+        <tr>
+            <th>Time</th>
+            <td><%= @event.time.strftime("%H:%M:%S") %></td>
+        </tr>
+        <tr>
+            <th>Type</th>
+            <td><%= @event.event_type %></td>
+        </tr>
+        <tr>
+            <th>Attendance Points</th>
+            <td><%= @event.attendance_points %></td>
+        </tr>
+        <tr>
+            <th>Created</th>
+            <td><%= @event.created_at %></td>
+        </tr>
+        <tr>
+            <th>Updated</th>
+            <td><%= @event.updated_at %></td>
+        </tr>
+    </table>
+</div>
+
+<!-- <p>Find me in app/views/events/show.html.erb</p> -->
