@@ -6,11 +6,11 @@
         <table summary="Manual Points Editing">
             <tr>
                 <th>Points</th>
-                <td><%= f.text_field(:points) %></td>
+                <td><%= f.number_field(:points) %></td>
             </tr>
             <tr>
                 <th>Reason</th>
-                <td><%= f.date_select(:reason) %></td>
+                <td><%= f.text_field(:reason) %></td>
             </tr>
             </tr>
         </table>

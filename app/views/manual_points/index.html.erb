@@ -13,6 +13,7 @@
         <td><%= event.points %></td>
         <td><%= event.reason %></td>
         <td class="actions">
+            <%= link_to("Show", edit_manual_points_path(accomplishments), :class => 'action show') %>
             <%= link_to("Edit", edit_manual_points_path(manual_points), :class => 'action edit') %>
         </td>
     </tr>

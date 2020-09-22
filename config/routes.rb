@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :accomplishmnets do
+  resource :accomplishments do
   	member do
   		get :edit
   	end
