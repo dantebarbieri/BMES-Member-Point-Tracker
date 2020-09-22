@@ -1,0 +1,25 @@
+<%= link_to("<< Back to List", manual_points_path, :class => 'back-link') %>
+
+<div class="Edit Manual Points">
+    <h2>Update Points Manually</h2>
+    <%= form_for(@manual_points) do |f| %>
+        <table summary="Manual Points Editing">
+            <tr>
+                <th>Points</th>
+                <td><%= f.text_field(:points) %></td>
+            </tr>
+            <tr>
+                <th>Reason</th>
+                <td><%= f.date_select(:reason) %></td>
+            </tr>
+            </tr>
+        </table>
+        
+        <div class="form-buttons">
+            <%= f.submit("Update Points Manually") %>
+        </div>
+        
+    <% end %>
+</div>
+
+<!-- <p>Find me in app/views/manual_points/show.html.erb</p> -->
