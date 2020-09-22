@@ -1,6 +1,6 @@
 <%= link_to("<< Back to List", events_path, :class => 'back-link') %>
 
-<div class="book show">
+<div class="event show">
     <h2>Event Details</h2>
     <table class="single item" summary="Event details">
         <tr>
@@ -13,7 +13,7 @@
         </tr>
         <tr>
             <th>Time</th>
-            <td><%= @event.time %></td>
+            <td><%= @event.time.strftime("%H:%M:%S") %></td>
         </tr>
         <tr>
             <th>Type</th>

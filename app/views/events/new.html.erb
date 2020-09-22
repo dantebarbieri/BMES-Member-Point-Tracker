@@ -1,6 +1,6 @@
 <%= link_to("<< Back to List", events_path, :class => 'back-link') %>
 
-<div class="new edit">
+<div class="new event">
     <h2>New Event</h2>
     <%= form_for(@event) do |f| %>
         <table summary="Event form fields">
@@ -22,7 +22,7 @@
             </tr>
             <tr>
                 <th>Attendance Points</th>
-                <td><%= f.text_field(:attendance_points) %></td>
+                <td><%= f.number_field(:attendance_points, in: 0.0..1000.0, step: 0.001) %></td>
             </tr>
         </table>
         

@@ -22,7 +22,7 @@
             </tr>
             <tr>
                 <th>Attendance Points</th>
-                <td><%= f.text_field(:event_type) %></td>
+                <td><%= f.number_field(:attendance_points, in: 0.0..1000.0, step: 0.001) %></td>
             </tr>
         </table>
         

@@ -31,11 +31,12 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
+    session[:return_to] ||= request.referer
     if @event.update_attributes(event_params)
       flash[:notice] = "Event Updated Successfully"
       redirect_to(events_path(@event))
     else
-      render('edit')
+      redirect_to session.delete(:return_to)
     end
   end
 
