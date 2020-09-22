@@ -1,0 +1,26 @@
+
+<div class="accomplishments index">
+<h2>Dues Paid</h2>
+
+<%= link_to("Add Dues Paid", new_accomplishment_path, :class => 'action new') %>
+
+<table class="listing" summary="Dues">
+    <tr class="header">
+        <th>Name</th>
+        <th>Description</th>
+        <th>Points</th>
+    </tr>
+    <% @accomplishments.each do |accomplishments| %>
+    <tr>
+        <td><%= accomplishments.name %></td>
+        <td><%= accomplishments.description %></td>
+        <td><%= accomplishments.points %></td>
+        <td class="actions">
+            <%= link_to("Show", accomplishments_path(accomplishments), :class => 'action show') %>
+            <%= link_to("Edit", edit_accomplishments_path(accomplishments), :class => 'action edit') %>
+        </td>
+    </tr>
+    <% end %>
+</table>
+<!-- <p>Find me in app/views/accomplishments/index.html.erb</p> -->
+</div>
