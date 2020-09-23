@@ -14,7 +14,7 @@ class AccomplishmentsController < ApplicationController
   def update
     @accomplishments = Accomplishments.find(params[:id])
     if @accomplishments.update_attributes(accomplishments)
-      flash[:notice] = "Points Manually Updated Successfully"
+      flash[:notice] = "Accomplishment ${@accomplishment.name} Updated Successfully"
       redirect_to(accomplishments_path(@accomplishments))
     else
       render('edit')
