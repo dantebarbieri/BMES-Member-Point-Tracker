@@ -9,8 +9,7 @@ class Member < ApplicationRecord
 	end
 
 	def dues(dues_id = 1)
-		# TODO: Implement checking that current semester is paid
-		self.accomplishments_members.where(:accomplishment_id => dues_id, :semester_id =>)
+		self.accomplishments.find_by_id(dues_id)
 	end
 
 	def attendance_points
