@@ -1,5 +1,18 @@
 <!-- app/views/dashboard/show.html.erb -->
 
+<% flash.each do |type, msg| %>
+
+  <% if (type == "notice") %>
+    <div class="alert alert-success">
+      <%= msg %>
+  	</div>
+  <% elsif (type == "alert") %>
+  	<div class="alert alert-danger">
+      <%= msg %>
+  	</div>
+  <% end %>
+<% end %>
+
 <h2>Welcome, <%= @name %></h2>
 <p>This page could serve has the landing page for all users. If the person who is logged in is not yet represented in the database, then a "verify info" type of template will be shown. Else, the page could be a menu for the system or perhaps even show some basic details like points.</p>
 <div style="display: flex; flex-direction: row; justify-content: space-around;">
