@@ -11,6 +11,12 @@ Rails.application.routes.draw do
       get :postpone
     end
   end
+
+  resources :semesters do
+    member do
+      get :delete
+    end
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   get 'auth/auth0/callback' => 'auth0#callback'
@@ -20,4 +26,7 @@ Rails.application.routes.draw do
   get '/logout' => 'logout#logout'
 
   get 'dashboard' => 'dashboard#show'
+
+  get 'semesters' => 'semesters#index'
+
 end
