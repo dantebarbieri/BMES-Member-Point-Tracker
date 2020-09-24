@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_24_194845) do
+ActiveRecord::Schema.define(version: 2020_09_23_025121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,11 +59,11 @@ ActiveRecord::Schema.define(version: 2020_09_24_194845) do
   end
 
   create_table "manual_points", force: :cascade do |t|
+    t.bigint "member_id"
     t.decimal "points", default: "0.0"
     t.text "reason"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "member_id"
     t.index ["member_id"], name: "index_manual_points_on_member_id"
   end
 
@@ -88,6 +88,8 @@ ActiveRecord::Schema.define(version: 2020_09_24_194845) do
     t.text "data"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
+    t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
   add_foreign_key "accomplishments_members", "accomplishments"
