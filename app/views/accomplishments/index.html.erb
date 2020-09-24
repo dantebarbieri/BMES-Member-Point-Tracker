@@ -18,6 +18,7 @@
         <td class="actions">
             <%= link_to("Show", accomplishments_path(accomplishments), :class => 'action show') %>
             <%= link_to("Edit", edit_accomplishments_path(accomplishments), :class => 'action edit') %>
+            <%= link_to("Delete", delete_accomplishments_path(accomplishments), :class => 'action delete') %>
         </td>
     </tr>
     <% end %>
