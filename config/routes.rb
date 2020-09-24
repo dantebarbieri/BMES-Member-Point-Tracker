@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   get 'dashboard/show'
   root 'home#show'
   
@@ -17,6 +16,18 @@ Rails.application.routes.draw do
       get :delete
     end
   end
+  
+  resources :manual_points do
+    member do
+      get :edit
+    end
+  end
+
+  resource :accomplishments do
+  	member do
+  		get :edit
+  	end
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   get 'auth/auth0/callback' => 'auth0#callback'
@@ -29,4 +40,13 @@ Rails.application.routes.draw do
 
   get 'semesters' => 'semesters#index'
 
+  get 'signup' => 'signup#new'
+  
+  post 'signup' => 'signup#create'
+
+  get 'profile' => 'profile#show'
+
+  get 'edit' => 'profile#edit'
+
+  patch 'edit' => 'profile#update'
 end

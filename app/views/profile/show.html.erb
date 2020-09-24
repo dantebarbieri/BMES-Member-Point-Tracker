@@ -11,7 +11,10 @@
   <% end %>
 <% end %>
 
-<h2>Welcome!</h2>
-<h4>About this System</h4>
-<p>This system is a point tracker for BMES.</p>
-<p>Login to view your stats.</p>
+<h2>User Profile</h2>
+<p>Name: <%= @member.name %></p>
+<p>Email: <%= @member.email %></p>
+<p>Class Year: <%= @member.class_year %></p>
+<p>Admin Status: TBD</p>
+
+<%= link_to "Edit Profile", 'edit', class: 'btn btn-primary' %>
