@@ -9,7 +9,13 @@ class Member < ApplicationRecord
 	end
 
 	def dues(dues_id = 1)
-		self.accomplishments.find_by_id(dues_id)
+		semesters = Semester.where("dates @> current_date")
+		self.accomplishments_members.where(:accomplishment_id => dues_id).each do |dues|
+			if semesters.ids.include? dues.semester_id
+				return dues
+			end
+		end
+		return nil;
 	end
 
 	def attendance_points

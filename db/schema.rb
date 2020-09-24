@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_23_004230) do
+ActiveRecord::Schema.define(version: 2020_09_23_012332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,11 +26,12 @@ ActiveRecord::Schema.define(version: 2020_09_23_004230) do
   create_table "accomplishments_members", force: :cascade do |t|
     t.bigint "accomplishment_id"
     t.bigint "member_id"
-    t.datetime "received"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "semester_id"
     t.index ["accomplishment_id"], name: "index_accomplishments_members_on_accomplishment_id"
     t.index ["member_id"], name: "index_accomplishments_members_on_member_id"
+    t.index ["semester_id"], name: "index_accomplishments_members_on_semester_id"
   end
 
   create_table "administrators", force: :cascade do |t|
@@ -75,8 +76,16 @@ ActiveRecord::Schema.define(version: 2020_09_23_004230) do
     t.index ["email"], name: "index_members_on_email", unique: true
   end
 
+  create_table "semesters", force: :cascade do |t|
+    t.text "name"
+    t.daterange "dates", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "accomplishments_members", "accomplishments"
   add_foreign_key "accomplishments_members", "members"
+  add_foreign_key "accomplishments_members", "semesters"
   add_foreign_key "administrators", "members"
   add_foreign_key "events_members", "events"
   add_foreign_key "events_members", "members"
