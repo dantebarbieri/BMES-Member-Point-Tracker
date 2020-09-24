@@ -8,6 +8,16 @@ class DashboardController < ApplicationController
   	@name = @user_info["name"]
   	@email = @user_info["email"]
 
+  	session[:app_user] = {"name" => @name, "email" => @email}
+
+  	# Check if user already exits, if not, then redirect to signup
+
+  	@member = Member.find_by_email(@email)
+
+  	unless @member
+  		redirect_to controller: :signup, action: :new
+  	end
+
   	# Something like this maybe?
   	# session[:app_user] = User.find()
   end

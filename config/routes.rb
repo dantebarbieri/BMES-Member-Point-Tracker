@@ -31,4 +31,8 @@ Rails.application.routes.draw do
   get '/logout' => 'logout#logout'
 
   get 'dashboard' => 'dashboard#show'
+
+  get 'signup' => 'signup#new'
+  
+  post 'signup' => 'signup#create'
 end

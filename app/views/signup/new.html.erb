@@ -1,0 +1,28 @@
+<h2>Sign Up</h2>
+<h4>Welcome to the Group!</h4>
+<p>We just want to make sure our information about you is accurate. Please verify and update your information below. </p>
+
+<%= form_for :member, url: signup_path do |f| %>
+	<% if @member.errors.any? %>
+		<% @member.errors.full_messages.each do |msg| %>
+			<div class="alert alert-danger"><%= msg %></div>
+		<% end %>
+	<% end %>
+
+	<p>
+		<%= f.label :name %>
+		<%= f.text_field(:name, class: 'form-control', value: @supplied_name) %>
+	</p>
+
+	<p>
+		<%= f.label :class_year %>
+		<br>
+		<%= f.select :class_year, options_for_select((Time.now.year)..(Time.now.year+6)), prompt: "Enter Year", class: "form-control"%>
+	</p>
+
+	<p>
+		<%= f.submit({:class => 'btn btn-primary'}) %>
+	</p>
+
+<% end %>
+
