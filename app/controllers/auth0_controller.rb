@@ -3,6 +3,13 @@ class Auth0Controller < ApplicationController
 		# This stores all of the info that comes from Auth0
 		session[:userinfo] = request.env['omniauth.auth']
 
+		@session_info = session[:userinfo]
+  		@user_info = @session_info["info"]
+  		@name = @user_info["name"]
+  		@email = @user_info["email"]
+
+		session[:app_user] = {"name" => @name, "email" => @email}
+
 		redirect_to '/dashboard'
 	end
 

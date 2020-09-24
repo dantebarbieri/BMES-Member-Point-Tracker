@@ -1,4 +1,5 @@
 class SignupController < ApplicationController
+	include NewUser
 	def new
 		@member = Member.new
 
@@ -12,12 +13,12 @@ class SignupController < ApplicationController
 		@member.email = session[:app_user]["email"]
 
 		# This ensures you don't try to make a duplicate user. 
-		@member_current = Member.find_by_email(@member.email)
-		if @member_current
-			@member_current.update(member_params)
-			redirect_to dashboard_path, notice: "Your user information was edited."
-			return
-		end
+		#@member_current = Member.find_by_email(@member.email)
+		#if @member_current
+			#@member_current.update(member_params)
+			#redirect_to dashboard_path, notice: "Your user information was edited."
+			#return
+		#end
 
 		# Ensure that member has all required values. 
   	unless @member
