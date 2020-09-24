@@ -1,0 +1,23 @@
+<div class="manual_points index">
+<h2>Manual Points</h2>
+
+<%= link_to("Add Manual Points", manual_points_path, :class => 'action new') %>
+
+<table class="listing" summary="Manual Points">
+    <tr class="header">
+        <th>Points</th>
+        <th>Reason</th>
+    </tr>
+    <% @manual_points.each do |event| %>
+    <tr>
+        <td><%= event.points %></td>
+        <td><%= event.reason %></td>
+        <td class="actions">
+            <%= link_to("Show", edit_manual_points_path(accomplishments), :class => 'action show') %>
+            <%= link_to("Edit", edit_manual_points_path(manual_points), :class => 'action edit') %>
+        </td>
+    </tr>
+    <% end %>
+</table>
+<!-- <p>Find me in app/views/manual_points/index.html.erb</p> -->
+</div>

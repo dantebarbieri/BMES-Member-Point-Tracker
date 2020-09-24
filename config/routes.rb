@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   get 'dashboard/show'
   root 'home#show'
   
@@ -10,6 +9,18 @@ Rails.application.routes.draw do
       get :delete
       get :postpone
     end
+  end
+  
+  resources :manual_points do
+    member do
+      get :edit
+    end
+  end
+
+  resource :accomplishments do
+  	member do
+  		get :edit
+  	end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
