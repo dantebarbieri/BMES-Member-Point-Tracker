@@ -1,4 +1,5 @@
 class SignupController < ApplicationController
+	include Secured
 	include NewUser
 	def new
 		@member = Member.new
