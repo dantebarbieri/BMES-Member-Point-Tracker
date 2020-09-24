@@ -1,0 +1,32 @@
+
+<div class="events index">
+<h2>Events</h2>
+
+<%= link_to("Add New Event", new_event_path, :class => 'action new') %>
+
+<table class="listing" summary="Events list">
+    <tr class="header">
+        <th>Name</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Type</th>
+        <th>Actions</th>
+    </tr>
+    <% @events.each do |event| %>
+    <tr>
+        <td><%= event.name %></td>
+        <td><%= event.date %></td>
+        <td><%= event.time.strftime("%H:%M:%S") %></td>
+        <td><%= event.event_type %></td>
+        <td><%= event.attendance_points %></td>
+        <td class="actions">
+            <%= link_to("Show", event_path(event), :class => 'action show') %>
+            <%= link_to("Edit", edit_event_path(event), :class => 'action edit') %>
+            <%= link_to("Postpone", postpone_event_path(event), :class => 'action postpone') %>
+            <%= link_to("Delete", delete_event_path(event), :class => 'action delete') %>
+        </td>
+    </tr>
+    <% end %>
+</table>
+<!-- <p>Find me in app/views/events/index.html.erb</p> -->
+</div>
