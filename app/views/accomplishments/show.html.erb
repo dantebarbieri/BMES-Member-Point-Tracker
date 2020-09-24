@@ -1,0 +1,30 @@
+
+<%= link_to("<< Back to List", accomplishments_path, :class => 'back-link') %>
+
+<div class="Show Accomplishments">
+    <h2>Accomplishment Details</h2>
+    <table class="single item" summary="Accomplishments Details">
+        <tr>
+            <th>Name</th>
+            <td><%= @accomplishments.name %></td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td><%= @accomplishments.description %></td>
+        </tr>
+        <tr>
+            <th>Points</th>
+            <td><%= @accomplishments.points %></td>
+        </tr>
+        <tr>
+            <th>Created</th>
+            <td><%= @accomplishments.created_at %></td>
+        </tr>
+        <tr>
+            <th>Updated</th>
+            <td><%= @accomplishments.updated_at %></td>
+        </tr>
+    </table>
+</div>
+
+<!-- <p>Find me in app/views/accomplishments/show.html.erb</p> -->
