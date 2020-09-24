@@ -6,6 +6,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' %>
+    <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -23,6 +24,9 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <%= link_to "Dashboard", "/dashboard", class: 'nav-item nav-link'%>
+            <% if @member.is_admin? %>
+              <%= link_to "Edit Semesters", semesters_path, class: 'nav-item nav-link'%>
+            <% end %>
             <%= link_to "Log In", "auth/auth0", method: :post, class: 'nav-item nav-link'%>
             <%= link_to "Log Out", "/logout", class: 'nav-item nav-link'%>
           </div>

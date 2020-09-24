@@ -1,0 +1,30 @@
+<%= link_to semesters_path do %>
+	<i class="fa fa-home fa-3x"></i>
+<% end %>
+
+<% @page_title = "Show Details" %>
+
+<h1>Show Details</h1>
+
+<table class="data-inline">
+	<tr>
+		<th>Name</th>
+		<td><%= @semester.name %></td>
+	</tr>
+	<tr>
+		<th>Start</th>
+		<td><%= @semester.dates.begin %></td>
+	</tr>
+	<tr>
+		<th>End</th>
+		<td><%= @semester.dates.end %></td>
+	</tr>
+	<tr>
+		<th>Added to Database on</th>
+		<td><%= @semester.created_at %></td>
+	</tr>
+	<tr>
+		<th>Last Updated on</th>
+		<td><%= @semester.updated_at %></td>
+	</tr>
+</table>

@@ -10,6 +10,12 @@ Rails.application.routes.draw do
       get :postpone
     end
   end
+
+  resources :semesters do
+    member do
+      get :delete
+    end
+  end
   
   resources :manual_points do
     member do
@@ -31,6 +37,8 @@ Rails.application.routes.draw do
   get '/logout' => 'logout#logout'
 
   get 'dashboard' => 'dashboard#show'
+
+  get 'semesters' => 'semesters#index'
 
   get 'signup' => 'signup#new'
   
