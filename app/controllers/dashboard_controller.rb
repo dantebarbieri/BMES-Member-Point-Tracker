@@ -4,20 +4,12 @@ class DashboardController < ApplicationController
   include ExistingUser
 
   def show
-  	#@session_info = session[:userinfo]
-  	#@user_info = @session_info["info"]
-  	#@name = @user_info["name"]
-  	#@email = @user_info["email"]
-
-  	#session[:app_user] = {"name" => @name, "email" => @email}
-
-  	# Check if user already exits, if not, then redirect to signup
-
-  	@member = Member.find_by_email(session[:app_user]["email"])
-  	@name = @member.name
-
-
-  	# Something like this maybe?
-  	# session[:app_user] = User.find()
+		@member = Member.find_by_email(session[:app_user]["email"])
+    @name = @member.name
+		@dues_paid = @member.paid_dues?
+		@attendance_points = @member.attendance_points
+		@accomplishments_points = @member.accomplishment_points
+		@manual_points = @member.manual_points_received
+		@total_points = @member.total_points
   end
 end
