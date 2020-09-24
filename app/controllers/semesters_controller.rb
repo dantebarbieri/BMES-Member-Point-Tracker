@@ -1,7 +1,7 @@
 class SemestersController < ApplicationController
   include Secured
-	include ExistingUser
-	include AdminSecured
+  include ExistingUser
+  include AdminSecured
 
   def index
     @semesters = Semester.order(:dates)
