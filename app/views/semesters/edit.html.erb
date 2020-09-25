@@ -1,28 +1,13 @@
-<%= link_to semesters_path do %>
-	<i class="fa fa-home fa-3x"></i>
-<% end %>
+<% @page_title = "Update a Semester" %>
 
-<% @page_title = "Update a Book" %>
+<h4>Update Semester: <%= @semester.name %></h4>
 
-<h1>Update a Book</h1>
-
-<p>Updating <%= @semester.name %></p>
 
 <%= form_with(:model => @semester) do |f| %>
-	<table class="data-inline">
-		<tr>
-			<th>Name</th>
-			<td><%= f.text_field(:name) %></td>
-		</tr>
-		<tr>
-			<th>Start Date</th>
-			<td><%= f.date_field(:start, :value => @semester.dates.begin) %></td>
-		</tr>
-		<tr>
-			<th>End Date</th>
-			<td><%= f.date_field(:end, :value => @semester.dates.end) %></td>
-		</tr>
-	</table>
+	<p>Name</p>
+	<p><%= f.text_field(:name, class: "form-control") %></p>
+	<p>Start Date<%= f.date_field(:start, :value => @semester.dates.begin, class: "form-control") %></p>
+	<p>End Date<%= f.date_field(:end, :value => @semester.dates.end, class: "form-control") %></p>
 
-	<%= f.submit("Update Semester", :class => "btn btn-primary") %>
+	<p><%= f.submit("Update Semester", :class => "btn btn-primary") %> <%= link_to "Cancel", semesters_path, class: "btn btn-secondary" %></p>
 <% end %>

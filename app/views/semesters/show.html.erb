@@ -1,12 +1,8 @@
-<%= link_to semesters_path do %>
-	<i class="fa fa-home fa-3x"></i>
-<% end %>
-
 <% @page_title = "Show Details" %>
 
-<h1>Show Details</h1>
+<h4>Semester Details</h4>
 
-<table class="data-inline">
+<table class="table">
 	<tr>
 		<th>Name</th>
 		<td><%= @semester.name %></td>
@@ -28,3 +24,5 @@
 		<td><%= @semester.updated_at %></td>
 	</tr>
 </table>
+
+<%= link_to "View All", semesters_path, class: "btn btn-primary" %>

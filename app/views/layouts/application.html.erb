@@ -23,12 +23,19 @@
 
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <%= link_to "Dashboard", "/dashboard", class: 'nav-item nav-link'%>
-            <% if @member.is_admin? %>
+            <% if @member and @member.is_admin? %>
               <%= link_to "Edit Semesters", semesters_path, class: 'nav-item nav-link'%>
             <% end %>
-            <%= link_to "Log In", "auth/auth0", method: :post, class: 'nav-item nav-link'%>
-            <%= link_to "Log Out", "/logout", class: 'nav-item nav-link'%>
+
+            <% if @member %>
+              <%= link_to "Profile", profile_path, class: 'nav-item nav-link'%>
+              <%= link_to "Dashboard", "/dashboard", class: 'nav-item nav-link'%>
+              <%= link_to "Log Out", "/logout", class: 'nav-item nav-link'%>
+            <% end %>
+
+            <% unless @member %>
+              <%= link_to "Log In", "auth/auth0", method: :post, class: 'nav-item nav-link'%>
+            <% end %>
           </div>
         </div>
 
