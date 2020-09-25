@@ -3,6 +3,7 @@
 <div class="event edit">
     <h2>Edit Event</h2>
     <%= form_for(@event) do |f| %>
+
         <table class="table" summary="Event form fields">
             <tr>
                 <th>Name</th>
@@ -27,7 +28,7 @@
         </table>
         
         <div class="form-buttons">
-            <%= f.submit("Update Event") %>
+            <%= f.submit("Update Event", :class => "btn btn-primary") %>
         </div>
         
     <% end %>

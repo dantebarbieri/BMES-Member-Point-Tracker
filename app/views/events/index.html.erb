@@ -2,14 +2,14 @@
 <div class="events index">
 <h2>Events</h2>
 
-<%= link_to("Add New Event", new_event_path, :class => 'action new') %>
+<table class="table" summary="Events list">
 
-<table class="table listing" summary="Events list">
     <tr class="header">
         <th>Name</th>
         <th>Date</th>
         <th>Time</th>
         <th>Type</th>
+        <th>Attendance Points</th>
         <th>Actions</th>
     </tr>
     <% @events.each do |event| %>
@@ -28,5 +28,8 @@
     </tr>
     <% end %>
 </table>
+
+<%= link_to("Add New Event", new_event_path, :class => "btn btn-primary") %>
+
 <!-- <p>Find me in app/views/events/index.html.erb</p> -->
 </div>
