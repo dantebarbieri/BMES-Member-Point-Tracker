@@ -1,0 +1,34 @@
+<%= link_to("<< Back to List", manual_points_path, :class => 'back-link') %>
+
+<div class="Manual Points show">
+    <h2>Manual Points Details</h2>
+
+    <table class="table single item" summary="Mnaual Points details">
+
+        <tr>
+            <th>Name</th>
+            <td><%= @manual_points.name %></td>
+        </tr>
+        <tr>
+            <th>Reason</th>
+            <td><%= @manual_points.reason%></td>
+        </tr>
+        <tr>
+            <th>Created</th>
+            <td><%= @manual_points.created_at %></td>
+        </tr>
+        <tr>
+            <th>Updated</th>
+            <td><%= @manual_points.updated_at %></td>
+        </tr>
+    </table>
+
+    <%= form_for(@manual_points, :method => 'delete') do |f| %>
+      <p>Are you sure you want to permanently delete this manual points?</p>
+      <div class="form-buttons">
+          <%= f.submit("Delete Manual Points") %>
+      </div>
+    <% end %>
+</div>
+
+<!-- <p>Find me in app/views/manual_points/delete.html.erb</p> -->

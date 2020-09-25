@@ -1,0 +1,2 @@
+class ManualPoints < ApplicationRecord
+end

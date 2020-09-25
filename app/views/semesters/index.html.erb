@@ -1,0 +1,43 @@
+<% @page_title = "Home Page" %>
+
+<h1>Semesters Page</h1>
+
+<p>The semesters are below:</p>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Start</th>
+			<th>End</th>
+			<th>Details</th>
+			<th>Edit</th>
+			<th>Remove</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @semesters.each do |semester| %>
+			<tr class="data-row">
+				<td><%= semester.name %></td>
+				<td><%= semester.dates.begin %></td>
+				<td><%= semester.dates.end %></td>
+				<td>
+					<%= link_to semester_path(semester) do %>
+						<i class="fa fa-info-circle"></i>
+					<% end %>
+				</td>
+				<td>
+					<%= link_to edit_semester_path(semester) do %>
+						<i class="fa fa-edit"></i>
+					<% end %>
+				</td>
+				<td>
+					<%= link_to delete_semester_path(semester) do %>
+						<i class="fa fa-trash"></i>
+					<% end %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+<%= link_to "New Semester", new_semester_path, class: "btn btn-primary" %>

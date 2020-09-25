@@ -25,6 +25,15 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# Gem required to use Auth0
+gem 'omniauth-auth0', '~> 2.2'
+
+# Gem to prevent forged authentiation requests
+gem 'omniauth-rails_csrf_protection', '~> 0.1'
+
+# Gem to prevent cookie size issue
+gem 'activerecord-session_store'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

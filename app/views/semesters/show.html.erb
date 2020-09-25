@@ -1,0 +1,29 @@
+<% @page_title = "Show Details" %>
+
+<h4>Semester Details</h4>
+
+
+<table class="table">
+	<tr>
+		<th>Name</th>
+		<td><%= @semester.name %></td>
+	</tr>
+	<tr>
+		<th>Start</th>
+		<td><%= @semester.dates.begin %></td>
+	</tr>
+	<tr>
+		<th>End</th>
+		<td><%= @semester.dates.end %></td>
+	</tr>
+	<tr>
+		<th>Added to Database on</th>
+		<td><%= @semester.created_at %></td>
+	</tr>
+	<tr>
+		<th>Last Updated on</th>
+		<td><%= @semester.updated_at %></td>
+	</tr>
+</table>
+
+<%= link_to "View All", semesters_path, class: "btn btn-primary" %>
