@@ -3,7 +3,7 @@
 <div class="new event">
     <h2>New Event</h2>
     <%= form_for(@event) do |f| %>
-        <table summary="Event form fields">
+        <table summary="Event form fields" class=table>
             <tr>
                 <th>Name</th>
                 <td><%= f.text_field(:name) %></td>
@@ -27,7 +27,7 @@
         </table>
         
         <div class="form-buttons">
-            <%= f.submit("Create Event") %>
+            <%= f.submit("Create Event", :class => "btn btn-primary") %>
         </div>
         
     <% end %>
