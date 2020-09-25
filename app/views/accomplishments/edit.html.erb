@@ -1,0 +1,29 @@
+<%= link_to accomplishments_path do %>
+	<i class="fa fa-home fa-3x"></i>
+<% end %>
+
+<% @page_title = "Update an Accomplishment" %>
+
+<h1>Update an Accomplishment</h1>
+
+<p>Updating <%= @accomplishment.name %></p>
+
+<%= form_for(@accomplishment) do |f| %>
+	<table class="table">
+
+		<tr>
+			<th>Name</th>
+			<td><%= f.text_field(:name) %></td>
+		</tr>
+		<tr>
+			<th>Description</th>
+			<td><%= f.text_area(:description) %></td>
+		</tr>
+		<tr>
+			<th>Points</th>
+			<td><%= f.number_field(:points, :step => 0.01) %></td>
+		</tr>
+	</table>
+
+	<%= f.submit("Update Book", :class => "btn btn-primary") %>
+<% end %>

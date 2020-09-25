@@ -1,0 +1,25 @@
+
+<%= link_to("<< Back to List", manual_points_path, :class => 'back-link') %>
+
+<div class="show points">
+    <h2>Manual Points Details</h2>
+    <table class="table single item" summary="Accomplishments Details">
+        <tr>
+            <th>Points</th>
+            <td><%= @manual_points.name %></td>
+        </tr>
+        <tr>
+            <th>Reason</th>
+            <td><%= @manual_points.reason %></td>
+        </tr>
+            <th>Created</th>
+            <td><%= @manual_points.created_at %></td>
+        </tr>
+        <tr>
+            <th>Updated</th>
+            <td><%= @manual_points.updated_at %></td>
+        </tr>
+    </table>
+</div>
+
+<!-- <p>Find me in app/views/manual_points/show.html.erb</p> -->

@@ -1,0 +1,50 @@
+<% @page_title = "Home Page" %>
+
+<h1>Home Page</h1>
+
+<p>The accomplishments and their functions are below:</p>
+
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Points</th>
+			<th><strong>Details</strong></th>
+			<th><strong>Edit</strong></th>
+			<th><strong>Remove</strong></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @accomplishments.each do |accomplishment| %>
+			<tr class="data-row">
+				<td><%= accomplishment.name %></td>
+				<td><%= accomplishment.description %></td>
+				<td><%= accomplishment.points %></td>
+				<td>
+					<%= link_to accomplishment_path(accomplishment) do %>
+						<i class="fa fa-info-circle"></i>
+					<% end %>
+				</td>
+				<td>
+					<%= link_to edit_accomplishment_path(accomplishment) do %>
+						<i class="fa fa-edit"></i>
+					<% end %>
+				</td>
+				<td>
+					<%= link_to delete_accomplishment_path(accomplishment) do %>
+						<i class="fa fa-trash"></i>
+					<% end %>
+				</td>
+			</tr>
+		<% end %>
+		<tr>
+			<td>
+				<%= link_to new_accomplishment_path do %>
+					<i class="fa fa-plus-circle"></i>
+				<% end %>
+			</td>
+		</tr>
+	</tbody>
+</table>
