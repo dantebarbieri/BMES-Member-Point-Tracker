@@ -1,0 +1,29 @@
+<%= link_to dashboard_path do %>
+	<i class="fa fa-home fa-3x"></i>
+<% end %>
+
+<% @page_title = "Delete" %>
+
+<h1>Delete</h1>
+
+<p>About to Delete the Following Semester:</p>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<td><%= @semester.name %></td>
+	</tr>
+	<tr>
+		<th>Start</th>
+		<td><%= @semester.dates %></td>
+	</tr>
+	<tr>
+		<th>End</th>
+		<td><%= @semester.dates %></td>
+	</tr>
+</table>
+
+<%= form_for(@semester, :method => 'delete') do |f| %>
+	<p>Are you sure?</p>
+	<%= f.submit("Delete Semester", :class => "btn btn-primary") %>
+<% end %>

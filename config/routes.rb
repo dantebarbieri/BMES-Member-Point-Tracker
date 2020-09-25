@@ -10,6 +10,12 @@ Rails.application.routes.draw do
       get :postpone
     end
   end
+
+  resources :semesters do
+    member do
+      get :delete
+    end
+  end
   
   resources :manual_points do
     member do
@@ -33,4 +39,15 @@ Rails.application.routes.draw do
 
   get 'dashboard' => 'dashboard#show'
 
+  get 'semesters' => 'semesters#index'
+
+  get 'signup' => 'signup#new'
+  
+  post 'signup' => 'signup#create'
+
+  get 'profile' => 'profile#show'
+
+  get 'edit' => 'profile#edit'
+
+  patch 'edit' => 'profile#update'
 end

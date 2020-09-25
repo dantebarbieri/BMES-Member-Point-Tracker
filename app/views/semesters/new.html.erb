@@ -1,0 +1,26 @@
+<%= link_to semesters_path do %>
+	<i class="fa fa-home fa-3x"></i>
+<% end %>
+
+<% @page_title = "Add a Semester" %>
+
+<h1>Add a Semester</h1>
+
+<%= form_with(:model => @semester) do |f| %>
+	<table>
+		<tr>
+			<th>Name</th>
+			<td><%= f.text_field(:name) %></td>
+		</tr>
+		<tr>
+			<th>Start</th>
+			<td><%= f.date_field(:start) %></td>
+		</tr>
+		<tr>
+			<th>End</th>
+			<td><%= f.date_field(:end) %></td>
+		</tr>
+	</table>
+
+	<%= f.submit("Create Semester", :class => "btn btn-primary") %>
+<% end %>

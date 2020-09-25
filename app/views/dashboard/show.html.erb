@@ -1,4 +1,42 @@
 <!-- app/views/dashboard/show.html.erb -->
 
+<% flash.each do |type, msg| %>
+
+  <% if (type == "notice") %>
+    <div class="alert alert-success">
+      <%= msg %>
+  	</div>
+  <% elsif (type == "alert") %>
+  	<div class="alert alert-danger">
+      <%= msg %>
+  	</div>
+  <% end %>
+<% end %>
+
 <h2>Welcome, <%= @name %></h2>
 <p>This page could serve has the landing page for all users. If the person who is logged in is not yet represented in the database, then a "verify info" type of template will be shown. Else, the page could be a menu for the system or perhaps even show some basic details like points.</p>
+<div style="display: flex; flex-direction: row; justify-content: space-around;">
+	<div>
+		<h3>Dues Paid?</h3>
+		<%= @dues_paid ? "Dues have been paid." : link_to("Pay Dues", "https://secure.touchnet.com/C21490_ustores/web/classic/product_detail.jsp?PRODUCTID=5415", :class => "btn btn-primary") %>
+	</div>
+	<% if @dues_paid %>
+		<div>
+			<h3>Points Earned</h3>
+			<table>
+				<tr>
+					<th>Attendance</th> <td><%= @attendance_points %></td>
+				</tr>
+				<tr>
+					<th>Accomplishments</th> <td><%= @accomplishments_points %></td>
+				</tr>
+				<tr>
+					<th>Manual Adjustments</th> <td><%= @manual_points %></td>
+				</tr>
+				<tr>
+					<th><strong>Total</strong></th> <td><%= @total_points %></td>
+				</tr>
+			</table>
+		</div>
+	<% end %>
+</div>

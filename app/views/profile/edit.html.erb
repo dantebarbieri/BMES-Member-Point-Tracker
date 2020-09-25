@@ -1,0 +1,38 @@
+<% flash.each do |type, msg| %>
+
+  <% if (type == "notice") %>
+    <div class="alert alert-success">
+      <%= msg %>
+  	</div>
+  <% elsif (type == "alert") %>
+  	<div class="alert alert-danger">
+      <%= msg %>
+  	</div>
+  <% end %>
+<% end %>
+<h2>Profile Editor</h2>
+<p>You can use this page to edit your profile data.</p>
+
+<%= form_for :member, url: edit_path, method: :patch do |f| %>
+	<% if @member.errors.any? %>
+		<% @member.errors.full_messages.each do |msg| %>
+			<div class="alert alert-danger"><%= msg %></div>
+		<% end %>
+	<% end %>
+
+	<p>
+		<%= f.label :name %>
+		<%= f.text_field(:name, class: 'form-control', value: @member.name) %>
+	</p>
+
+	<p>
+		<%= f.label :class_year %>
+		<br>
+		<%= f.text_field(:class_year, class: 'form-control', value: @member.class_year) %>
+	</p>
+
+	<p>
+		<%= f.submit({:class => 'btn btn-primary'}) %>
+	</p>
+
+<% end %>

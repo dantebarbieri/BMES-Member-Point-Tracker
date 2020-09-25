@@ -32,6 +32,7 @@
             <% if @member and @member.is_admin? %>
               <%= link_to "Accomplishments", "/accomplishments", class: 'nav-item nav-link'%>
               <%= link_to "Manual Points", "/manual_points", class: 'nav-item nav-link'%>
+              <%= link_to "Edit Semesters", semesters_path, class: 'nav-item nav-link'%>
             <% end %>
             <%= link_to "Log In", "auth/auth0", method: :post, class: 'nav-item nav-link'%>
             <%= link_to "Log Out", "/logout", class: 'nav-item nav-link'%>
