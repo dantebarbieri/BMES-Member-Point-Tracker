@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   
+  get 'give_accomplishments/index'
+  get 'give_accomplishments/show'
+  get 'give_accomplishments/new'
+  get 'give_accomplishments/edit'
+  get 'give_accomplishments/delete'
   root 'home#show'
   
   get 'home/show'
@@ -38,8 +43,6 @@ Rails.application.routes.draw do
   get 'logout' => 'logout#logout'
 
   get 'dashboard' => 'dashboard#show'
-
-  get 'semesters' => 'semesters#index'
 
   get 'signup' => 'signup#new'
   
