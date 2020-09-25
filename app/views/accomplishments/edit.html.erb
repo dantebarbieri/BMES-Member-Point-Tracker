@@ -1,29 +1,28 @@
+<%= link_to accomplishments_path do %>
+	<i class="fa fa-home fa-3x"></i>
+<% end %>
 
-<%= link_to("<< Back to List", accomplishments_path, :class => 'back-link') %>
+<% @page_title = "Update an Accomplishment" %>
 
-<div class="dues edit">
-    <h2>Edit Dues</h2>
-    <%= form_for(@accomplishments) do |f| %>
-        <table summary="Dues paid">
-            <tr>
-                <th>Name</th>
-                <td><%= f.text_field(:name) %></td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td><%= f.text_field(:description) %></td>
-            </tr>
-            <tr>
-                <th>Points</th>
-                <td><%= f.number_field(:points) %></td>
-            </tr>
-        </table>
-        
-        <div class="form-buttons">
-            <%= f.submit("Update Accomplishments (Dues Paid)") %>
-        </div>
-        
-    <% end %>
-</div>
+<h1>Update an Accomplishment</h1>
 
-<!-- <p>Find me in app/views/accomplishments/edit.html.erb</p> -->
+<p>Updating <%= @accomplishment.name %></p>
+
+<%= form_for(@accomplishment) do |f| %>
+	<table>
+		<tr>
+			<th>Name</th>
+			<td><%= f.text_field(:name) %></td>
+		</tr>
+		<tr>
+			<th>Description</th>
+			<td><%= f.text_area(:description) %></td>
+		</tr>
+		<tr>
+			<th>Points</th>
+			<td><%= f.number_field(:points, :step => 0.01) %></td>
+		</tr>
+	</table>
+
+	<%= f.submit("Update Book", :class => "btn btn-primary") %>
+<% end %>

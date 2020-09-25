@@ -1,4 +1,8 @@
 class ManualPointsController < ApplicationController
+  include Secured
+  include ExistingMember
+  include AdminSecured
+
   def index
     @manual_points = ManualPoints.all
   end

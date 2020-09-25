@@ -1,36 +1,37 @@
-<%= link_to("<< Back to List", accomplishments_path, :class => 'back-link') %>
+<%= link_to accomplishments_path do %>
+	<i class="fa fa-home fa-3x"></i>
+<% end %>
 
-<div class="accomplishments show">
-    <h2>Event Details</h2>
-    <table class="single item" summary="Accomplishments details">
-        <tr>
-            <th>Name</th>
-            <td><%= @accomplishments.name %></td>
-        </tr>
-        <tr>
-            <th>Description</th>
-            <td><%= @accomplishments.description%></td>
-        </tr>
-        <tr>
-            <th>Points</th>
-            <td><%= @accomplishments.points %></td>
-        </tr>
-        <tr>
-            <th>Created</th>
-            <td><%= @accomplishments.created_at %></td>
-        </tr>
-        <tr>
-            <th>Updated</th>
-            <td><%= @accomplishments.updated_at %></td>
-        </tr>
-    </table>
+<% @page_title = "Delete" %>
 
-    <%= form_for(@accomplishments, :method => 'delete') do |f| %>
-      <p>Are you sure you want to permanently delete this accomplishments?</p>
-      <div class="form-buttons">
-          <%= f.submit("Delete Accompishments") %>
-      </div>
-    <% end %>
-</div>
+<h1>Delete</h1>
 
-<!-- <p>Find me in app/views/accomplishments/delete.html.erb</p> -->
+<p>About to Delete the Following Accomplishment:</p>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<td><%= @accomplishment.name %></td>
+	</tr>
+	<tr>
+		<th>Description</th>
+		<td><%= @accomplishment.description %></td>
+	</tr>
+	<tr>
+		<th>Points</th>
+		<td><%= @accomplishment.points %></td>
+	</tr>
+	<tr>
+		<th>Added to Database on</th>
+		<td><%= @accomplishment.created_at %></td>
+	</tr>
+	<tr>
+		<th>Last Updated on</th>
+		<td><%= @accomplishment.updated_at %></td>
+	</tr>
+</table>
+
+<%= form_for(@accomplishment, :method => 'delete') do |f| %>
+	<p>Are you sure?</p>
+	<%= f.submit("Delete Accomplishment", :class => "btn btn-primary") %>
+<% end %>
