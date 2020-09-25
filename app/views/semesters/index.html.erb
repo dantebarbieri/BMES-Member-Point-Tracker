@@ -4,15 +4,15 @@
 
 <p>The semesters are below:</p>
 
-<table>
+<table class="table">
 	<thead>
 		<tr>
 			<th>Name</th>
 			<th>Start</th>
 			<th>End</th>
-			<th><strong>Details</strong></th>
-			<th><strong>Edit</strong></th>
-			<th><strong>Remove</strong></th>
+			<th>Details</th>
+			<th>Edit</th>
+			<th>Remove</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -38,12 +38,6 @@
 				</td>
 			</tr>
 		<% end %>
-		<tr>
-			<td>
-				<%= link_to new_semester_path do %>
-					<i class="fa fa-plus-circle"></i>
-				<% end %>
-			</td>
-		</tr>
 	</tbody>
 </table>
+<%= link_to "New Semester", new_semester_path, class: "btn btn-primary" %>

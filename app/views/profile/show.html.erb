@@ -15,6 +15,6 @@
 <p>Name: <%= @member.name %></p>
 <p>Email: <%= @member.email %></p>
 <p>Class Year: <%= @member.class_year %></p>
-<p>Admin Status: TBD</p>
+<p>Admin Status: <%= @member.is_admin? ? "You are an Admin" : "You are not an Admin"%></p>
 
 <%= link_to "Edit Profile", 'edit', class: 'btn btn-primary' %>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+
   root 'home#show'
   
   get 'home/show'
@@ -38,8 +39,6 @@ Rails.application.routes.draw do
   get 'logout' => 'logout#logout'
 
   get 'dashboard' => 'dashboard#show'
-
-  get 'semesters' => 'semesters#index'
 
   get 'signup' => 'signup#new'
   

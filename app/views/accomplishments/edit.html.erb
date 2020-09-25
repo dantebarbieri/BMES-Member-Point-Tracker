@@ -9,7 +9,8 @@
 <p>Updating <%= @accomplishment.name %></p>
 
 <%= form_for(@accomplishment) do |f| %>
-	<table>
+	<table class="table">
+
 		<tr>
 			<th>Name</th>
 			<td><%= f.text_field(:name) %></td>
