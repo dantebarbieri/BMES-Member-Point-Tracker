@@ -3,7 +3,7 @@
 <div class="event edit">
     <h2>Edit Event</h2>
     <%= form_for(@event) do |f| %>
-        <table summary="Event form fields">
+        <table class="table" summary="Event form fields">
             <tr>
                 <th>Name</th>
                 <td><%= f.text_field(:name) %></td>

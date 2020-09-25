@@ -1,26 +1,49 @@
+<% @page_title = "Home Page" %>
 
-<div class="accomplishments index">
-<h2>Dues Paid</h2>
+<h1>Home Page</h1>
 
-<%= link_to("Add Dues Paid", new_accomplishments_path, :class => 'action new') %>
+<p>The accomplishments and their functions are below:</p>
 
-<table class="listing" summary="Dues">
-    <tr class="header">
-        <th>Name</th>
-        <th>Description</th>
-        <th>Points</th>
-    </tr>
-    <% @accomplishments.each do |accomplishments| %>
-    <tr>
-        <td><%= accomplishments.name %></td>
-        <td><%= accomplishments.description %></td>
-        <td><%= accomplishments.points %></td>
-        <td class="actions">
-            <%= link_to("Show", accomplishments_path(accomplishments), :class => 'action show') %>
-            <%= link_to("Edit", edit_accomplishments_path(accomplishments), :class => 'action edit') %>
-        </td>
-    </tr>
-    <% end %>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Points</th>
+			<th><strong>Details</strong></th>
+			<th><strong>Edit</strong></th>
+			<th><strong>Remove</strong></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @accomplishments.each do |accomplishment| %>
+			<tr class="data-row">
+				<td><%= accomplishment.name %></td>
+				<td><%= accomplishment.description %></td>
+				<td><%= accomplishment.points %></td>
+				<td>
+					<%= link_to accomplishment_path(accomplishment) do %>
+						<i class="fa fa-info-circle"></i>
+					<% end %>
+				</td>
+				<td>
+					<%= link_to edit_accomplishment_path(accomplishment) do %>
+						<i class="fa fa-edit"></i>
+					<% end %>
+				</td>
+				<td>
+					<%= link_to delete_accomplishment_path(accomplishment) do %>
+						<i class="fa fa-trash"></i>
+					<% end %>
+				</td>
+			</tr>
+		<% end %>
+		<tr>
+			<td>
+				<%= link_to new_accomplishment_path do %>
+					<i class="fa fa-plus-circle"></i>
+				<% end %>
+			</td>
+		</tr>
+	</tbody>
 </table>
-<!-- <p>Find me in app/views/accomplishments/index.html.erb</p> -->
-</div>
