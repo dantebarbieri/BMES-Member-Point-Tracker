@@ -44,6 +44,9 @@
 
             <% unless @member %>
               <%= link_to "Log In", "auth/auth0", method: :post, class: 'nav-item nav-link'%>
+
+              <%= link_to "Edit Semesters", semesters_path, class: 'nav-item nav-link'%>
+
             <% end %>
           </div>
         </div>

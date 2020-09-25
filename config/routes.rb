@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   
-  get 'give_accomplishments/index'
-  get 'give_accomplishments/show'
-  get 'give_accomplishments/new'
-  get 'give_accomplishments/edit'
-  get 'give_accomplishments/delete'
+
   root 'home#show'
   
   get 'home/show'
