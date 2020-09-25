@@ -59,11 +59,11 @@ ActiveRecord::Schema.define(version: 2020_09_23_025121) do
   end
 
   create_table "manual_points", force: :cascade do |t|
-    t.bigint "member_id"
     t.decimal "points", default: "0.0"
     t.text "reason"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "member_id"
     t.index ["member_id"], name: "index_manual_points_on_member_id"
   end
 

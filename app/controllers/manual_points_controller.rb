@@ -1,6 +1,6 @@
 class ManualPointsController < ApplicationController
   include Secured
-  include ExistingMember
+  include ExistingUser
   include AdminSecured
 
   def index
