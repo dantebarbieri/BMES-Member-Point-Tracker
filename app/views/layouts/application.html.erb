@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BMESMemberPointTracker</title>
+    <title>
+    BMESMemberPointTracker
+    <% if @page_title %>
+      - <%= @page_title %>
+    <% end %>
+    </title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -24,7 +29,9 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <%= link_to "Dashboard", "/dashboard", class: 'nav-item nav-link'%>
-            <% if @member.is_admin? %>
+            <% if @member and @member.is_admin? %>
+              <%= link_to "Accomplishments", "/accomplishments", class: 'nav-item nav-link'%>
+              <%= link_to "Manual Points", "/manual_points", class: 'nav-item nav-link'%>
               <%= link_to "Edit Semesters", semesters_path, class: 'nav-item nav-link'%>
             <% end %>
             <%= link_to "Log In", "auth/auth0", method: :post, class: 'nav-item nav-link'%>
