@@ -3,10 +3,10 @@ class Member < ApplicationRecord
 	has_many :accomplishments, :through => :accomplishments_members
 	has_many :manual_points
 	has_and_belongs_to_many :events
-	has_one :administrator
+	enum role: {unconfirmed: 0, member: 10, admin: 20, executive_admin: 30}
 
 	def is_admin?
-		return self.administrator != nil
+		self.admin? or self.executive_admin?
 	end
 
 	def paid_dues?
