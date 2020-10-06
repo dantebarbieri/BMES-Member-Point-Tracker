@@ -3,6 +3,7 @@
 class SignupController < ApplicationController
   include Secured
   include NewUser
+  include NewEmail
   def new
     @member = Member.new
 
@@ -13,6 +14,7 @@ class SignupController < ApplicationController
   def create
     @member = Member.new(member_params)
     @member.email = session[:app_user]['email']
+    @member.uid = session[:app_user]['uid']
 
     # This ensures you don't try to make a duplicate user.
     # @member_current = Member.find_by_email(@member.email)

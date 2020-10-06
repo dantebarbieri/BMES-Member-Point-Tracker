@@ -12,8 +12,12 @@ module NewUser
   end
 
   def new_user?
-    @supplied_email = session[:app_user]['email']
-    @member = Member.find_by_email(@supplied_email)
+    #@supplied_email = session[:app_user]['email']
+    #@member = Member.find_by_email(@supplied_email)
+
+    #Need to find user by id
+    @supplied_uid = session[:app_user]['uid']
+    @member = Member.find_by_uid(@supplied_uid)
 
     redirect_to dashboard_path, notice: 'You have already signed up!' if @member
   end
