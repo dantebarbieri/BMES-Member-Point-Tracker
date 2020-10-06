@@ -48,6 +48,11 @@ jobs:
       run: yarn install --check-files
     - name: Set up webpacker
       run: bundle exec rails webpacker:install
+    - name: Create DB Users
+      run: |
+        echo "CREATE ROLE bmesrubydev WITH LOGIN SUPERUSER CREATEDB CREATEROLE INHERIT NOREPLICATION CONNECTION LIMIT -1 PASSWORD 'bmesruby431';" > create_users.sql
+        echo "CREATE ROLE bmesrubytest WITH LOGIN SUPERUSER CREATEDB CREATEROLE INHERIT NOREPLICATION CONNECTION LIMIT -1 PASSWORD 'bmesruby431';" >> create_users.sql
+        PGPASSWORD=bmesruby431 psql < create_users.sql
     - name: Setup database
       run: bundle exec rails db:setup
     - name: Run tests
