@@ -330,6 +330,10 @@
           1,
           null,
           1,
+          null,
+          1,
+          1,
+          1,
           null
         ]
       },
@@ -415,6 +419,12 @@
           null
         ]
       },
+      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/app/helpers/points_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
       "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/app/helpers/profile_helper.rb": {
         "lines": [
           null,
@@ -457,6 +467,6 @@
         ]
       }
     },
-    "timestamp": 1601996680
+    "timestamp": 1602013079
   }
 }
