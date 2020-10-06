@@ -1,41 +1,39 @@
+# frozen_string_literal: true
+
 class SignupController < ApplicationController
-	include Secured
-	include NewUser
-	def new
-		@member = Member.new
+  include Secured
+  include NewUser
+  def new
+    @member = Member.new
 
-		@supplied_name = session[:app_user]["name"]
-		@supplied_email = session[:app_user]["email"]
+    @supplied_name = session[:app_user]['name']
+    @supplied_email = session[:app_user]['email']
+  end
 
-	end
+  def create
+    @member = Member.new(member_params)
+    @member.email = session[:app_user]['email']
 
-	def create
-		@member = Member.new(member_params)
-		@member.email = session[:app_user]["email"]
+    # This ensures you don't try to make a duplicate user.
+    # @member_current = Member.find_by_email(@member.email)
+    # if @member_current
+    # @member_current.update(member_params)
+    # redirect_to dashboard_path, notice: "Your user information was edited."
+    # return
+    # end
 
-		# This ensures you don't try to make a duplicate user. 
-		#@member_current = Member.find_by_email(@member.email)
-		#if @member_current
-			#@member_current.update(member_params)
-			#redirect_to dashboard_path, notice: "Your user information was edited."
-			#return
-		#end
+    # Ensure that member has all required values.
+    redirect_to controller: :signup, action: :new unless @member
 
-		# Ensure that member has all required values. 
-  	unless @member
-  		redirect_to controller: :signup, action: :new
-  	end
+    if @member.save
+      redirect_to dashboard_path
+    else
+      render 'new'
+    end
+  end
 
-		if (@member.save)
-			redirect_to dashboard_path
-		else
-			render 'new'
-		end
-
-	end
-
-	private def member_params
-		# Specifies that form will only take in name and class year
-		params.require(:member).permit(:name, :class_year)
-	end
+  private def member_params
+    # Specifies that form will only take in name and class year
+    params.require(:member).permit(:name, :class_year)
+  end
 end
