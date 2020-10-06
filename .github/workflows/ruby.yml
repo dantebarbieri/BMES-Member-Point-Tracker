@@ -22,7 +22,7 @@ jobs:
       postgres:
         image: postgres:12.4-alpine
         env:
-          POSTGRES_PASSWORD: password
+          POSTGRES_PASSWORD: bmesruby431
         ports:
           - 5432:5432
         # needed because the postgres container does not provide a healthcheck
@@ -37,6 +37,11 @@ jobs:
       uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
       with:
         ruby-version: 2.7.1
+    - name: Setup cache key and directory for gems cache
+      uses: actions/cache@v1
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gem-use-ruby-${{ hashFiles('**/Gemfile.lock') }}
     - name: Install dependencies
       run: bundle install
     - name: Install yarn
