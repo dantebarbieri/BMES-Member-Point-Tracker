@@ -4,7 +4,7 @@
 
 <h1>Update Manual Points</h1>
 
-<p>Updating <%= @manual_points.name %></p>
+<p>Updating <%= @manual_points.member.name %></p>
 
 <%= form_for(@manual_points) do |f| %>
 	<table class="table">
@@ -17,6 +17,14 @@
 			<th>Reason</th>
 			<td><%= f.text_area(:reason) %></td>
 		</tr>
+		<tr>
+		<th>Member</th>
+		<% members= Array.new %>
+		<% @members.each do |m| %>
+			<% members << [m.name + ' (' + m.email + ')', m.id] %>
+		<% end %>
+		<td><%= f.select(:member_id, members) %></td>
+	</tr>
 	</table>
 
 	<%= f.submit("Update Manual Points", :class => "btn btn-primary") %>

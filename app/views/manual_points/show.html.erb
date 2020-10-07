@@ -6,12 +6,18 @@
     <table class="table single item" summary="Accomplishments Details">
         <tr>
             <th>Points</th>
-            <td><%= @manual_points.name %></td>
+            <td><%= @manual_points.points %></td>
         </tr>
         <tr>
             <th>Reason</th>
             <td><%= @manual_points.reason %></td>
         </tr>
+        <tr>
+            <th>Member Info</th>
+            <td><%= @manual_points.member.name + ' (' + @manual_points.member.email + ')' %></td>
+        
+        </tr>
+        <tr>
             <th>Created</th>
             <td><%= @manual_points.created_at %></td>
         </tr>

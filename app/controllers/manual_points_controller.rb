@@ -11,6 +11,7 @@ class ManualPointsController < ApplicationController
 
   def new
     @manual_points = ManualPoint.new
+    @members = Member.order(:name)
   end
 
   def create
@@ -25,16 +26,18 @@ class ManualPointsController < ApplicationController
 
   def edit
     @manual_points = ManualPoint.find(params[:id])
+    @members = Member.order(:name)
   end
 
   def update
     @manual_points = ManualPoint.find(params[:id])
-    session[:return_to] ||= request.referer
-    if @manual_points.update_attributes(manual_points_params)
+    puts manual_points_params
+    if @manual_points.update(manual_points_params)
       flash[:notice] = 'Manual Points Updated Successfully'
-      redirect_to(manual_points_path(@manual_points))
+      redirect_to(manual_point_path(@manual_points))
     else
-      redirect_to session.delete(:return_to)
+      flash[:error] = 'Manual Points Not Updated Sucessfully'
+      render('edit')
     end
   end
 
@@ -52,6 +55,6 @@ class ManualPointsController < ApplicationController
   private
 
   def manual_points_params
-    params.require(:manual_points).permit(:points, :reason)
+    params.require(:manual_point).permit(:points, :reason, :member_id)
   end
 end
