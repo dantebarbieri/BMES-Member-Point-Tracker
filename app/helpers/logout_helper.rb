@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # app/helpers/logout_helper.rb
 
 module LogoutHelper

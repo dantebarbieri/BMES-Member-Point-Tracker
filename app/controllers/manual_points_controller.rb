@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class ManualPointsController < ApplicationController
+  include Secured
+  include ExistingUser
+  include AdminSecured
+  
   def index
     @manual_points = ManualPoint.all
   end
@@ -17,7 +21,7 @@ class ManualPointsController < ApplicationController
   def create
     @manual_points = ManualPoint.new(manual_points_params)
     if @manual_points.save
-      flash[:notice] = "Manual Points Created Successfully"
+      flash[:notice] = 'Points Manually Created Successfully'
       redirect_to(manual_points_path)
     else
       render('new')
@@ -48,7 +52,7 @@ class ManualPointsController < ApplicationController
   def destroy
     @manual_points = ManualPoint.find(params[:id])
     @manual_points.destroy
-    flash[:notice] = 'Manual Points Deleted Successfully'
+    flash[:notice] = 'Points Manually Deleted Successfully'
     redirect_to(manual_points_path)
   end
 

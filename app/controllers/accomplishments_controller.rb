@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AccomplishmentsController < ApplicationController
   include Secured
   include ExistingUser
@@ -52,7 +54,7 @@ class AccomplishmentsController < ApplicationController
   end
 
   private
-	
+
   def accomplishments_params
     params.require(:accomplishment).permit(:name, :description, :points)
   end

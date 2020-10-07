@@ -1,10 +1,10 @@
-Rails.application.routes.draw do
-  
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   root 'home#show'
-  
+
   get 'home/show'
- 
+
   resources :events do
     member do
       get :delete
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       get :delete
     end
   end
-  
+
   resources :manual_points do
     member do
       get :delete
@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   get 'dashboard' => 'dashboard#show'
 
   get 'signup' => 'signup#new'
-  
+
   post 'signup' => 'signup#create'
 
   get 'profile' => 'profile#show'
@@ -50,11 +50,7 @@ Rails.application.routes.draw do
 
   patch 'edit' => 'profile#update'
 
-  get 'manual_points' => 'manual_points#show'
-
   get 'points/events'
-
-  get 'points/manual_points' => 'member_points'
-  
-  get 'points/accomplishments' => 'member_accomplishments'
+  get 'points/manual_points'
+  get 'points/accomplishments'
 end

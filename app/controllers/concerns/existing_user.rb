@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # app/controllers/concerns/existing_user.rb
 
 # This concern guarantees the user is already in the system.
@@ -11,11 +13,9 @@ module ExistingUser
   end
 
   def existing_user?
-  	@supplied_email = session[:app_user]["email"]
-  	@member  = Member.find_by_email(@supplied_email)
+    @supplied_email = session[:app_user]['email']
+    @member = Member.find_by_email(@supplied_email)
 
-  	unless @member
-  		redirect_to signup_path, alert: 'You still need to sign up!'
-  	end
+    redirect_to signup_path, alert: 'You still need to sign up!' unless @member
   end
 end

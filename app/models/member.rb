@@ -60,5 +60,5 @@ class Member < ApplicationRecord
   
 	  attendance_points(true) + accomplishment_points(true) + manual_points_received(true)
 	end
-  end
+end
   
