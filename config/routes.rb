@@ -54,7 +54,7 @@ Rails.application.routes.draw do
 
   get 'points/events'
 
-  get 'points/manual_points'
+  get 'points/manual_points' => 'member_points'
   
-  get 'points/accomplishments'
+  get 'points/accomplishments' => 'member_accomplishments'
 end

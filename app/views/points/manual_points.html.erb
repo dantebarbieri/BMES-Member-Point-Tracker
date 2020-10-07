@@ -1,2 +1,28 @@
-<h1>Points#manual_points</h1>
-<p>Find me in app/views/points/manual_points.html.erb</p>
+<% @page_title = "Member Points" %>
+
+<h1>Member Points</h1>
+
+<p>The member points are below:</p>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Points</th>
+			<th>Reason</th>
+			<th>Details</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @member.maual_points.each do |member.manual_points| %>
+			<tr class="data-row">
+				<td><%= member.manual_points.points %></td>
+				<td><%= member.manual_points.reason %></td>
+				<td>
+					<%= link_to member.manual_points_path(member.manual_points) do %>
+						<i class="fa fa-info-circle"></i>
+					<% end %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

@@ -1,48 +1,27 @@
-<% @page_title = "Home Page" %>
 
-<h1>Home Page</h1>
+<div class="manual points index">
+<h2>Manual Points</h2>
 
-<p>The manual points and their functions are below:</p>
+<table class="table" summary="Manual Points List">
 
-
-<table class="table">
-	<thead>
-		<tr>
-			<th>Points</th>
-			<th>Reason</th>
-			<th><strong>Details</strong></th>
-			<th><strong>Edit</strong></th>
-			<th><strong>Remove</strong></th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @manual_points.each do |manual_points| %>
-			<tr class="data-row">
-				<td><%= manual_points.points %></td>
-				<td><%= manual_points.reason %></td>
-				<td>
-					<%= link_to manual_points_path(manual_points) do %>
-						<i class="fa fa-info-circle"></i>
-					<% end %>
-				</td>
-				<td>
-					<%= link_to edit_manual_points_path(manual_points) do %>
-						<i class="fa fa-edit"></i>
-					<% end %>
-				</td>
-				<td>
-					<%= link_to delete_manual_points_path(manual_points) do %>
-						<i class="fa fa-trash"></i>
-					<% end %>
-				</td>
-			</tr>
-		<% end %>
-		<tr>
-			<td>
-				<%= link_to new_manual_points_path do %>
-					<i class="fa fa-plus-circle"></i>
-				<% end %>
-			</td>
-		</tr>
-	</tbody>
+    <tr class="header">
+        <th>Points</th>
+        <th>Reason</th>
+    </tr>
+    <% @manual_points.each do |manual_points| %>
+    <tr>
+        <td><%= event.points %></td>
+        <td><%= event.reason %></td>
+        <td class="actions">
+            <%= link_to("Show", manual_points_path(manual_points), :class => 'action show') %>
+            <%= link_to("Edit", edit_manual_points_path(manual_points), :class => 'action edit') %>
+            <%= link_to("Delete", delete_manual_points_path(manual_points), :class => 'action delete') %>
+        </td>
+    </tr>
+    <% end %>
 </table>
+
+<%= link_to("Add New Manual Points", new_manual_point_path, :class => "btn btn-primary") %>
+
+<!-- <p>Find me in app/views/manual_points/index.html.erb</p> -->
+</div>

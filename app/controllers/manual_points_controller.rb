@@ -2,21 +2,21 @@
 
 class ManualPointsController < ApplicationController
   def index
-    @manual_points = ManualPoints.all
+    @manual_points = ManualPoint.all
   end
 
   def show
-    @manual_points = ManualPoins.find(params[:id])
+    @manual_points = ManualPoint.find(params[:id])
   end
 
   def new
-    @manual_points = ManualPoints.new
+    @manual_points = ManualPoint.new
   end
 
   def create
-    @manual_points = ManualPoints.new(manual_points_params)
+    @manual_points = ManualPoint.new(manual_points_params)
     if @manual_points.save
-      flash[:notice] = 'Manual Points Cretaed Successfully'
+      flash[:notice] = "Manual Points Created Successfully"
       redirect_to(manual_points_path)
     else
       render('new')
@@ -24,11 +24,11 @@ class ManualPointsController < ApplicationController
   end
 
   def edit
-    @manual_points = ManualPoints.find(params[:id])
+    @manual_points = ManualPoint.find(params[:id])
   end
 
   def update
-    @manual_points = ManualPoints.find(params[:id])
+    @manual_points = ManualPoint.find(params[:id])
     session[:return_to] ||= request.referer
     if @manual_points.update_attributes(manual_points_params)
       flash[:notice] = 'Manual Points Updated Successfully'
@@ -39,11 +39,11 @@ class ManualPointsController < ApplicationController
   end
 
   def delete
-    @manual_points = ManualPoints.find(params[:id])
+    @manual_points = ManualPoint.find(params[:id])
   end
 
   def destroy
-    @manual_points = ManualPoints.find(params[:id])
+    @manual_points = ManualPoint.find(params[:id])
     @manual_points.destroy
     flash[:notice] = 'Manual Points Deleted Successfully'
     redirect_to(manual_points_path)

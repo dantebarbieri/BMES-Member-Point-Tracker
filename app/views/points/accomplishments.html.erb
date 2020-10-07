@@ -1,2 +1,30 @@
-<h1>Points#accomplishments</h1>
-<p>Find me in app/views/points/accomplishments.html.erb</p>
+<% @page_title = "Member Accomplishments" %>
+
+<h1>Member Accomplishmnets Page</h1>
+
+<p>The member accomplishments are below:</p>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Points</th>
+			<th>Details</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @member.accomplishments.each do |member.accomplishments| %>
+			<tr class="data-row">
+				<td><%= member.accomplishments.name %></td>
+				<td><%= member.accomplishments.description %></td>
+				<td><%= member.accomplishments.points %></td>
+				<td>
+					<%= link_to member.accomplishments_path(member.accomplishments) do %>
+						<i class="fa fa-info-circle"></i>
+					<% end %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
