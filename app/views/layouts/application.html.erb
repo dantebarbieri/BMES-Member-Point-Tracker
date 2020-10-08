@@ -32,7 +32,8 @@
               <%= link_to "Create Accomplishments", "/accomplishments", class: 'nav-item nav-link'%>
               <%= link_to "Give Accomplishments to Members", "/accomplishments_members", class: 'nav-item nav-link'%>
               <%= link_to "Manual Points", "/manual_points", class: 'nav-item nav-link'%>
-
+              <%= link_to "Events", "/events", class: 'nav-item nav-link'%>
+              <%= link_to "Upcoming Events", "/upcoming_events", class: 'nav-item nav-link' %>
               <%= link_to "Semesters", semesters_path, class: 'nav-item nav-link'%>
             <% end %>
 
@@ -42,6 +43,7 @@
               <% if @member.paid_dues? %>
                 <%= link_to "Point Breakdown", "/points", class: 'nav-item nav-link'%>
               <% end %>
+              <%= link_to "Upcoming Events", "/upcoming_events", class: 'nav-item nav-link' %>
               <%= link_to "Log Out", "/logout", class: 'nav-item nav-link'%>
             <% end %>
 

@@ -1,7 +1,7 @@
 class PointsController < ApplicationController
   include Secured
   include ExistingUser
-
+  
   def index
     points_valid_member
   end

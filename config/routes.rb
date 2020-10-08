@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'accomplishments_members/new'
   get 'accomplishments_members/edit'
   get 'accomplishments_members/delete'
+  get 'upcoming_events' => 'upcoming_events#show'
+  get 'upcoming_events/show'
+  get 'memberevents/index'
   root 'home#show'
 
   get 'home/show'

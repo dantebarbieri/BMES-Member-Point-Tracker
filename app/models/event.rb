@@ -5,6 +5,7 @@ class Event < ApplicationRecord
   validates :name, presence: true
   validates :date, presence: true
   validates :time, presence: true
+  validates :hidden, presence: true
   validates :event_type, presence: true
   validates :attendance_points, numericality: true, presence: true
   enum event_type: { general: 0, mentorship: 10, socials: 20 }
