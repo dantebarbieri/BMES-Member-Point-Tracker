@@ -1,0 +1,56 @@
+<%= link_to accomplishments_members_path do %>
+	<i class="fa fa-home fa-3x"></i>
+<% end %>
+
+<% @page_title = "Show Details" %>
+
+<h1>Show Details</h1>
+
+<p><%= "#{@accomplishments_member.member.name}'s #{@accomplishments_member.accomplishment.name}" %></p>
+
+<table class="table data-inline">
+	<tr>
+		<th>Member Info</th>
+		<td><%= "#{@accomplishments_member.member.name} (#{@accomplishments_member.member.email})" %></td>
+	</tr>
+	<tr>
+		<th>Member Is Dues Paid?</th>
+		<td><%= @accomplishments_member.member.paid_dues? %></td>
+	</tr>
+	<tr>
+		<th>Member Points this Semester</th>
+		<td><%= @accomplishments_member.member.total_points(true) %></td>
+	</tr>
+	<tr>
+		<th>Accomplishment Name</th>
+		<td><%= @accomplishments_member.accomplishment.name %></td>
+	</tr>
+	<tr>
+		<th>Accomplishment Description</th>
+		<td><%= @accomplishments_member.accomplishment.description %></td>
+	</tr>
+	<tr>
+		<th>Accomplishment Points</th>
+		<td><%= @accomplishments_member.accomplishment.points %></td>
+	</tr>
+	<tr>
+		<th>Semester Name</th>
+		<td><%= @accomplishments_member.semester.name %></td>
+	</tr>
+	<tr>
+		<th>Semester Start</th>
+		<td><%= @accomplishments_member.semester.dates.begin %></td>
+	</tr>
+	<tr>
+		<th>Semester End</th>
+		<td><%= @accomplishments_member.semester.dates.end %></td>
+	</tr>
+	<tr>
+		<th>Added to Database on</th>
+		<td><%= @accomplishments_member.created_at %></td>
+	</tr>
+	<tr>
+		<th>Last Updated on</th>
+		<td><%= @accomplishments_member.updated_at %></td>
+	</tr>
+</table>

@@ -6,9 +6,9 @@
 
 <h1>Update an Accomplishment</h1>
 
-<p>Updating <%= @accomplishment.name %></p>
+<p>Updating <%= @accomplishments.name %></p>
 
-<%= form_for(@accomplishment) do |f| %>
+<%= form_for(@accomplishments) do |f| %>
 	<table class="table">
 
 		<tr>
@@ -22,6 +22,10 @@
 		<tr>
 			<th>Points</th>
 			<td><%= f.number_field(:points, :step => 0.01) %></td>
+		</tr>
+		<tr>
+			<th>Is Dues?</th>
+			<td><%= f.check_box(:is_dues) %></td>
 		</tr>
 	</table>
 

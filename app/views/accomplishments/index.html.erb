@@ -11,6 +11,7 @@
 			<th>Name</th>
 			<th>Description</th>
 			<th>Points</th>
+			<th>Is Dues?</th>
 			<th><strong>Details</strong></th>
 			<th><strong>Edit</strong></th>
 			<th><strong>Remove</strong></th>
@@ -22,6 +23,7 @@
 				<td><%= accomplishment.name %></td>
 				<td><%= accomplishment.description %></td>
 				<td><%= accomplishment.points %></td>
+				<td><%= accomplishment.is_dues %></td>
 				<td>
 					<%= link_to accomplishment_path(accomplishment) do %>
 						<i class="fa fa-info-circle"></i>

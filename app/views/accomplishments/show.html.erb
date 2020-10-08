@@ -6,27 +6,31 @@
 
 <h1>Show Details</h1>
 
-<p><%= @accomplishment.name %></p>
+<p><%= @accomplishments.name %></p>
 
 <table class="table data-inline">
 	<tr>
 		<th>Name</th>
-		<td><%= @accomplishment.name %></td>
+		<td><%= @accomplishments.name %></td>
 	</tr>
 	<tr>
 		<th>Description</th>
-		<td><%= @accomplishment.description %></td>
+		<td><%= @accomplishments.description %></td>
 	</tr>
 	<tr>
 		<th>Points</th>
-		<td><%= @accomplishment.points %></td>
+		<td><%= @accomplishments.points %></td>
+	</tr>
+	<tr>
+		<th>Is Dues?</th>
+		<td><%= @accomplishments.is_dues %></td>
 	</tr>
 	<tr>
 		<th>Added to Database on</th>
-		<td><%= @accomplishment.created_at %></td>
+		<td><%= @accomplishments.created_at %></td>
 	</tr>
 	<tr>
 		<th>Last Updated on</th>
-		<td><%= @accomplishment.updated_at %></td>
+		<td><%= @accomplishments.updated_at %></td>
 	</tr>
 </table>

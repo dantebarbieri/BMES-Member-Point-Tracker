@@ -13,27 +13,31 @@
 
 	<tr>
 		<th>Name</th>
-		<td><%= @accomplishment.name %></td>
+		<td><%= @accomplishments.name %></td>
 	</tr>
 	<tr>
 		<th>Description</th>
-		<td><%= @accomplishment.description %></td>
+		<td><%= @accomplishments.description %></td>
 	</tr>
 	<tr>
 		<th>Points</th>
-		<td><%= @accomplishment.points %></td>
+		<td><%= @accomplishments.points %></td>
+	</tr>
+	<tr>
+		<th>Is Dues</th>
+		<td><%= @accomplishments.is_dues %></td>
 	</tr>
 	<tr>
 		<th>Added to Database on</th>
-		<td><%= @accomplishment.created_at %></td>
+		<td><%= @accomplishments.created_at %></td>
 	</tr>
 	<tr>
 		<th>Last Updated on</th>
-		<td><%= @accomplishment.updated_at %></td>
+		<td><%= @accomplishments.updated_at %></td>
 	</tr>
 </table>
 
-<%= form_for(@accomplishment, :method => 'delete') do |f| %>
+<%= form_for(@accomplishments, :method => 'delete') do |f| %>
 	<p>Are you sure?</p>
 	<%= f.submit("Delete Accomplishment", :class => "btn btn-primary") %>
 <% end %>

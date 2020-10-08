@@ -1,0 +1,29 @@
+
+<div class="accomplishments_members index">
+<h2>Accomplishments given to Members</h2>
+
+<table class="table" summary="Accomplishments & Members">
+
+    <tr class="header">
+        <th>Member Info</th>
+        <th>Accomplishment</th>
+        <th>Semester</th>
+    </tr>
+    <% @accomplishments_members.each do |am| %>
+    <tr>
+        <td><%= "#{am.member.name} (#{am.member.email})" %></td>
+        <td><%= "#{am.accomplishment.name} (#{am.accomplishment.description.truncate(16, /\s/)})" %></td>
+        <td><%= "#{am.semester.name} (#{am.semester.dates})" %></td>
+        <td class="actions">
+            <%= link_to("Show", accomplishments_member_path(am), :class => 'action show') %>
+            <%= link_to("Edit", edit_accomplishments_member_path(am), :class => 'action edit') %>
+            <%= link_to("Delete", delete_accomplishments_member_path(am), :class => 'action delete') %>
+        </td>
+    </tr>
+    <% end %>
+</table>
+
+<%= link_to("Give Accomplishment to Member", new_accomplishments_member_path, :class => "btn btn-primary") %>
+
+<!-- <p>Find me in app/views/manual_points/index.html.erb</p> -->
+</div>

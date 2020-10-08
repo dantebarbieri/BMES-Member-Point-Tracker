@@ -23,9 +23,12 @@ class SignupController < ApplicationController
     # redirect_to dashboard_path, notice: "Your user information was edited."
     # return
     # end
-
-    # Ensure that member has all required values.
-    redirect_to controller: :signup, action: :new unless @member
+    if @member.email.downcase == 'MemberTrackerBMES@gmail.com'.downcase
+      @member.executive_admin!
+    else
+      # Ensure that member has all required values.
+      redirect_to controller: :signup, action: :new unless @member
+    end
 
     if @member.save
       redirect_to dashboard_path
