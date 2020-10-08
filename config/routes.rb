@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'upcoming_events' => 'upcoming_events#show'
   get 'upcoming_events/show'
   get 'memberevents/index'
   root 'home#show'
