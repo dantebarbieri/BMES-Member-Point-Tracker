@@ -1,14 +1,14 @@
-<%= link_to accomplishments_path do %>
-	<i class="fa fa-home fa-3x"></i>
-<% end %>
+<%= link_to("<< Back to List", accomplishments_path, :class => 'back-link') %>
 
-<% @page_title = "Update an Accomplishment" %>
+<% @page_title = "Update" %>
 
-<h1>Update an Accomplishment</h1>
+<h1>Update</h1>
 
-<p>Updating <%= @accomplishment.name %></p>
+<p>About to Update the Following Accomplishments</p>
 
-<%= form_for(@accomplishment) do |f| %>
+<p>Updating <%= @accomplishments.name %></p>
+
+<%= form_for(@accomplishments) do |f| %>
 	<table class="table">
 
 		<tr>

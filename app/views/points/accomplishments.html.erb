@@ -16,12 +16,14 @@
         <th>Name</th>
 		<th>Description</th>
 		<th>Points</th>
+		<th>When</th>
     </tr>
     <% @member.accomplishments.each do |accomplishments| %>
     <tr>
         <td><%= accomplishments.name %></td>
 		<td><%= accomplishments.description %></td>
 		<td><%= accomplishments.points %></td>
+		<td><%= accomplishments.created_at%></td>
     </tr>
     <% end %>
 </table>

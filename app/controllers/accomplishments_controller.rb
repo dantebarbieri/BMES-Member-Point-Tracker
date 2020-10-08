@@ -16,7 +16,7 @@ class AccomplishmentsController < ApplicationController
   def create
     @accomplishments = Accomplishment.new(accomplishments_params)
     if @accomplishments.save
-      flash[:notice] = "Accomplishment #{@accomplishment.name} Created Successfully"
+      flash[:notice] = 'Accomplishment Created Successfully'
       redirect_to(accomplishments_path(@accomplishment))
     else
       render('new')
