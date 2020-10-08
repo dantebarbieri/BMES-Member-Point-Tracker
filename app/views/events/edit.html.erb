@@ -1,37 +1,39 @@
-<%= link_to("<< Back to List", events_path, :class => 'back-link') %>
+<%= link_to("<< Back to Event List", events_path, :class => 'btn btn-primary') %>
+
+<% @page_title = "Event Edit" %>
 
 <div class="event edit">
-    <h2>Edit Event</h2>
-    <%= form_for(@event) do |f| %>
+  <h2>Edit Event</h2>
+  <%= form_for(@event) do |f| %>
 
-        <table class="table" summary="Event form fields">
-            <tr>
-                <th>Name</th>
-                <td><%= f.text_field(:name) %></td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td><%= f.date_select(:date) %></td>
-            </tr>
-            <tr>
-                <th>Time</th>
-                <td><%= f.time_select(:time) %></td>
-            </tr>
-            <tr>
-                <th>Type</th>
-                <td><%= f.text_field(:event_type) %></td>
-            </tr>
-            <tr>
-                <th>Attendance Points</th>
-                <td><%= f.number_field(:attendance_points, in: 0.0..1000.0, step: 0.001) %></td>
-            </tr>
-        </table>
-        
-        <div class="form-buttons">
-            <%= f.submit("Update Event", :class => "btn btn-primary") %>
-        </div>
-        
-    <% end %>
+    <table class="table" summary="Event form fields">
+      <tr>
+        <th>Name</th>
+        <td><%= f.text_field(:name) %></td>
+      </tr>
+      <tr>
+        <th>Date</th>
+        <td><%= f.date_select(:date) %></td>
+      </tr>
+      <tr>
+        <th>Time</th>
+        <td><%= f.time_select(:time) %></td>
+      </tr>
+      <tr>
+        <th>Type</th>
+        <td><%= f.select(:event_type, :collection => Event.event_types.keys.map { |w| [w.humanize, w] }) %></td>
+      </tr>
+      <tr>
+        <th>Attendance Points</th>
+        <td><%= f.number_field(:attendance_points, in: 0.0..1000.0, step: 0.001) %></td>
+      </tr>
+    </table>
+    
+    <div class="form-buttons">
+      <%= f.submit("Update Event", :class => "btn btn-primary") %>
+    </div>
+    
+  <% end %>
 </div>
 
 <!-- <p>Find me in app/views/events/show.html.erb</p> -->
