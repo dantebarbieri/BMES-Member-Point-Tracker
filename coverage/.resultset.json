@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/config/environment.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/config/environment.rb": {
         "lines": [
           null,
           null,
@@ -12,7 +12,7 @@
           1
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/config/application.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/config/application.rb": {
         "lines": [
           null,
           null,
@@ -37,7 +37,7 @@
           null
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/config/boot.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/config/boot.rb": {
         "lines": [
           null,
           null,
@@ -47,7 +47,7 @@
           1
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/config/environments/test.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/config/environments/test.rb": {
         "lines": [
           null,
           null,
@@ -101,7 +101,7 @@
           null
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/config/initializers/application_controller_renderer.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/config/initializers/application_controller_renderer.rb": {
         "lines": [
           null,
           null,
@@ -114,7 +114,7 @@
           null
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/config/initializers/assets.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/config/initializers/assets.rb": {
         "lines": [
           null,
           null,
@@ -134,7 +134,7 @@
           null
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/config/initializers/auth0.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/config/initializers/auth0.rb": {
         "lines": [
           null,
           null,
@@ -152,7 +152,7 @@
           null
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/config/initializers/backtrace_silencers.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/config/initializers/backtrace_silencers.rb": {
         "lines": [
           null,
           null,
@@ -164,7 +164,7 @@
           null
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/config/initializers/content_security_policy.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/config/initializers/content_security_policy.rb": {
         "lines": [
           null,
           null,
@@ -199,7 +199,7 @@
           null
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/config/initializers/cookies_serializer.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/config/initializers/cookies_serializer.rb": {
         "lines": [
           null,
           null,
@@ -210,7 +210,7 @@
           1
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/config/initializers/filter_parameter_logging.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/config/initializers/filter_parameter_logging.rb": {
         "lines": [
           null,
           null,
@@ -220,7 +220,7 @@
           1
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/config/initializers/inflections.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/config/initializers/inflections.rb": {
         "lines": [
           null,
           null,
@@ -241,7 +241,7 @@
           null
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/config/initializers/mime_types.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/config/initializers/mime_types.rb": {
         "lines": [
           null,
           null,
@@ -250,14 +250,14 @@
           null
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/config/initializers/session_store.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/config/initializers/session_store.rb": {
         "lines": [
           null,
           null,
           1
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/config/initializers/wrap_parameters.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/config/initializers/wrap_parameters.rb": {
         "lines": [
           null,
           null,
@@ -277,7 +277,7 @@
           null
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/config/routes.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/config/routes.rb": {
         "lines": [
           null,
           null,
@@ -337,7 +337,7 @@
           null
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/app/helpers/accomplishments_helper.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/app/helpers/accomplishments_helper.rb": {
         "lines": [
           null,
           null,
@@ -345,7 +345,7 @@
           null
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/app/helpers/application_helper.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/app/helpers/application_helper.rb": {
         "lines": [
           null,
           null,
@@ -353,7 +353,7 @@
           null
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/app/helpers/dashboard_helper.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/app/helpers/dashboard_helper.rb": {
         "lines": [
           null,
           null,
@@ -361,7 +361,7 @@
           null
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/app/helpers/events_helper.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/app/helpers/events_helper.rb": {
         "lines": [
           null,
           null,
@@ -369,7 +369,7 @@
           null
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/app/helpers/home_helper.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/app/helpers/home_helper.rb": {
         "lines": [
           null,
           null,
@@ -377,7 +377,7 @@
           null
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/app/helpers/login_helper.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/app/helpers/login_helper.rb": {
         "lines": [
           null,
           null,
@@ -385,7 +385,7 @@
           null
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/app/helpers/logout_helper.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/app/helpers/logout_helper.rb": {
         "lines": [
           null,
           null,
@@ -411,7 +411,7 @@
           null
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/app/helpers/manual_points_helper.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/app/helpers/manual_points_helper.rb": {
         "lines": [
           null,
           null,
@@ -433,7 +433,7 @@
           null
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/app/helpers/semester_helper.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/app/helpers/semester_helper.rb": {
         "lines": [
           null,
           null,
@@ -441,7 +441,7 @@
           null
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/app/helpers/signup_helper.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/app/helpers/signup_helper.rb": {
         "lines": [
           null,
           null,
@@ -449,7 +449,7 @@
           null
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/app/controllers/application_controller.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/app/controllers/application_controller.rb": {
         "lines": [
           null,
           null,
@@ -457,7 +457,7 @@
           null
         ]
       },
-      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/app/controllers/home_controller.rb": {
+      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/app/controllers/home_controller.rb": {
         "lines": [
           null,
           null,
@@ -467,6 +467,6 @@
         ]
       }
     },
-    "timestamp": 1602013079
+    "timestamp": 1601998509
   }
 }
