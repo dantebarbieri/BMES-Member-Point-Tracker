@@ -2,7 +2,7 @@
 
 <div class="edit accomplishments_members">
     <h2>Updating Assignment of Accomplishments to Members</h2>
-    <%= form_for(@accomplishments_members) do |f| %>
+    <%= form_for(@accomplishments_member) do |f| %>
         <table class="table" summary="Accomplishments & Members">
             <tr>
                 <th>Member</th>
@@ -24,7 +24,7 @@
                 <th>Semester</th>
                 <% semesters = Array.new %>
                 <% @semesters.each do |s| %>
-                    <% semesters << ["#{s.name} (#{s.dates})", a.id] %>
+                    <% semesters << ["#{s.name} (#{s.dates})", s.id] %>
                 <% end %>
                 <td><%= f.select(:semester_id, semesters) %></td>
             </tr>

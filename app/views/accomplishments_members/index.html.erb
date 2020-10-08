@@ -8,17 +8,30 @@
         <th>Member Info</th>
         <th>Accomplishment</th>
         <th>Semester</th>
+				<th>Details</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
     <% @accomplishments_members.each do |am| %>
     <tr>
         <td><%= "#{am.member.name} (#{am.member.email})" %></td>
         <td><%= "#{am.accomplishment.name} (#{am.accomplishment.description.truncate(16, /\s/)})" %></td>
         <td><%= "#{am.semester.name} (#{am.semester.dates})" %></td>
-        <td class="actions">
-            <%= link_to("Show", accomplishments_member_path(am), :class => 'action show') %>
-            <%= link_to("Edit", edit_accomplishments_member_path(am), :class => 'action edit') %>
-            <%= link_to("Delete", delete_accomplishments_member_path(am), :class => 'action delete') %>
-        </td>
+				<td>
+					<%= link_to accomplishments_member_path(am) do %>
+						<i class="fa fa-info-circle"></i>
+					<% end %>
+				</td>
+				<td>
+					<%= link_to edit_accomplishments_member_path(am) do %>
+						<i class="fa fa-edit"></i>
+					<% end %>
+				</td>
+				<td>
+					<%= link_to delete_accomplishments_member_path(am) do %>
+						<i class="fa fa-trash"></i>
+					<% end %>
+				</td>
     </tr>
     <% end %>
 </table>

@@ -1,2 +1,59 @@
-<h1>AccomplishmentsMembers#delete</h1>
-<p>Find me in app/views/accomplishments_members/delete.html.erb</p>
+<%= link_to("<< Back to List", accomplishments_members_path, :class => 'back-link') %>
+
+<% @page_title = "Delete" %>
+
+<h1>Delete</h1>
+
+<p><%= "About to Delete #{@accomplishments_member.member.name}'s #{@accomplishments_member.accomplishment.name}" %></p>
+
+<table class="table">
+	<tr>
+		<th>Member Info</th>
+		<td><%= "#{@accomplishments_member.member.name} (#{@accomplishments_member.member.email})" %></td>
+	</tr>
+	<tr>
+		<th>Member Is Dues Paid?</th>
+		<td><%= @accomplishments_member.member.paid_dues? %></td>
+	</tr>
+	<tr>
+		<th>Member Points this Semester</th>
+		<td><%= @accomplishments_member.member.total_points(true) %></td>
+	</tr>
+	<tr>
+		<th>Accomplishment Name</th>
+		<td><%= @accomplishments_member.accomplishment.name %></td>
+	</tr>
+	<tr>
+		<th>Accomplishment Description</th>
+		<td><%= @accomplishments_member.accomplishment.description %></td>
+	</tr>
+	<tr>
+		<th>Accomplishment Points</th>
+		<td><%= @accomplishments_member.accomplishment.points %></td>
+	</tr>
+	<tr>
+		<th>Semester Name</th>
+		<td><%= @accomplishments_member.semester.name %></td>
+	</tr>
+	<tr>
+		<th>Semester Start</th>
+		<td><%= @accomplishments_member.semester.dates.begin %></td>
+	</tr>
+	<tr>
+		<th>Semester End</th>
+		<td><%= @accomplishments_member.semester.dates.end %></td>
+	</tr>
+	<tr>
+		<th>Added to Database on</th>
+		<td><%= @accomplishments_member.created_at %></td>
+	</tr>
+	<tr>
+		<th>Last Updated on</th>
+		<td><%= @accomplishments_member.updated_at %></td>
+	</tr>
+</table>
+
+<%= form_for(@accomplishments_member, :method => 'delete') do |f| %>
+	<p>Are you sure?</p>
+	<%= f.submit("Delete #{@accomplishments_member.member.name}'s #{@accomplishments_member.accomplishment.name}", :class => "btn btn-primary") %>
+<% end %>
