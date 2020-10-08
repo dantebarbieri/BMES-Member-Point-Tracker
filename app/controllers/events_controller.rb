@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
+# Controls basic CRUD for Events
 class EventsController < ApplicationController
+  include Secured
+  include ExistingUser
+  include AdminSecured
+
   def index
     @events = Event.order(:date)
   end

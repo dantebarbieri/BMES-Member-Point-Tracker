@@ -1,8 +1,10 @@
-<%= link_to("<< Back to List", events_path, :class => 'back-link') %>
+<%= link_to("<< Back to Event List", events_path, :class => 'btn btn-primary') %>
+
+<% @page_title = "Event Edit" %>
 
 <div class="event edit">
-    <h2>Edit Event</h2>
-    <%= form_for(@event) do |f| %>
+  <h2>Edit Event</h2>
+  <%= form_for(@event) do |f| %>
 
         <table class="table" summary="Event form fields">
             <tr>

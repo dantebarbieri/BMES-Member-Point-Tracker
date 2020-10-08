@@ -1,4 +1,6 @@
-<%= link_to("<< Back to List", events_path, :class => 'back-link') %>
+<%= link_to("<< Back to Event List", events_path, :class => 'btn btn-primary') %>
+
+<% @page_title = "Event Create" %>
 
 <div class="new event">
     <h2>New Event</h2>
@@ -35,6 +37,7 @@
         </div>
 
     <% end %>
+
 </div>
 
 <!-- <p>Find me in app/views/events/new.html.erb</p> -->
