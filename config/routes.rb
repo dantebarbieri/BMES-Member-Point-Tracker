@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'memberevents/index'
   root 'home#show'
 
   get 'home/show'
