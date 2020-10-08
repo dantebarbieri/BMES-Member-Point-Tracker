@@ -1,30 +1,28 @@
 <% @page_title = "Member Accomplishments" %>
+<div class="member accomplishment index">
+<h2>Member Accomplishments</h2>
 
-<h1>Member Accomplishmnets Page</h1>
+<p>
+	<strong> Accomplishment Points : </strong>
+	<%= @member.accomplishment_points(false) %>
+	<br/>
+	<strong> All Time Accomplishment Points : </strong>
+	<%= @member.accomplishment_points %>
+</p>
 
-<p>The member accomplishments are below:</p>
+<table class="table" summary="Member Accomplishments List">
 
-<table class="table">
-	<thead>
-		<tr>
-			<th>Name</th>
-			<th>Description</th>
-			<th>Points</th>
-			<th>Details</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @member.accomplishments.each do |member.accomplishments| %>
-			<tr class="data-row">
-				<td><%= member.accomplishments.name %></td>
-				<td><%= member.accomplishments.description %></td>
-				<td><%= member.accomplishments.points %></td>
-				<td>
-					<%= link_to member.accomplishments_path(member.accomplishments) do %>
-						<i class="fa fa-info-circle"></i>
-					<% end %>
-				</td>
-			</tr>
-		<% end %>
-	</tbody>
+    <tr class="header">
+        <th>Name</th>
+		<th>Description</th>
+		<th>Points</th>
+    </tr>
+    <% @member.accomplishments.each do |accomplishments| %>
+    <tr>
+        <td><%= accomplishments.name %></td>
+		<td><%= accomplishments.description %></td>
+		<td><%= accomplishments.points %></td>
+    </tr>
+    <% end %>
 </table>
+</div>

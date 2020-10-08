@@ -1,28 +1,30 @@
-<% @page_title = "Member Points" %>
+<% @page_title = "Member Manual Points" %>
+<div class="member points index">
+<h2>Member Points</h2>
 
-<h1>Member Points</h1>
+<p>
+	<strong> Manual Points : </strong>
+	<%= @member.manual_points_received(true) %>
+	<br/>
+	<strong> All Time Manual Points : </strong>
+	<%= @member.manual_points_received %>
+</p>
 
-<p>The member points are below:</p>
+<table class="table" summary="Manual Points List">
 
-<table class="table">
-	<thead>
-		<tr>
-			<th>Points</th>
-			<th>Reason</th>
-			<th>Details</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @member.maual_points.each do |member.manual_points| %>
-			<tr class="data-row">
-				<td><%= member.manual_points.points %></td>
-				<td><%= member.manual_points.reason %></td>
-				<td>
-					<%= link_to member.manual_points_path(member.manual_points) do %>
-						<i class="fa fa-info-circle"></i>
-					<% end %>
-				</td>
-			</tr>
-		<% end %>
-	</tbody>
+    <tr class="header">
+        <th>Points</th>
+		<th>Reason</th>
+		<th>Category</th>
+		<th>When</th>
+    </tr>
+    <% @member.manual_points.each do |manual_points| %>
+    <tr>
+		<td><%= manual_points.points %></td>
+		<td><%= manual_points.reason_message %></td>
+		<td><%= manual_points.reason%></td>
+		<td><%= manual_points.created_at%></td>
+    </tr>
+    <% end %>
 </table>
+</div>
