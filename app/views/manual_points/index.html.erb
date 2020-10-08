@@ -11,9 +11,9 @@
     <% @manual_points.each do |manual_points| %>
     <tr>
         <td><%= manual_points.points %></td>
-        <td><%= manual_points.reason %></td>
+        <td><%= manual_points.reason_message %></td>
         <td class="actions">
-            <%= link_to("Show", manual_points_path(manual_points), :class => 'action show') %>
+            <%= link_to("Show", manual_point_path(manual_points), :class => 'action show') %>
             <%= link_to("Edit", edit_manual_point_path(manual_points), :class => 'action edit') %>
             <%= link_to("Delete", delete_manual_point_path(manual_points), :class => 'action delete') %>
         </td>

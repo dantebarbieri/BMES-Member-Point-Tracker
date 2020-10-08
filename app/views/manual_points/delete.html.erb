@@ -10,15 +10,23 @@
 <table class="table">
 
 	<tr>
+		<th>Member Info</th>
+		<td><%= @manual_points.member.name + ' (' + @manual_points.member.email + ')' %></td>
+	</tr>
+	<tr>
 		<th>Points</th>
 		<td><%= @manual_points.points %></td>
 	</tr>
 	<tr>
-		<th>Reason</th>
+		<th>Category</th>
 		<td><%= @manual_points.reason %></td>
 	</tr>
 	<tr>
-		<th>Added to Database on</th>
+		<th>Reason</th>
+		<td><%= @manual_points.reason_message %></td>
+	</tr>
+	<tr>
+		<th>Created At</th>
 		<td><%= @manual_points.created_at %></td>
 	</tr>
 	<tr>

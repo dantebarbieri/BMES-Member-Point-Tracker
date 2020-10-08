@@ -4,7 +4,7 @@ class ManualPointsController < ApplicationController
   include Secured
   include ExistingUser
   include AdminSecured
-  
+
   def index
     @manual_points = ManualPoint.all
   end
@@ -59,6 +59,6 @@ class ManualPointsController < ApplicationController
   private
 
   def manual_points_params
-    params.require(:manual_point).permit(:points, :reason, :member_id)
+    params.require(:manual_point).permit(:points, :reason, :reason_message, :member_id)
   end
 end
