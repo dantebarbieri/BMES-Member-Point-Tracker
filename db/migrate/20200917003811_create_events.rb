@@ -7,7 +7,6 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.date 'date', null: false
       t.time 'time'
       t.text 'type'
-      t.boolean 'hidden'
       t.decimal 'attendance_points', default: 0
       t.timestamps
     end
