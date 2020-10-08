@@ -1,0 +1,49 @@
+<% flash.each do |type, msg| %>
+
+  <% if (type == "notice") %>
+    <div class="alert alert-success">
+      <%= msg %>
+  	</div>
+  <% elsif (type == "alert") %>
+  	<div class="alert alert-danger">
+      <%= msg %>
+  	</div>
+  <% end %>
+<% end %>
+
+<h4>Admin Management</h4>
+
+<table class="table" summary="user list">
+
+    <tr class="header">
+        <th>Name</th>
+        <th>Email</th>
+        <th>Class Year</th>
+        <th>Points</th>
+        <th>Dues Paid</th>
+        <th>Role</th>
+        <th>Actions</th>
+    </tr>
+    <% @users.each do |user| %>
+    <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.class_year %></td>
+        <td><%= user.total_points %></td>
+        <td><%= user.paid_dues? %></td>
+        <td><%= (user.role) %></td>
+
+        <td class="actions">
+            <%= link_to("Details", {controller: :admin_management, action: :show, id: user.id}, :class => 'btn btn-primary') %>
+
+            <% unless user.is_admin? %>
+            	<%= link_to("Grant Admin", {controller: :admin_management, action: :grant, id: user.id}, method: :patch, :class => 'btn btn-success') %>
+            <% end %>
+
+            <% if user.admin? %>
+            	<%= link_to("Revoke Admin", {controller: :admin_management, action: :revoke, id: user.id}, method: :patch, :class => 'btn btn-danger') %>
+            <% end %>
+        </td>
+    </tr>
+    <% end %>
+</table>

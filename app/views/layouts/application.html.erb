@@ -33,6 +33,13 @@
               <%= link_to "Manual Points", "/manual_points", class: 'nav-item nav-link'%>
 
               <%= link_to "Semesters", semesters_path, class: 'nav-item nav-link'%>
+
+              <%= link_to "Members", "/members" , class: 'nav-item nav-link'%>
+
+              <% if @member.executive_admin? %>
+                <%= link_to "Manage Admins", "/admins" , class: 'nav-item nav-link'%>
+              <% end %>
+
             <% end %>
 
             <% if @member %>

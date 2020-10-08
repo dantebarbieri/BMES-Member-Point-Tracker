@@ -60,5 +60,13 @@ class Member < ApplicationRecord
   
 	  attendance_points(true) + accomplishment_points(true) + manual_points_received(true)
 	end
+
+	def confirmed?
+		if role == 'unconfirmed' or role == nil
+			return false
+		else
+			return true
+		end
+	end
 end
   
