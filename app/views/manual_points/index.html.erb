@@ -1,25 +1,29 @@
-<div class="manual_points index">
+
+<div class="manual points index">
 <h2>Manual Points</h2>
 
-<%= link_to("Add Manual Points", manual_points_path, :class => 'action new') %>
+<table class="table" summary="Manual Points List">
 
-<table class="table listing" summary="Manual Points">
     <tr class="header">
+        <th>Member Info</th>
         <th>Points</th>
         <th>Reason</th>
     </tr>
-    <% @manual_points.each do |event| %>
+    <% @manual_points.each do |manual_points| %>
     <tr>
-        <td><%= event.points %></td>
-        <td><%= event.reason %></td>
+        <td><%= "#{manual_points.member.name} (#{manual_points.member.email})" %></td>
+        <td><%= manual_points.points %></td>
+        <td><%= manual_points.reason_message %></td>
         <td class="actions">
-            <%= link_to("Show", edit_manual_points_path(accomplishments), :class => 'action show') %>
-            <%= link_to("Edit", edit_manual_points_path(manual_points), :class => 'action edit') %>
-            <%= link_to("Delete", edit_manual_points_path(manual_points), :class => 'action delete') %>
-
+            <%= link_to("Show", manual_point_path(manual_points), :class => 'action show') %>
+            <%= link_to("Edit", edit_manual_point_path(manual_points), :class => 'action edit') %>
+            <%= link_to("Delete", delete_manual_point_path(manual_points), :class => 'action delete') %>
         </td>
     </tr>
     <% end %>
 </table>
+
+<%= link_to("Add New Manual Points", new_manual_point_path, :class => "btn btn-primary") %>
+
 <!-- <p>Find me in app/views/manual_points/index.html.erb</p> -->
 </div>

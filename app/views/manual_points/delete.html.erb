@@ -1,34 +1,41 @@
 <%= link_to("<< Back to List", manual_points_path, :class => 'back-link') %>
 
-<div class="Manual Points show">
-    <h2>Manual Points Details</h2>
+<% @page_title = "Delete" %>
 
-    <table class="table single item" summary="Mnaual Points details">
+<h1>Delete</h1>
 
-        <tr>
-            <th>Name</th>
-            <td><%= @manual_points.name %></td>
-        </tr>
-        <tr>
-            <th>Reason</th>
-            <td><%= @manual_points.reason%></td>
-        </tr>
-        <tr>
-            <th>Created</th>
-            <td><%= @manual_points.created_at %></td>
-        </tr>
-        <tr>
-            <th>Updated</th>
-            <td><%= @manual_points.updated_at %></td>
-        </tr>
-    </table>
+<p>About to Delete the Following Manual Points:</p>
 
-    <%= form_for(@manual_points, :method => 'delete') do |f| %>
-      <p>Are you sure you want to permanently delete this manual points?</p>
-      <div class="form-buttons">
-          <%= f.submit("Delete Manual Points") %>
-      </div>
-    <% end %>
-</div>
 
-<!-- <p>Find me in app/views/manual_points/delete.html.erb</p> -->
+<table class="table">
+
+	<tr>
+		<th>Member Info</th>
+		<td><%= @manual_points.member.name + ' (' + @manual_points.member.email + ')' %></td>
+	</tr>
+	<tr>
+		<th>Points</th>
+		<td><%= @manual_points.points %></td>
+	</tr>
+	<tr>
+		<th>Category</th>
+		<td><%= @manual_points.reason %></td>
+	</tr>
+	<tr>
+		<th>Reason</th>
+		<td><%= @manual_points.reason_message %></td>
+	</tr>
+	<tr>
+		<th>Created At</th>
+		<td><%= @manual_points.created_at %></td>
+	</tr>
+	<tr>
+		<th>Last Updated on</th>
+		<td><%= @manual_points.updated_at %></td>
+	</tr>
+</table>
+
+<%= form_for(@manual_points, :method => 'delete') do |f| %>
+	<p>Are you sure?</p>
+	<%= f.submit("Delete Manual Points", :class => "btn btn-primary") %>
+<% end %>

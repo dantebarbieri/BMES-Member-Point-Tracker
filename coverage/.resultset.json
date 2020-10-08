@@ -330,6 +330,10 @@
           1,
           null,
           1,
+          null,
+          1,
+          1,
+          1,
           null
         ]
       },
@@ -415,7 +419,13 @@
           null
         ]
       },
-      "C:/Users/John Marrs/Desktop/Collections/2020/Fall/CSCE431/BMES-Member-Point-Tracker/app/helpers/profile_helper.rb": {
+      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/app/helpers/points_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "C:/Users/dante/Documents/MEGA/Documents/Programming/School/CSCE 431/BMES-Member-Point-Tracker/app/helpers/profile_helper.rb": {
         "lines": [
           null,
           null,

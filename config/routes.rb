@@ -49,4 +49,8 @@ Rails.application.routes.draw do
   get 'edit' => 'profile#edit'
 
   patch 'edit' => 'profile#update'
+
+  get 'points/events'
+  get 'points/manual_points'
+  get 'points/accomplishments'
 end
