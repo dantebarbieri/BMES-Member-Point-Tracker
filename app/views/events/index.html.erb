@@ -1,35 +1,52 @@
 
+<% @page_title = "Event List" %>
+
 <div class="events index">
 <h2>Events</h2>
 
 <table class="table" summary="Events list">
 
-    <tr class="header">
-        <th>Name</th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>Type</th>
-        <th>Attendance Points</th>
-        <th>Actions</th>
-    </tr>
-    <% @events.each do |event| %>
-    <tr>
-        <td><%= event.name %></td>
-        <td><%= event.date %></td>
-        <td><%= event.time.strftime("%H:%M:%S") %></td>
-        <td><%= event.event_type %></td>
-        <td><%= event.attendance_points %></td>
-        <td class="actions">
-            <%= link_to("Show", event_path(event), :class => 'action show') %>
-            <%= link_to("Edit", edit_event_path(event), :class => 'action edit') %>
-            <%= link_to("Postpone", postpone_event_path(event), :class => 'action postpone') %>
-            <%= link_to("Delete", delete_event_path(event), :class => 'action delete') %>
-        </td>
-    </tr>
-    <% end %>
+  <tr class="header">
+    <th>Name</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Type</th>
+    <th>Attendance Points</th>
+    <th>Details</th>
+    <th>Edit</th>
+    <th>Postpone</th>
+    <!-- Postpone will eventually be a modal with buttons -->
+    <th>Details</th>
+  </tr>
+  <% @events.each do |event| %>
+  <tr class="data-row">
+    <td><%= event.name %></td>
+    <td><%= event.date %></td>
+    <td><%= event.time.strftime("%H:%M:%S") %></td>
+    <td><%= event.event_type %></td>
+    <td><%= event.attendance_points %></td>
+    <td>
+      <%= link_to("", event_path(event), :class => 'fa fa-info-circle fa-lg') %>
+    </td>
+    <td>
+      <%= link_to("", edit_event_path(event), :class => 'fa fa-edit fa-lg') %>
+    </td>
+    <td>
+      <%= link_to("", postpone_event_path(event), :class => 'fa fa-clock-o fa-lg') %>
+    </td>
+    <td>
+      <strong><%= link_to("", delete_event_path(event), :class => 'fa fa-trash fa-lg') %></strong>
+    </td>
+  </tr>
+  <% end %>
+  <tr class="data-row"> 
+    <td>
+      <%= link_to("", new_event_path, :class => "fa fa-plus-circle fa-lg") %>
+    </td>
+  </tr>
 </table>
 
-<%= link_to("Add New Event", new_event_path, :class => "btn btn-primary") %>
+
 
 <!-- <p>Find me in app/views/events/index.html.erb</p> -->
 </div>
