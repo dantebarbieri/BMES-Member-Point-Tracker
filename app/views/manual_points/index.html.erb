@@ -5,11 +5,13 @@
 <table class="table" summary="Manual Points List">
 
     <tr class="header">
+        <th>Member Info</th>
         <th>Points</th>
         <th>Reason</th>
     </tr>
     <% @manual_points.each do |manual_points| %>
     <tr>
+        <td><%= "#{manual_points.member.name} (#{manual_points.member.email})" %></td>
         <td><%= manual_points.points %></td>
         <td><%= manual_points.reason_message %></td>
         <td class="actions">
