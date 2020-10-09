@@ -24,6 +24,7 @@ class EventsController < ApplicationController
       flash[:notice] = 'Event Created Successfully'
       redirect_to(events_path)
     else
+      flash[:alert] = 'Event Not Created Successfully'
       render('new')
     end
   end
@@ -43,6 +44,7 @@ class EventsController < ApplicationController
       flash[:notice] = 'Event Updated Successfully'
       redirect_to(events_path(@event))
     else
+      flash[:alert] = 'Event Failed to Update Successfully'
       redirect_to session.delete(:return_to)
     end
   end

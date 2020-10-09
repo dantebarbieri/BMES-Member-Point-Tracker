@@ -9,8 +9,8 @@
         <th>Attendance Points</th>
         <th>Actions</th>
     </tr>
-    <% if @events %>
-        <% @events.each do |event| %>
+    <% @events.each do |event| %>
+    <% unless event.hidden %>
         <tr>
             <td><%= event.name %></td>
             <td><%= event.date %></td>
