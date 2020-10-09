@@ -1,6 +1,4 @@
-<%= link_to accomplishments_path do %>
-	<i class="fa fa-home fa-3x"></i>
-<% end %>
+<%= link_to("<< Back to List", accomplishments_path, :class => 'back-link') %>
 
 <% @page_title = "Update an Accomplishment" %>
 
@@ -29,5 +27,5 @@
 		</tr>
 	</table>
 
-	<%= f.submit("Update Book", :class => "btn btn-primary") %>
+	<%= f.submit("Update Accomplishment", :class => "btn btn-primary") %>
 <% end %>
