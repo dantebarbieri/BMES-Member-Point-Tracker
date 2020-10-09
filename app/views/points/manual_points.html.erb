@@ -1,0 +1,30 @@
+<% @page_title = "Member Manual Points" %>
+<div class="member points index">
+<h3>Member Points</h3>
+
+<p>
+	<strong> Manual Points : </strong>
+	<%= @member.manual_points_received(false) %>
+	<br/>
+	<strong> All Time Manual Points : </strong>
+	<%= @member.manual_points_received %>
+</p>
+
+<table class="table" summary="Manual Points List">
+
+    <tr class="header">
+        <th>Points</th>
+		<th>Reason</th>
+		<th>Category</th>
+		<th>When</th>
+    </tr>
+    <% @member.manual_points.each do |manual_points| %>
+    <tr>
+		<td><%= manual_points.points %></td>
+		<td><%= manual_points.reason_message %></td>
+		<td><%= manual_points.reason%></td>
+		<td><%= manual_points.created_at%></td>
+    </tr>
+    <% end %>
+</table>
+</div>

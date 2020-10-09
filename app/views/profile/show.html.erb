@@ -1,17 +1,4 @@
-<% flash.each do |type, msg| %>
-
-  <% if (type == "notice") %>
-    <div class="alert alert-success">
-      <%= msg %>
-  	</div>
-  <% elsif (type == "alert") %>
-  	<div class="alert alert-danger">
-      <%= msg %>
-  	</div>
-  <% end %>
-<% end %>
-
-<h2>User Profile</h2>
+<h3>User Profile</h3>
 <p>Name: <%= @member.name %></p>
 <p>Email: <%= @member.email %></p>
 <p>Class Year: <%= @member.class_year %></p>

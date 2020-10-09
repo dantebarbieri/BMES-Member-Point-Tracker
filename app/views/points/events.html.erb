@@ -1,0 +1,40 @@
+<% @page_title = "Attendance Points" %>
+<div class="member accomplishment index">
+<h3>Attendance Points</h3>
+
+<p>
+	<strong> Attendance Points : </strong>
+	<%= @member.attendance_points(false) %>
+	<br/>
+	<strong> All Time Attendance Points : </strong>
+	<%= @member.accomplishment_points %>
+</p>
+
+<table class="table" summary="Member Events List">
+
+    <tr class="header">
+      <th>Name</th>
+			<th>Points</th>
+			<th>Date</th>
+			<th>Time</th>
+			<th>Type</th>
+			<th>Details</th>
+    </tr>
+    <% @member.events.each do |event| %>
+    <tr>
+			<td><%= event.name %></td>
+			<td><%= event.attendance_points %></td>
+			<td><%= event.date %></td>
+			<td>
+				<% if event.time %>
+					<%= event.time %>
+				<% else %>
+					<%= 'All Day' %>
+				<% end %>
+			</td>
+			<td><%= event.type %></td>
+			<td><%= link_to "#{event.name} Details", controller: :memberevents, action: :show, id: event.id %></td>
+    </tr>
+    <% end %>
+</table>
+</div>

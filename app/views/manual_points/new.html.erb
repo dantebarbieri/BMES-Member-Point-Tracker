@@ -1,23 +1,34 @@
 <%= link_to("<< Back to List", manual_points_path, :class => 'back-link') %>
 
 <div class="new manual points">
-    <h2>New Manual Points</h2>
+    <h3>New Manual Points</h3>
     <%= form_for(@manual_points) do |f| %>
-
         <table class="table" summary="Manual Points">
-
             <tr>
-                <th>Name</th>
-                <td><%= f.text_field(:name) %></td>
+                <th>Points</th>
+                <td><%= f.number_field(:points, in: 0.0..1000.0, step: 0.01, class: 'form-control') %></td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td><%= f.select(:reason, [["Miscellaneous", "miscellaneous"], ["Volunteer", "volunteer"], ["Transfer Old", "transfer_old"]]) %></td>
             </tr>
             <tr>
                 <th>Reason</th>
-                <td><%= f.text_field(:reason) %></td>
+                <td><%= f.text_area(:reason_message, class: 'form-control') %></td>
+            </tr>
+            <tr>
+                <th>Member</th>
+                <% members= Array.new %>
+                <% @members.each do |m| %>
+                    <% members << [m.name + ' (' + m.email + ')', m.id] %>
+                <% end %>
+                <td><span><%= f.select(:member_id, members) %></td>
             </tr>
         </table>
         
         <div class="form-buttons">
-            <%= f.submit("Create Manual Points") %>
+            <%= f.submit("Create Manual Points", :class => "btn btn-primary") %>
+
         </div>
         
     <% end %>

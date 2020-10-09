@@ -1,32 +1,19 @@
 <!-- app/views/dashboard/show.html.erb -->
 
-<% flash.each do |type, msg| %>
-
-  <% if (type == "notice") %>
-    <div class="alert alert-success">
-      <%= msg %>
-  	</div>
-  <% elsif (type == "alert") %>
-  	<div class="alert alert-danger">
-      <%= msg %>
-  	</div>
-  <% end %>
-<% end %>
-
-<h4>Welcome, <%= @name %></h4>
+<h3>Welcome, <%= @name %></h3>
 <p>This page could serve has the landing page for all users. If the person who is logged in is not yet represented in the database, then a "verify info" type of template will be shown. Else, the page could be a menu for the system or perhaps even show some basic details like points.</p>
 <div>
 	<div>
-		<h4>Due Status:
+		<h5>Due Status:
 			<%= @dues_paid ? "Paid": "Unpaid" %>
-		</h4>
+		</h5>
 
 		<%= link_to("Pay Dues", "https://secure.touchnet.com/C21490_ustores/web/classic/product_detail.jsp?PRODUCTID=5415", :class => "btn btn-primary") unless @dues_paid %>
 	</div>
 	<% if @dues_paid %>
 		<div>
-			<h4>Points Earned</h4>
-			<table>
+			<h5>Points Earned</h5>
+			<table class="table">
 				<tr>
 					<th>Attendance</th> <td><%= @attendance_points %></td>
 				</tr>

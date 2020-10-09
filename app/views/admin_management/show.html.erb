@@ -1,0 +1,43 @@
+
+<h3>Admin Details</h3>
+
+<table class="table" summary="user details">
+
+    <tr class="header">
+        <th>Attribute</th>
+        <th>Value</th>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <td><%=@user.name %></td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td><%=@user.email %></td>
+    </tr>
+    <tr>
+        <th>Class Year</th>
+        <td><%=@user.class_year %></td>
+    </tr>
+    <tr>
+        <th>Total Points</th>
+        <td><%=@user.total_points %></td>
+    </tr>
+    <tr>
+        <th>Dues Paid?</th>
+        <td><%=@user.paid_dues? %></td>
+    </tr>
+    <tr>
+        <th>Role</th>
+        <td><%=@user.role %></td>
+    </tr>
+
+</table>
+
+<% unless @user.is_admin? %>
+    <%= link_to("Grant Admin", {controller: :admin_management, action: :grant, id: @user.id}, method: :patch, :class => 'btn btn-success') %>
+<% end %>
+
+<% if @user.admin? %>
+    <%= link_to("Revoke Admin", {controller: :admin_management, action: :revoke, id: @user.id}, method: :patch, :class => 'btn btn-danger') %>
+<% end %>

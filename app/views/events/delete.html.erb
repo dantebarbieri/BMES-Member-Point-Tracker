@@ -1,44 +1,46 @@
-<%= link_to("<< Back to List", events_path, :class => 'back-link') %>
+<%= link_to("<< Back to Event List", events_path, :class => 'btn btn-primary') %>
+
+<% @page_title = "Event Delete" %>
 
 <div class="event show">
-    <h2>Event Details</h2>
-    <table class=table summary="Event details">
-        <tr>
-            <th>Name</th>
-            <td><%= @event.name %></td>
-        </tr>
-        <tr>
-            <th>Date</th>
-            <td><%= @event.date %></td>
-        </tr>
-        <tr>
-            <th>Time</th>
-            <td><%= @event.time.strftime("%H:%M:%S") %></td>
-        </tr>
-        <tr>
-            <th>Type</th>
-            <td><%= @event.event_type %></td>
-        </tr>
-        <tr>
-            <th>Attendance Points</th>
-            <td><%= @event.attendance_points %></td>
-        </tr>
-        <tr>
-            <th>Created</th>
-            <td><%= @event.created_at %></td>
-        </tr>
-        <tr>
-            <th>Updated</th>
-            <td><%= @event.updated_at %></td>
-        </tr>
-    </table>
+  <h3>Event Details</h3>
+  <table class=table summary="Event details">
+    <tr>
+      <th>Name</th>
+      <td><%= @event.name %></td>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <td><%= @event.date %></td>
+    </tr>
+    <tr>
+      <th>Time</th>
+      <td><%= @event.time.strftime("%H:%M:%S") %></td>
+    </tr>
+    <tr>
+      <th>Type</th>
+      <td><%= @event.event_type %></td>
+    </tr>
+    <tr>
+      <th>Attendance Points</th>
+      <td><%= @event.attendance_points %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @event.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @event.updated_at %></td>
+    </tr>
+  </table>
 
-    <%= form_for(@event, :method => 'delete') do |f| %>
-      <p>Are you sure you want to permanently delete this event?</p>
-      <div class="form-buttons">
-          <%= f.submit("Delete Event", :class => "btn btn-primary") %>
-      </div>
-    <% end %>
+  <%= form_for(@event, :method => 'delete') do |f| %>
+    <p>Are you sure you want to permanently delete this event?</p>
+    <div class="form-buttons">
+      <%= f.submit("Delete Event", :class => "btn btn-primary") %>
+    </div>
+  <% end %>
 </div>
 
 <!-- <p>Find me in app/views/events/delete.html.erb</p> -->

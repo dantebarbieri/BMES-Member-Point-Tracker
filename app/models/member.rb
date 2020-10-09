@@ -1,74 +1,76 @@
+# frozen_string_literal: true
+
 class Member < ApplicationRecord
 	has_many :accomplishments_members
-	has_many :accomplishments, :through => :accomplishments_members
+	has_many :accomplishments, through: :accomplishments_members
 	has_many :manual_points
 	has_and_belongs_to_many :events
-	has_one :administrator
-
+	enum role: { unconfirmed: 0, member: 10, admin: 20, executive_admin: 30 }
+  
 	def is_admin?
-		return self.administrator != nil
+	  admin? or executive_admin?
 	end
-
+  
 	def paid_dues?
-		self.dues != nil
+	  dues != nil
 	end
-
-	def dues(dues_id = 1, semester_date = Date.today)
-		if semester_date == nil
-			return self.accomplishments.find_by_id(dues_id)
-		end
-		semesters = Semester.get_semesters(semester_date)
-		self.accomplishments_members.where(:accomplishment_id => dues_id).each do |dues|
-			if semesters.ids.include? dues.semester_id
-				return dues
-			end
-		end
-		return nil;
+  
+	def dues(semester_date = Date.today)
+	  return accomplishments.find_by_id(dues_id) if semester_date.nil?
+  
+	  semesters = Semester.get_semesters(semester_date)
+		accomplishments_members.each do |dues|
+		return dues if dues.accomplishment.is_dues and semesters.ids.include? dues.semester_id
+	  end
+	  nil
 	end
-
+  
 	def attendance_points(current_semester = false)
-		unless current_semester
-			return self.events.sum(:attendance_points)
-		end
-		total = 0
-		self.events.each do |event|
-			if Semester.in_current_semester?(event.date)
-				total += event.attendance_points
-			end
-		end
-		return total
+	  return events.sum(:attendance_points) unless current_semester
+  
+	  total = 0
+	  events.each do |event|
+		total += event.attendance_points if Semester.in_current_semester?(event.date)
+	  end
+	  total
 	end
-
+  
 	def accomplishment_points(current_semester = false)
-		unless current_semester
-			return self.accomplishments.sum(:points)
-		end
+	  return accomplishments.sum(:points) unless current_semester
+  
 		total = 0
-		self.accomplishments.each do |accomplishment|
-			if Semester.in_current_semester?(accomplishment.date)
-				total += accomplishment.points
-			end
+		semesters = []
+		Semester.current_semester.each do |semester|
+			semesters << semester.id
 		end
-		return total
+	  accomplishments_members.each do |accomplishment_member|
+		total += accomplishment_member.accomplishment.points if semesters.include? accomplishment_member.semester_id
+	  end
+	  total
 	end
-
+  
 	def manual_points_received(current_semester = false)
-		unless current_semester
-			return self.manual_points.sum(:points)
-		end
-		total = 0
-		self.accomplishments.each do |accomplishment|
-			if Semester.in_current_semester?(accomplishment.date)
-				total += accomplishment.points
-			end
-		end
-		return total
+	  return manual_points.sum(:points) unless current_semester
+  
+	  total = 0
+	  manual_points.each do |manual_points|
+		total += manual_points.points if Semester.in_current_semester?(manual_points.created_at)
+	  end
+	  total
+	end
+  
+	def total_points(current_semester = false)
+	  return attendance_points + accomplishment_points + manual_points_received unless current_semester
+  
+	  attendance_points(true) + accomplishment_points(true) + manual_points_received(true)
 	end
 
-	def total_points(current_semester = false)
-		unless current_semester
-			return self.attendance_points + self.accomplishment_points + self.manual_points_received
+	def confirmed?
+		if role == 'unconfirmed' or role == nil
+			return false
+		else
+			return true
 		end
-		return self.attendance_points(true) + self.accomplishment_points(true) + self.manual_points_received(true)
 	end
 end
+  

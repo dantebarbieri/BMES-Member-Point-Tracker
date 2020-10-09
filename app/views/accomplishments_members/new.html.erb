@@ -1,0 +1,38 @@
+<%= link_to("<< Back to List", accomplishments_members_path, :class => 'back-link') %>
+
+<div class="new accomplishments_members">
+    <h3>Assign Accomplishments to Members</h3>
+    <%= form_for(@accomplishments_member) do |f| %>
+        <table class="table" summary="Accomplishments & Members">
+            <tr>
+                <th>Member</th>
+                <% members = Array.new %>
+                <% @members.each do |m| %>
+                    <% members << [m.name + ' (' + m.email + ')', m.id] %>
+                <% end %>
+                <td><%= f.select(:member_id, members) %></td>
+            </tr>
+            <tr>
+                <th>Accomplishment</th>
+                <% accomplishments = Array.new %>
+                <% @accomplishments.each do |a| %>
+                    <% accomplishments << ["#{a.name} (#{a.description.truncate(16, separator: /\s/)})", a.id] %>
+                <% end %>
+                <td><%= f.select(:accomplishment_id, accomplishments) %></td>
+            </tr>
+            <tr>
+                <th>Semester</th>
+                <% semesters = Array.new %>
+                <% @semesters.each do |s| %>
+                    <% semesters << ["#{s.name} (#{s.dates})", s.id] %>
+                <% end %>
+                <td><%= f.select(:semester_id, semesters) %></td>
+            </tr>
+        </table>
+        
+        <div class="form-buttons">
+            <%= f.submit("Give Accomplishment to Member", :class => "btn btn-primary") %>
+        </div>
+        
+    <% end %>
+</div>

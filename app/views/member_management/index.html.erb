@@ -1,0 +1,37 @@
+
+<h3>User Management</h3>
+
+<table class="table" summary="user list">
+
+    <tr class="header">
+        <th>Name</th>
+        <th>Email</th>
+        <th>Class Year</th>
+        <th>Points</th>
+        <th>Dues Paid</th>
+        <th>Role</th>
+        <th>Actions</th>
+    </tr>
+    <% @users.each do |user| %>
+    <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.class_year %></td>
+        <td><%= user.total_points %></td>
+        <td><%= user.paid_dues? %></td>
+        <td><%= (user.role) %></td>
+
+        <td class="actions">
+            <%= link_to("Details", {controller: :member_management, action: :show, id: user.id}, method: :get, :class => 'btn btn-primary') %>
+
+            <% unless user.confirmed? %>
+            	<%= link_to("Confirm", {controller: :member_management, action: :confirm, id: user.id}, method: :patch, :class => 'btn btn-success') %>
+            <% end %>
+
+            <% unless user.is_admin? %>
+            	<%= link_to("Delete", {controller: :member_management, action: :delete, id: user.id}, method: :delete, :class => 'btn btn-danger') %>
+            <% end %>
+        </td>
+    </tr>
+    <% end %>
+</table>

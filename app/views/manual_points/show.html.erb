@@ -2,21 +2,30 @@
 <%= link_to("<< Back to List", manual_points_path, :class => 'back-link') %>
 
 <div class="show points">
-    <h2>Manual Points Details</h2>
-    <table class="table single item" summary="Accomplishments Details">
+    <h3>Manual Points Details</h3>
+    <table class="table single item" summary="Manual Points Details">
+        <tr>
+            <th>Member Info</th>
+            <td><%= @manual_points.member.name + ' (' + @manual_points.member.email + ')' %></td>
+        </tr>
         <tr>
             <th>Points</th>
-            <td><%= @manual_points.name %></td>
+            <td><%= @manual_points.points %></td>
+        </tr>
+        <tr>
+            <th>Category</th>
+            <td><%= @manual_points.reason %></td>
         </tr>
         <tr>
             <th>Reason</th>
-            <td><%= @manual_points.reason %></td>
+            <td><%= @manual_points.reason_message %></td>
         </tr>
-            <th>Created</th>
+        <tr>
+            <th>Created At</th>
             <td><%= @manual_points.created_at %></td>
         </tr>
         <tr>
-            <th>Updated</th>
+            <th>Last Updated</th>
             <td><%= @manual_points.updated_at %></td>
         </tr>
     </table>

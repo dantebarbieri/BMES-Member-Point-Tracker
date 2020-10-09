@@ -1,10 +1,18 @@
-Rails.application.routes.draw do
-  
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
+  get 'accomplishments_members/index'
+  get 'accomplishments_members/show'
+  get 'accomplishments_members/new'
+  get 'accomplishments_members/edit'
+  get 'accomplishments_members/delete'
+  get 'upcoming_events' => 'upcoming_events#show'
+  get 'upcoming_events/show'
+  get 'memberevents/index'
   root 'home#show'
-  
+
   get 'home/show'
- 
+
   resources :events do
     member do
       get :delete
@@ -17,7 +25,7 @@ Rails.application.routes.draw do
       get :delete
     end
   end
-  
+
   resources :manual_points do
     member do
       get :delete
@@ -25,6 +33,12 @@ Rails.application.routes.draw do
   end
 
   resources :accomplishments do
+    member do
+      get :delete
+    end
+  end
+
+  resources :accomplishments_members do
     member do
       get :delete
     end
@@ -41,7 +55,7 @@ Rails.application.routes.draw do
   get 'dashboard' => 'dashboard#show'
 
   get 'signup' => 'signup#new'
-  
+
   post 'signup' => 'signup#create'
 
   get 'profile' => 'profile#show'
@@ -49,4 +63,22 @@ Rails.application.routes.draw do
   get 'edit' => 'profile#edit'
 
   patch 'edit' => 'profile#update'
+
+  get 'points' => 'points#index'
+  
+  get 'points/events'
+  get 'points/manual_points'
+  get 'points/accomplishments'
+
+  get 'members' => 'member_management#index'
+
+  get 'members/:id' => 'member_management#show'
+  patch 'members/confirm/:id' => 'member_management#confirm'
+  delete 'members/delete/:id' => 'member_management#delete'
+
+  get 'admins' => 'admin_management#index'
+  
+  get 'admins/:id' => 'admin_management#show'
+  patch 'admins/grant/:id' => 'admin_management#grant'
+  patch 'admins/revoke/:id' => 'admin_management#revoke'
 end

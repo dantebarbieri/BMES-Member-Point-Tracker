@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_23_025121) do
+ActiveRecord::Schema.define(version: 2020_10_08_233901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_025121) do
     t.decimal "points", default: "0.0"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "is_dues"
   end
 
   create_table "accomplishments_members", force: :cascade do |t|
@@ -34,21 +35,15 @@ ActiveRecord::Schema.define(version: 2020_09_23_025121) do
     t.index ["semester_id"], name: "index_accomplishments_members_on_semester_id"
   end
 
-  create_table "administrators", force: :cascade do |t|
-    t.bigint "member_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["member_id"], name: "index_administrators_on_member_id"
-  end
-
   create_table "events", force: :cascade do |t|
     t.text "name"
     t.date "date", null: false
     t.time "time"
-    t.text "event_type"
     t.decimal "attendance_points", default: "0.0"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "event_type"
+    t.boolean "hidden"
   end
 
   create_table "events_members", id: false, force: :cascade do |t|
@@ -60,10 +55,11 @@ ActiveRecord::Schema.define(version: 2020_09_23_025121) do
 
   create_table "manual_points", force: :cascade do |t|
     t.decimal "points", default: "0.0"
-    t.text "reason"
+    t.text "reason_message"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "member_id"
+    t.integer "reason"
     t.index ["member_id"], name: "index_manual_points_on_member_id"
   end
 
@@ -73,7 +69,10 @@ ActiveRecord::Schema.define(version: 2020_09_23_025121) do
     t.integer "class_year"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "role"
+    t.text "uid", null: false
     t.index ["email"], name: "index_members_on_email", unique: true
+    t.index ["uid"], name: "index_members_on_uid", unique: true
   end
 
   create_table "semesters", force: :cascade do |t|
@@ -95,7 +94,6 @@ ActiveRecord::Schema.define(version: 2020_09_23_025121) do
   add_foreign_key "accomplishments_members", "accomplishments"
   add_foreign_key "accomplishments_members", "members"
   add_foreign_key "accomplishments_members", "semesters"
-  add_foreign_key "administrators", "members"
   add_foreign_key "events_members", "events"
   add_foreign_key "events_members", "members"
   add_foreign_key "manual_points", "members"
