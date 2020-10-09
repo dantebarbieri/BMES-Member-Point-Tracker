@@ -37,9 +37,12 @@
     </td>
   </tr>
   <% end %>
+  <tr class="data-row"> 
+    <td>
+      <%= link_to("", new_event_path, :class => "fa fa-plus-circle fa-lg") %>
+    </td>
+  </tr>
 </table>
-
-<%= link_to("Add New Event", new_event_path, :class => "btn btn-primary") %>
 
 <!-- <p>Find me in app/views/events/index.html.erb</p> -->
 </div>
