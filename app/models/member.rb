@@ -15,12 +15,12 @@ class Member < ApplicationRecord
 	  dues != nil
 	end
   
-	def dues(dues_id = 1, semester_date = Date.today)
+	def dues(semester_date = Date.today)
 	  return accomplishments.find_by_id(dues_id) if semester_date.nil?
   
 	  semesters = Semester.get_semesters(semester_date)
-	  accomplishments_members.where(accomplishment_id: dues_id).each do |dues|
-		return dues if semesters.ids.include? dues.semester_id
+		accomplishments_members.each do |dues|
+		return dues if dues.accomplishment.is_dues and semesters.ids.include? dues.semester_id
 	  end
 	  nil
 	end
@@ -38,9 +38,13 @@ class Member < ApplicationRecord
 	def accomplishment_points(current_semester = false)
 	  return accomplishments.sum(:points) unless current_semester
   
-	  total = 0
-	  accomplishments.each do |accomplishment|
-		total += accomplishment.points if Semester.in_current_semester?(accomplishment.date)
+		total = 0
+		semesters = []
+		Semester.current_semester.each do |semester|
+			semesters << semester.id
+		end
+	  accomplishments_members.each do |accomplishment_member|
+		total += accomplishment_member.accomplishment.points if semesters.include? accomplishment_member.semester_id
 	  end
 	  total
 	end
@@ -49,8 +53,8 @@ class Member < ApplicationRecord
 	  return manual_points.sum(:points) unless current_semester
   
 	  total = 0
-	  accomplishments.each do |accomplishment|
-		total += accomplishment.points if Semester.in_current_semester?(accomplishment.date)
+	  manual_points.each do |manual_points|
+		total += manual_points.points if Semester.in_current_semester?(manual_points.created_at)
 	  end
 	  total
 	end

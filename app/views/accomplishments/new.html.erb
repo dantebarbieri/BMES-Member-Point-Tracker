@@ -20,6 +20,10 @@
 			<th>Points</th>
 			<td><%= f.number_field(:points, :step => 0.01) %></td>
 		</tr>
+		<tr>
+			<th>Is Dues?</th>
+			<td><%= f.check_box(:is_dues) %></td>
+		</tr>
 	</table>
 
 	<%= f.submit("Create Accomplishment", :class => "btn btn-primary") %>

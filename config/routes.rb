@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'accomplishments_members/index'
+  get 'accomplishments_members/show'
+  get 'accomplishments_members/new'
+  get 'accomplishments_members/edit'
+  get 'accomplishments_members/delete'
   get 'upcoming_events' => 'upcoming_events#show'
   get 'upcoming_events/show'
   get 'memberevents/index'
@@ -33,6 +38,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :accomplishments_members do
+    member do
+      get :delete
+    end
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   get 'auth/auth0/callback' => 'auth0#callback'
@@ -56,4 +67,5 @@ Rails.application.routes.draw do
   get 'points/events'
   get 'points/manual_points'
   get 'points/accomplishments'
+  get 'points' => 'points#index'
 end
