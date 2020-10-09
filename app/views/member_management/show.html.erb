@@ -1,5 +1,5 @@
 
-<h4>user Details</h4>
+<h3>User Details</h3>
 
 <table class="table" summary="user details">
 
@@ -38,6 +38,6 @@
     <%= link_to("Confirm", {controller: :member_management, action: :confirm, id: @user.id}, method: :patch, :class => 'btn btn-success') %>
 <% end %>
 
-<% unless @user.executive_admin? %>
+<% unless @user.is_admin? %>
     <%= link_to("Delete", {controller: :member_management, action: :delete, id: @user.id}, method: :delete, :class => 'btn btn-danger') %>
 <% end %>

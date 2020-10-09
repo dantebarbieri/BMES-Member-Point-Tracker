@@ -1,12 +1,12 @@
 <%= link_to("<< Back to List", manual_points_path, :class => 'back-link') %>
 
 <div class="new manual points">
-    <h2>New Manual Points</h2>
+    <h3>New Manual Points</h3>
     <%= form_for(@manual_points) do |f| %>
         <table class="table" summary="Manual Points">
             <tr>
                 <th>Points</th>
-                <td><%= f.number_field(:points, in: 0.0..1000.0, step: 0.01) %></td>
+                <td><%= f.number_field(:points, in: 0.0..1000.0, step: 0.01, class: 'form-control') %></td>
             </tr>
             <tr>
                 <th>Category</th>
@@ -14,7 +14,7 @@
             </tr>
             <tr>
                 <th>Reason</th>
-                <td><%= f.text_area(:reason_message) %></td>
+                <td><%= f.text_area(:reason_message, class: 'form-control') %></td>
             </tr>
             <tr>
                 <th>Member</th>
@@ -22,7 +22,7 @@
                 <% @members.each do |m| %>
                     <% members << [m.name + ' (' + m.email + ')', m.id] %>
                 <% end %>
-                <td><%= f.select(:member_id, members) %></td>
+                <td><span><%= f.select(:member_id, members) %></td>
             </tr>
         </table>
         
