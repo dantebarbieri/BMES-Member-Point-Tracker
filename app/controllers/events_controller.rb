@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
+# Controls basic CRUD for Events
 class EventsController < ApplicationController
+  include Secured
+  include ExistingUser
+  include AdminSecured
+
   def index
     @events = Event.order(:date)
   end
@@ -56,6 +61,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :date, :time, :event_type, :attendance_points)
+    params.require(:event).permit(:name, :date, :time, :event_type, :hidden, :attendance_points)
   end
 end

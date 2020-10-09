@@ -1,32 +1,36 @@
-<%= link_to accomplishments_path do %>
-	<i class="fa fa-home fa-3x"></i>
-<% end %>
+<%= link_to("<< Back to List", accomplishments_path, :class => 'back-link') %>
 
-<% @page_title = "Show Details" %>
+<% @page_title = "Delete" %>
 
-<h1>Show Details</h1>
+<h1>Delete</h1>
 
-<p><%= @accomplishment.name %></p>
+<p>About to Delete the Following Accomplishments</p>
+
+<p><%= @accomplishments.name %></p>
 
 <table class="table data-inline">
 	<tr>
 		<th>Name</th>
-		<td><%= @accomplishment.name %></td>
+		<td><%= @accomplishments.name %></td>
 	</tr>
 	<tr>
 		<th>Description</th>
-		<td><%= @accomplishment.description %></td>
+		<td><%= @accomplishments.description %></td>
 	</tr>
 	<tr>
 		<th>Points</th>
-		<td><%= @accomplishment.points %></td>
+		<td><%= @accomplishments.points %></td>
+	</tr>
+	<tr>
+		<th>Is Dues?</th>
+		<td><%= @accomplishments.is_dues %></td>
 	</tr>
 	<tr>
 		<th>Added to Database on</th>
-		<td><%= @accomplishment.created_at %></td>
+		<td><%= @accomplishments.created_at %></td>
 	</tr>
 	<tr>
 		<th>Last Updated on</th>
-		<td><%= @accomplishment.updated_at %></td>
+		<td><%= @accomplishments.updated_at %></td>
 	</tr>
 </table>

@@ -18,6 +18,6 @@ class Semester < ApplicationRecord
   end
 
   def self.get_semesters(date)
-    Semester.where('dates @> ?', date)
+    Semester.where('dates @> date(?)', date)
   end
 end

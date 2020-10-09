@@ -1,4 +1,6 @@
-<%= link_to("<< Back to List", events_path, :class => 'back-link') %>
+<%= link_to("<< Back to Event List", events_path, :class => 'btn btn-primary') %>
+
+<% @page_title = "Event Create" %>
 
 <div class="new event">
     <h2>New Event</h2>
@@ -21,16 +23,21 @@
                 <td><%= f.text_field(:event_type) %></td>
             </tr>
             <tr>
+                <th>Hidden?</th>
+                <td><%= f.check_box(:hidden) %></td>
+            </tr>
+            <tr>
                 <th>Attendance Points</th>
                 <td><%= f.number_field(:attendance_points, in: 0.0..1000.0, step: 0.001) %></td>
             </tr>
         </table>
-        
+
         <div class="form-buttons">
             <%= f.submit("Create Event", :class => "btn btn-primary") %>
         </div>
-        
+
     <% end %>
+
 </div>
 
 <!-- <p>Find me in app/views/events/new.html.erb</p> -->

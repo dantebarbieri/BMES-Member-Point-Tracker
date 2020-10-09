@@ -1,0 +1,42 @@
+
+<div class="accomplishments_members index">
+<h2>Accomplishments given to Members</h2>
+
+<table class="table" summary="Accomplishments & Members">
+
+    <tr class="header">
+        <th>Member Info</th>
+        <th>Accomplishment</th>
+        <th>Semester</th>
+				<th>Details</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <% @accomplishments_members.each do |am| %>
+    <tr>
+        <td><%= "#{am.member.name} (#{am.member.email})" %></td>
+        <td><%= "#{am.accomplishment.name} (#{am.accomplishment.description.truncate(16, /\s/)})" %></td>
+        <td><%= "#{am.semester.name} (#{am.semester.dates})" %></td>
+				<td>
+					<%= link_to accomplishments_member_path(am) do %>
+						<i class="fa fa-info-circle"></i>
+					<% end %>
+				</td>
+				<td>
+					<%= link_to edit_accomplishments_member_path(am) do %>
+						<i class="fa fa-edit"></i>
+					<% end %>
+				</td>
+				<td>
+					<%= link_to delete_accomplishments_member_path(am) do %>
+						<i class="fa fa-trash"></i>
+					<% end %>
+				</td>
+    </tr>
+    <% end %>
+</table>
+
+<%= link_to("Give Accomplishment to Member", new_accomplishments_member_path, :class => "btn btn-primary") %>
+
+<!-- <p>Find me in app/views/manual_points/index.html.erb</p> -->
+</div>

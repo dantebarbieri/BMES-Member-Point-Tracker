@@ -29,9 +29,11 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <% if @member and @member.is_admin? %>
-              <%= link_to "Accomplishments", "/accomplishments", class: 'nav-item nav-link'%>
+              <%= link_to "Create Accomplishments", "/accomplishments", class: 'nav-item nav-link'%>
+              <%= link_to "Give Accomplishments to Members", "/accomplishments_members", class: 'nav-item nav-link'%>
               <%= link_to "Manual Points", "/manual_points", class: 'nav-item nav-link'%>
-
+              <%= link_to "Events", "/events", class: 'nav-item nav-link'%>
+              <%= link_to "Upcoming Events", "/upcoming_events", class: 'nav-item nav-link' %>
               <%= link_to "Semesters", semesters_path, class: 'nav-item nav-link'%>
 
               <%= link_to "Members", "/members" , class: 'nav-item nav-link'%>
@@ -45,6 +47,10 @@
             <% if @member %>
               <%= link_to "Profile", profile_path, class: 'nav-item nav-link'%>
               <%= link_to "Dashboard", "/dashboard", class: 'nav-item nav-link'%>
+              <% if @member.paid_dues? %>
+                <%= link_to "Point Breakdown", "/points", class: 'nav-item nav-link'%>
+              <% end %>
+              <%= link_to "Upcoming Events", "/upcoming_events", class: 'nav-item nav-link' %>
               <%= link_to "Log Out", "/logout", class: 'nav-item nav-link'%>
             <% end %>
 
@@ -57,6 +63,17 @@
 
       </nav>
       <br>
+      <% flash.each do |type, msg| %>
+        <% if (type == "notice") %>
+          <div class="alert alert-success">
+            <%= msg %>
+          </div>
+        <% elsif (type == "alert") %>
+          <div class="alert alert-danger">
+            <%= msg %>
+          </div>
+        <% end %>
+      <% end %>
       <%= yield %>
     </div>
 

@@ -16,8 +16,8 @@ class AccomplishmentsController < ApplicationController
   def create
     @accomplishments = Accomplishment.new(accomplishments_params)
     if @accomplishments.save
-      flash[:notice] = "Accomplishment #{@accomplishment.name} Created Successfully"
-      redirect_to(accomplishments_path(@accomplishment))
+      flash[:notice] = "Accomplishment #{@accomplishments.name} Created Successfully"
+      redirect_to(accomplishments_path(@accomplishments))
     else
       render('new')
     end
@@ -56,6 +56,6 @@ class AccomplishmentsController < ApplicationController
   private
 
   def accomplishments_params
-    params.require(:accomplishment).permit(:name, :description, :points)
+    params.require(:accomplishment).permit(:name, :description, :points, :is_dues)
   end
 end
