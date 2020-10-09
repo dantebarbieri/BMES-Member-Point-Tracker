@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2020_10_08_195720) do
     t.text "reason_message"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "member_id"
     t.integer "reason"
   end
 

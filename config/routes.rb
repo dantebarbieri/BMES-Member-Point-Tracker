@@ -64,8 +64,21 @@ Rails.application.routes.draw do
 
   patch 'edit' => 'profile#update'
 
+  get 'points' => 'points#index'
+  
   get 'points/events'
   get 'points/manual_points'
   get 'points/accomplishments'
-  get 'points' => 'points#index'
+
+  get 'members' => 'member_management#index'
+
+  get 'members/:id' => 'member_management#show'
+  patch 'members/confirm/:id' => 'member_management#confirm'
+  delete 'members/delete/:id' => 'member_management#delete'
+
+  get 'admins' => 'admin_management#index'
+  
+  get 'admins/:id' => 'admin_management#show'
+  patch 'admins/grant/:id' => 'admin_management#grant'
+  patch 'admins/revoke/:id' => 'admin_management#revoke'
 end

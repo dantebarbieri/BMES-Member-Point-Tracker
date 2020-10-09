@@ -15,6 +15,7 @@ class SignupController < ApplicationController
     @member = Member.new(member_params)
     @member.email = session[:app_user]['email']
     @member.uid = session[:app_user]['uid']
+    @member.role = :unconfirmed
 
     # This ensures you don't try to make a duplicate user.
     # @member_current = Member.find_by_email(@member.email)
