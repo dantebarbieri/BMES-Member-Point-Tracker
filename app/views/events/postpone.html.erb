@@ -3,7 +3,7 @@
 <% @page_title = "Event Postpone" %>
 
 <div class="event postpone">
-  <h2>Postpone Event</h2>
+  <h3>Postpone Event</h3>
   <table class="table" summary="Event details">
     <tr>
       <th>Name</th>
@@ -24,16 +24,16 @@
   </table>
 
   <%= form_for(@event, :url => event_path(@event), :method => 'patch') do |f| %>
-  <table class=table summary="Event details">
-    <tr>
-      <th>Date</th>
-      <td><%= f.date_select(:date) %></td>
-    </tr>
-    <tr>
-      <th>Time</th>
-      <td><%= f.time_select(:time) %></td>
-    </tr>
-  </table>
+    <table class=table summary="Event details">
+      <tr>
+        <th>Date</th>
+        <td><%= f.date_select(:date) %></td>
+      </tr>
+      <tr>
+        <th>Time</th>
+        <td><%= f.time_select(:time) %></td>
+      </tr>
+    </table>
 
     <p>Save changes to this event?</p>
     <div class="form-buttons">
