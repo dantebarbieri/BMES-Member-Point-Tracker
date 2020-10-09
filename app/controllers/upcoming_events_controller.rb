@@ -3,6 +3,6 @@ class UpcomingEventsController < ApplicationController
   include ExistingUser
 
   def show
-    @events = Event.order(:date).find_by_hidden(false)
+    @events = Event.order(:date)
   end
 end
