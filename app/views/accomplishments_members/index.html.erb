@@ -1,6 +1,6 @@
 
 <div class="accomplishments_members index">
-<h2>Accomplishments given to Members</h2>
+<h2>Accomplishments Given to Members</h2>
 
 <table class="table" summary="Accomplishments & Members">
 
@@ -15,7 +15,7 @@
     <% @accomplishments_members.each do |am| %>
     <tr>
         <td><%= "#{am.member.name} (#{am.member.email})" %></td>
-        <td><%= "#{am.accomplishment.name} (#{am.accomplishment.description.truncate(16, /\s/)})" %></td>
+        <td><%= "#{am.accomplishment.name} (#{truncate(am.accomplishment.description, length: 16, separator: /\s/)})" %></td>
         <td><%= "#{am.semester.name} (#{am.semester.dates})" %></td>
 				<td>
 					<%= link_to accomplishments_member_path(am) do %>
