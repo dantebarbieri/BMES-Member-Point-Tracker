@@ -6,8 +6,10 @@ class EventsController < ApplicationController
   include ExistingUser
   include AdminSecured
 
+  helper_method :sort_column, :sort_direction
+
   def index
-    @events = Event.order(:date)
+    @events = Event.search(params).order(sort_column + " " + sort_direction)
   end
 
   def show
@@ -63,6 +65,14 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :date, :time, :event_type, :hidden, :attendance_points)
+    params.require(:event).permit(:name, :date, :time, :event_type, :hidden, :attendance_points, :direction, :sort)
+  end
+
+  def sort_column
+    Event.column_names.include?(params[:sort]) ? params[:sort] : "date"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end

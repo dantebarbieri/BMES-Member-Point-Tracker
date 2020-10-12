@@ -6,18 +6,43 @@
 
 <table class="table" summary="Events list">
 
+  <tr>
+  <%= form_tag(events_path, method: :get) do %>
+    <td>
+      <%= text_field_tag(:name, params[:name]) %>
+    </td>
+    <td>
+      <%= date_field_tag(:date, params[:date]) %>
+    </td>
+    <td>
+      <%= time_field_tag(:time, params[:time]) %>
+    </td>
+    <td>
+      <%= select_tag(:event_type, params[:event_type], :collection => Event.event_types.keys.map { |w| [w.humanize, w] }, include_blank: true, prompt: 'Any') %>
+    </td>
+    <td>
+      <%= check_box_tag(:hidden, params[:hidden]) %>
+    </td>
+    <td>
+      <%= number_field_tag(:attendance_points, params[:attendance_points]) %>
+    </td>
+    <td>
+      <%= submit_tag ("Search") %>
+    </td>
+  <% end %>
+  </tr>
   <tr class="header">
-    <th>Name</th>
-    <th>Date</th>
-    <th>Time</th>
-    <th>Type</th>
-    <th>Hidden?</th>
-    <th>Attendance Points</th>
+    <th><%= sortable "name", "Name" %></th>
+    <th><%= sortable "date", "Date" %></th>
+    <th><%= sortable "time", "Time" %></th>
+    <th><%= sortable "event_type", "Type" %></th>
+    <th><%= sortable "hidden", "Hidden?" %></th>
+    <th><%= sortable "attendance_points", "Attendance Points" %></th>
     <th>Details</th>
     <th>Edit</th>
     <th>Postpone</th>
     <!-- Postpone will eventually be a modal with buttons -->
-    <th>Details</th>
+    <th>Delete</th>
   </tr>
   <% @events.each do |event| %>
   <tr>
