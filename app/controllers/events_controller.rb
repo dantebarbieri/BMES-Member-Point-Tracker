@@ -6,10 +6,10 @@ class EventsController < ApplicationController
   include ExistingUser
   include AdminSecured
 
-  helper_method :sort_column, :sort_direction
+  helper_method :sort_column
 
   def index
-    @events = Event.search(params).order(sort_column + " " + sort_direction)
+    @events = Event.search(params).order(sort_column)
   end
 
   def show
@@ -65,14 +65,15 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :date, :time, :event_type, :hidden, :attendance_points, :direction, :sort)
+    params.require(:event).permit(:name, :date, :time, :event_type, :hidden, :attendance_points, :direction => [], :sort => [])
   end
 
   def sort_column
-    Event.column_names.include?(params[:sort]) ? params[:sort] : "date"
-  end
-  
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    if params.key?("sort") and params.key?("direction")
+      order = params[:sort].uniq.zip(params[:direction]).select { |s, d| Event.column_names.include?(s) and %w[asc desc].include?(d) }
+      order.empty? ? "date desc" : order.map { |x,y| x + ' ' + y }.join(', ')
+    else
+      "date desc"
+    end
   end
 end
