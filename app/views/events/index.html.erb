@@ -5,29 +5,35 @@
 <h3>Events</h3>
 
 <table class="table" summary="Events list">
-
   <tr>
   <%= form_tag(events_path, method: :get) do %>
+    <%= hidden_field_tag :direction, params[:direction] %>
+    <%= hidden_field_tag :sort, params[:sort] %>
     <td>
       <%= text_field_tag(:name, params[:name]) %>
     </td>
     <td>
-      <%= date_field_tag(:date, params[:date]) %>
+      <%= date_field_tag(:date, params[:date], disabled: true) %>
     </td>
     <td>
-      <%= time_field_tag(:time, params[:time]) %>
+      <%= time_field_tag(:time, params[:time], disabled: true) %>
     </td>
     <td>
-      <%= select_tag(:event_type, params[:event_type], :collection => Event.event_types.keys.map { |w| [w.humanize, w] }, include_blank: true, prompt: 'Any') %>
+      <%= select_tag(:event_type, options_from_collection_for_select(Event.event_types.map { |k,v| [k.humanize, v] }, 'last', 'first' ), prompt: 'Any') %>
     </td>
     <td>
-      <%= check_box_tag(:hidden, params[:hidden]) %>
+      <%= select_tag(:hidden, raw("<option value=''>Any</option><option value='true'>True</option><option value='false'>False</option>")) %>
     </td>
     <td>
       <%= number_field_tag(:attendance_points, params[:attendance_points]) %>
     </td>
     <td>
-      <%= submit_tag ("Search") %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    </td>
+  <% end %>
+  <%= form_tag(events_path, method: :get) do %>
+    <td>
+      <%= submit_tag "Clear", class: "btn btn-primary" %>
     </td>
   <% end %>
   </tr>
