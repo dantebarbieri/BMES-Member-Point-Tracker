@@ -1,3 +1,27 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.fa-arrow-up {
+  font-weight: bold;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+.fa-arrow-up::before {
+  content: '\f062';
+  font-family: fontAwesome;
+  position: relative;
+  left: 0; /* Adjust as needed */
+  top: 3px; /* Adjust as needed */
+}
+.fa-arrow-down {
+  font-weight: bold;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+.fa-arrow-down::before {
+  content: '\f063';
+  font-family: fontAwesome;
+  position: relative;
+  left: 0; /* Adjust as needed */
+  top: 3px; /* Adjust as needed */
+}
