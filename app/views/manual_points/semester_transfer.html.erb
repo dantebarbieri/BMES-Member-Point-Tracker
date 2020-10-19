@@ -1,0 +1,31 @@
+<%= link_to("<< Back to List", manual_points_path, :class => 'back-link') %>
+
+<div class="new manual points">
+    <h3>New Manual Points</h3>
+    <%= form_with(scope: :semester_transfer, url: '/manual_points/create_semester_transfer', method: :post) do |f| %>
+        <table class="table" summary="Manual Points">
+            <tr>
+                <th>Points</th>
+                <td><%= f.number_field(:points, in: 0.0..1000.0, step: 0.01, class: 'form-control') %></td>
+            </tr>
+            <% semesters = Array.new %>
+            <% @semesters.each do |s| %>
+                <% semesters << ["#{s.name} (#{s.dates.begin} – #{s.dates.end})".encode('utf-8'), s.id] %>
+            <% end %>
+            <tr>
+                <th>From Semester</th>
+                <td><%= f.select(:from_semester_id, semesters) %></td>
+            </tr>
+            <tr>
+                <th>To Semester</th>
+                <td><%= f.select(:to_semester_id, semesters) %></td>
+            </tr>
+        </table>
+        <div class="form-buttons">
+            <%= f.submit("Create Semester Transfer", :class => "btn btn-primary") %>
+        </div>
+        
+    <% end %>
+</div>
+
+<!-- <p>Find me in app/views/manual_points/new.html.erb</p> -->

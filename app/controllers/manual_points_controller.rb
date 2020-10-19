@@ -35,12 +35,11 @@ class ManualPointsController < ApplicationController
 
   def update
     @manual_points = ManualPoint.find(params[:id])
-    puts manual_points_params
     if @manual_points.update(manual_points_params)
       flash[:notice] = 'Manual Points Updated Successfully'
       redirect_to(manual_point_path(@manual_points))
     else
-      flash[:error] = 'Manual Points Not Updated Sucessfully'
+      flash[:alert] = 'Manual Points Not Updated Sucessfully'
       render('edit')
     end
   end
@@ -54,6 +53,29 @@ class ManualPointsController < ApplicationController
     @manual_points.destroy
     flash[:notice] = 'Points Manually Deleted Successfully'
     redirect_to(manual_points_path)
+  end
+
+  def semester_transfer
+    @manual_points = ManualPoint.new
+    @semesters = Semester.order(:dates, desc: true)
+  end
+
+  def create_semester_transfer
+    params.require(:semester_transfer).permit(:points, :from_semester_id, :to_semester_id)
+    points = params[:semester_transfer][:points]
+    from = params[:semester_transfer][:from_semester_id]
+    to = params[:semester_transfer][:to_semester_id]
+    if from == to
+      flash[:alert] = 'You cannot transfer points from and to the same semester.'
+      render('semester_transfer')
+    end
+    members = Member.all
+    members.each |member| do
+      mp = member.total_points
+      mp = mp > points ? points : mp
+      @manual_points = ManualPoint.new({})
+
+    end
   end
 
   private
