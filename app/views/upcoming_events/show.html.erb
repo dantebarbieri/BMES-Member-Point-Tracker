@@ -1,5 +1,6 @@
 <div class="events index">
 <h3>Events</h3>
+<p><i> This is a list of all your upcoming events </p></i>
 <table class="table" summary="Events list">
     <tr class="header">
         <th>Name</th>
@@ -7,7 +8,7 @@
         <th>Time</th>
         <th>Type</th>
         <th>Attendance Points</th>
-        <th>Actions</th>
+        <th>Details</th>
     </tr>
     <% @events.each do |event| %>
     <% unless event.hidden %>
@@ -18,7 +19,7 @@
             <td><%= event.event_type %></td>
             <td><%= event.attendance_points %></td>
             <td class="actions">
-                <%= link_to("Show", event_path(event), :class => 'action show') %>
+                <%= link_to(" ", event_path(event), :class => 'fa fa-info-circle fa-lg') %>
             </td>
         </tr>
         <% end %>

@@ -1,6 +1,9 @@
+<h5><%= link_to("Back to List", semesters_path, :class => 'back-link') %></h5>
 <% @page_title = "Show Details" %>
 
 <h3>Semester Details</h3>
+
+<p><i> Showing details of the semester</p></i>
 
 
 <table class="table">
@@ -17,7 +20,7 @@
 		<td><%= @semester.dates.end %></td>
 	</tr>
 	<tr>
-		<th>Added to Database on</th>
+		<th>Created at</th>
 		<td><%= @semester.created_at %></td>
 	</tr>
 	<tr>
@@ -25,5 +28,3 @@
 		<td><%= @semester.updated_at %></td>
 	</tr>
 </table>
-
-<%= link_to "View All", semesters_path, class: "btn btn-primary" %>

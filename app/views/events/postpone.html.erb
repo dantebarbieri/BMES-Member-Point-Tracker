@@ -1,9 +1,12 @@
-<%= link_to("<< Back to Event List", events_path, :class => 'btn btn-primary') %>
+<h5><%= link_to("Back to Event List", events_path, :class => 'back-link') %></h5>
 
 <% @page_title = "Event Postpone" %>
 
+<h3>Postpone Event</h3>
+<p><i> About to postpone an event</p></i>
+
 <div class="event postpone">
-  <h3>Postpone Event</h3>
+
   <table class="table" summary="Event details">
     <tr>
       <th>Name</th>
@@ -14,11 +17,11 @@
       <td><%= @event.event_type %></td>
     </tr>
     <tr>
-      <th>Created</th>
+      <th>Created at</th>
       <td><%= @event.created_at %></td>
     </tr>
     <tr>
-      <th>Updated</th>
+      <th>Last Updated on</th>
       <td><%= @event.updated_at %></td>
     </tr>
   </table>
@@ -35,9 +38,8 @@
       </tr>
     </table>
 
-    <p>Save changes to this event?</p>
     <div class="form-buttons">
-      <%= f.submit("Save", :class => "btn btn-primary") %>
+      <%= f.submit("Save Changes", :class => "btn btn-primary") %>
     </div>
   <% end %>
 </div>
