@@ -2,24 +2,33 @@
 <div class="manual points index">
 <h3>Manual Points</h3>
 
+<p><i> Assigning Manual Points to Members </p></i>
+
 <table class="table" summary="Manual Points List">
 
     <tr class="header">
         <th>Member Info</th>
         <th>Points</th>
         <th>Reason</th>
-        <th>Actions</th>
+        <th>Details</th>
+        <th>Edit</th>
+        <th>Delete</th>
+
     </tr>
     <% @manual_points.each do |manual_points| %>
     <tr>
         <td><%= "#{manual_points.member.name} (#{manual_points.member.email})" %></td>
         <td><%= manual_points.points %></td>
         <td><%= manual_points.reason_message %></td>
-        <td class="actions">
-            <%= link_to("Show", manual_point_path(manual_points), :class => 'action show') %>
-            <%= link_to("Edit", edit_manual_point_path(manual_points), :class => 'action edit') %>
-            <%= link_to("Delete", delete_manual_point_path(manual_points), :class => 'action delete') %>
-        </td>
+        <td>
+			<%= link_to("", manual_point_path(manual_points), :class => 'fa fa-info-circle fa-lg') %>
+		</td>
+		<td>
+			<%= link_to("", edit_manual_point_path(manual_points), :class => 'fa fa-edit fa-lg') %>
+		</td>
+		<td>
+			<%= link_to("", delete_manual_point_path(manual_points), :class => 'fa fa-trash fa-lg') %>
+		</td>
     </tr>
     <% end %>
 </table>

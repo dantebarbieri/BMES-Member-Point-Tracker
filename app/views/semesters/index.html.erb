@@ -2,7 +2,7 @@
 
 <h3>Semesters Page</h3>
 
-<p>The semesters are below:</p>
+<p><i>The semesters are below:</p></i>
 
 <table class="table">
 	<thead>
@@ -12,7 +12,7 @@
 			<th>End</th>
 			<th>Details</th>
 			<th>Edit</th>
-			<th>Remove</th>
+			<th>Delete</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -22,20 +22,14 @@
 				<td><%= semester.dates.begin %></td>
 				<td><%= semester.dates.end %></td>
 				<td>
-					<%= link_to semester_path(semester) do %>
-						<i class="fa fa-info-circle"></i>
-					<% end %>
-				</td>
-				<td>
-					<%= link_to edit_semester_path(semester) do %>
-						<i class="fa fa-edit"></i>
-					<% end %>
-				</td>
-				<td>
-					<%= link_to delete_semester_path(semester) do %>
-						<i class="fa fa-trash"></i>
-					<% end %>
-				</td>
+			<%= link_to("", semester_path(semester), :class => 'fa fa-info-circle fa-lg') %>
+		</td>
+		<td>
+			<%= link_to("", edit_semester_path(semester), :class => 'fa fa-edit fa-lg') %>
+		</td>
+		<td>
+			<%= link_to("", delete_semester_path(semester), :class => 'fa fa-trash fa-lg') %>
+		</td>
 			</tr>
 		<% end %>
 	</tbody>

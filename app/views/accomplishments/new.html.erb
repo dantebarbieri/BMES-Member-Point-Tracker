@@ -1,10 +1,10 @@
-<%= link_to("<< Back to List", accomplishments_path, :class => 'back-link') %>
+<h5><%= link_to("Back to List", accomplishments_path, :class => 'back-link') %></h5>
 
 <% @page_title = "New" %>
 
 <h3>New</h3>
 
-<p>Add an Accomplishments</p>
+<i><p>Add an Accomplishments</p></i>
 
 <%= form_for(@accomplishments) do |f| %>
 	<table class="table">

@@ -1,12 +1,16 @@
+<h5><%= link_to("Back to List", points_path, :class => 'back-link') %></h5>
+
 <% @page_title = "Attendance Points" %>
 <div class="member accomplishment index">
-<h3>Attendance Points</h3>
+<h3>Member Attendance to Events Points</h3>
+
+<p><i> Shows all the points you have earned by attending events </p></i>
 
 <p>
-	<strong> Attendance Points : </strong>
+	<strong> Events Points : </strong>
 	<%= @member.attendance_points(false) %>
 	<br/>
-	<strong> All Time Attendance Points : </strong>
+	<strong> All Time Event Points : </strong>
 	<%= @member.accomplishment_points %>
 </p>
 
@@ -33,7 +37,7 @@
 				<% end %>
 			</td>
 			<td><%= event.type %></td>
-			<td><%= link_to "#{event.name} Details", controller: :memberevents, action: :show, id: event.id %></td>
+			<td><%= link_to "", controller: :memberevents, id: event.id, :class => 'fa fa-info-circle fa-lg'%></td>
     </tr>
     <% end %>
 </table>

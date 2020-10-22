@@ -1,7 +1,9 @@
-<%= link_to("<< Back to List", manual_points_path, :class => 'back-link') %>
+<h5><%= link_to("Back to List", manual_points_path, :class => 'back-link') %></h5>
 
 <div class="new manual points">
     <h3>New Manual Points</h3>
+
+    <p><i> Assigning New Manual Points to Member </p></i>
     <%= form_for(@manual_points) do |f| %>
         <table class="table" summary="Manual Points">
             <tr>

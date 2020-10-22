@@ -1,10 +1,10 @@
-<%= link_to("<< Back to List", manual_points_path, :class => 'back-link') %>
+<h5><%= link_to("Back to List", manual_points_path, :class => 'back-link') %></h5>
 
 <% @page_title = "Delete" %>
 
 <h3>Delete</h3>
 
-<p>About to Delete the Following Manual Points:</p>
+<i><p>About to Delete the Following Manual Points</p></i>
 
 
 <table class="table">
@@ -26,7 +26,7 @@
 		<td><%= @manual_points.reason_message %></td>
 	</tr>
 	<tr>
-		<th>Created At</th>
+		<th>Created at</th>
 		<td><%= @manual_points.created_at %></td>
 	</tr>
 	<tr>
@@ -36,6 +36,6 @@
 </table>
 
 <%= form_for(@manual_points, :method => 'delete') do |f| %>
-	<p>Are you sure?</p>
+	<i><p>Are you sure?</p></i>
 	<%= f.submit("Delete Manual Points", :class => "btn btn-primary") %>
 <% end %>

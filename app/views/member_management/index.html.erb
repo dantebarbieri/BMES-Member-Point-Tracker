@@ -1,5 +1,6 @@
-
 <h3>User Management</h3>
+
+<p><i> This is the member management page where you can view details and delete members. Only admins have access to this. </p></i>
 
 <table class="table" summary="user list">
 
@@ -10,6 +11,7 @@
         <th>Points</th>
         <th>Dues Paid</th>
         <th>Role</th>
+        <th>Details</th>
         <th>Actions</th>
     </tr>
     <% @users.each do |user| %>
@@ -21,9 +23,10 @@
         <td><%= user.paid_dues? %></td>
         <td><%= (user.role) %></td>
 
-        <td class="actions">
-            <%= link_to("Details", {controller: :member_management, action: :show, id: user.id}, method: :get, :class => 'btn btn-primary') %>
-
+        <td>
+            <%= link_to("", {controller: :member_management, action: :show, id: user.id}, method: :get, :class => 'fa fa-info-circle fa-lg') %>
+        </td>
+            <td class="actions">
             <% unless user.confirmed? %>
             	<%= link_to("Confirm", {controller: :member_management, action: :confirm, id: user.id}, method: :patch, :class => 'btn btn-success') %>
             <% end %>
