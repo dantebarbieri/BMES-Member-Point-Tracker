@@ -12,9 +12,6 @@ class SignupController < ApplicationController
   end
 
   def create
-    puts session[:app_user]
-    puts session[:app_user][:email]
-    puts session[:app_user]['email']
     @member = Member.new(member_params)
     @member.email = session[:app_user]['email']
     @member.uid = session[:app_user]['uid']
