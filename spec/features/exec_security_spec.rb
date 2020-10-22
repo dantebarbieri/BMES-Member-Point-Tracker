@@ -54,9 +54,4 @@ describe 'Exec Pages allow Execs' do
   end
 
 
-  it 'Allows access to admins/i' do
-    visit '/admins/1'
-    expect(page).to have_content 'Admin Details'
-  end
-
 end
