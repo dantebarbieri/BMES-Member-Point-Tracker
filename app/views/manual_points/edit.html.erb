@@ -12,21 +12,29 @@
 			<td><%= f.number_field(:points, :step => 0.01) %></td>
 		</tr>
 		<tr>
-            <th>Category</th>
-            <td><%= f.select(:reason, [["Miscellaneous", "miscellaneous"], ["Volunteer", "volunteer"], ["Transfer Old", "transfer_old"]]) %></td>
-        </tr>
-        <tr>
-            <th>Reason</th>
-            <td><%= f.text_area(:reason_message) %></td>
-        </tr>
+				<th>Category</th>
+				<td><%= f.select(:reason, [["Miscellaneous", "miscellaneous"], ["Volunteer", "volunteer"], ["Transfer Old", "transfer_old"]]) %></td>
+		</tr>
 		<tr>
-		<th>Member</th>
-		<% members= Array.new %>
-		<% @members.each do |m| %>
-			<% members << [m.name + ' (' + m.email + ')', m.id] %>
-		<% end %>
-		<td><%= f.select(:member_id, members) %></td>
-	</tr>
+				<th>Reason</th>
+				<td><%= f.text_area(:reason_message) %></td>
+		</tr>
+		<tr>
+			<th>Member</th>
+			<% members= Array.new %>
+			<% @members.each do |m| %>
+				<% members << [m.name + ' (' + m.email + ')', m.id] %>
+			<% end %>
+			<td><%= f.select(:member_id, members) %></td>
+		</tr>
+		<tr>
+				<th>Semester</th>
+				<% semesters = Array.new %>
+				<% @semesters.each do |s| %>
+						<% semesters << ["#{s.name} (#{s.dates.begin} – #{s.dates.end})".encode('utf-8'), s.id] %>
+				<% end %>
+				<td><span><%= f.select(:semester_id, semesters) %></td>
+		</tr>
 	</table>
 
 	<%= f.submit("Update Manual Points", :class => "btn btn-primary") %>
