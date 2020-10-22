@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_08_233901) do
+ActiveRecord::Schema.define(version: 2020_10_19_215651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,13 +54,15 @@ ActiveRecord::Schema.define(version: 2020_10_08_233901) do
   end
 
   create_table "manual_points", force: :cascade do |t|
+    t.bigint "member_id"
     t.decimal "points", default: "0.0"
     t.text "reason_message"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "member_id"
     t.integer "reason"
+    t.bigint "semester_id"
     t.index ["member_id"], name: "index_manual_points_on_member_id"
+    t.index ["semester_id"], name: "index_manual_points_on_semester_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -97,4 +99,5 @@ ActiveRecord::Schema.define(version: 2020_10_08_233901) do
   add_foreign_key "events_members", "events"
   add_foreign_key "events_members", "members"
   add_foreign_key "manual_points", "members"
+  add_foreign_key "manual_points", "semesters"
 end

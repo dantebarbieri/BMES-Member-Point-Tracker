@@ -1,0 +1,25 @@
+
+<h5><%= link_to("Back to List", manual_points_path, :class => 'back-link') %></h5>
+<div class="manual points index">
+<h3>Delete Semester Point Transfers Between <%= @from.name %> and <%= @to.name %>?</h3>
+<p><i>This will permanently undo the trabsfer between semesters</p></i>
+<table class="table" summary="Manual Points List">
+
+    <tr class="header">
+        <th>Member Info</th>
+        <th>Points</th>
+        <th>Reason</th>
+    </tr>
+    <% @manual_points.each do |manual_points| %>
+    <tr>
+        <td><%= "#{manual_points.member.name} (#{manual_points.member.email})" %></td>
+        <td><%= manual_points.points %></td>
+        <td><%= manual_points.reason_message %></td>
+    </tr>
+    <% end %>
+</table>
+
+<%= link_to("IRREVERSIBLE: Delete These Points", {controller: 'manual_points', action: 'destroy_semester_transfer', from: @from.id, to: @to.id}, method: :delete, :class => "btn btn-primary") %>
+
+<!-- <p>Find me in app/views/manual_points/index.html.erb</p> -->
+</div>
