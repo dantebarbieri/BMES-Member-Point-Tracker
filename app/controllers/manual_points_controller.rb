@@ -133,7 +133,7 @@ class ManualPointsController < ApplicationController
   private
 
   def manual_points_params
-    params.require(:manual_point).permit(:points, :reason, :reason_message, :member_id)
+    params.require(:manual_point).permit(:points, :reason, :reason_message, :member_id, :semester_id)
   end
 
   def transfer_reason(from_id, to_id)
