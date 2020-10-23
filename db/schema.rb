@@ -54,14 +54,12 @@ ActiveRecord::Schema.define(version: 2020_10_19_215651) do
   end
 
   create_table "manual_points", force: :cascade do |t|
-    t.bigint "member_id"
     t.decimal "points", default: "0.0"
     t.text "reason_message"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "reason"
     t.bigint "semester_id"
-    t.index ["member_id"], name: "index_manual_points_on_member_id"
     t.index ["semester_id"], name: "index_manual_points_on_semester_id"
   end
 
@@ -98,6 +96,5 @@ ActiveRecord::Schema.define(version: 2020_10_19_215651) do
   add_foreign_key "accomplishments_members", "semesters"
   add_foreign_key "events_members", "events"
   add_foreign_key "events_members", "members"
-  add_foreign_key "manual_points", "members"
   add_foreign_key "manual_points", "semesters"
 end

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'previous_points/index'
+  get 'previous_points/show'
   get 'accomplishments_members/index'
   get 'accomplishments_members/show'
   get 'accomplishments_members/new'

@@ -1,0 +1,19 @@
+<div class="new manual points">
+    <h3>Previous Semester Points</h3>
+    <%= form_with(scope: :index, url: '/previous_points/show', method: :post) do |f| %>
+        <table class="table" summary="Query Previous Points">
+            <% semesters = Array.new %>
+            <% @semesters.each do |s| %>
+                <% semesters << ["#{s.name} (#{s.dates.begin} – #{s.dates.end})".encode('utf-8'), s.id] %>
+            <% end %>
+            <tr>
+                <th>Previous Semester</th>
+                <td><%= f.select(:prev_semester_id, semesters) %></td>
+            </tr>
+        </table>
+        <div class="form-buttons">
+            <%= f.submit("Query Previous Points", :class => "btn btn-primary") %>
+        </div>
+
+    <% end %>
+</div>

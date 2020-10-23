@@ -1,0 +1,32 @@
+<h5><%= link_to("Back to List", points_path, :class => 'back-link') %></h5>
+
+<% @page_title = "Member Accomplishments" %>
+<div class="member accomplishment index">
+<h3>Member Accomplishments</h3>
+
+<p>
+	<strong> Accomplishment Points : </strong>
+	<%= @member.accomplishment_points(false) %>
+	<br/>
+	<strong> All Time Accomplishment Points : </strong>
+	<%= @member.accomplishment_points %>
+</p>
+
+<table class="table" summary="Member Accomplishments List">
+
+    <tr class="header">
+    <th>Name</th>
+		<th>Description</th>
+		<th>Points</th>
+		<th>When</th>
+    </tr>
+    <% @member.accomplishments.where(:semester_id == @sem_id).each do |accomplishments| %>
+    <tr>
+        <td><%= accomplishments.name %></td>
+				<td><%= accomplishments.description %></td>
+				<td><%= accomplishments.points %></td>
+				<td><%= accomplishments.created_at%></td>
+    </tr>
+    <% end %>
+</table>
+</div>
