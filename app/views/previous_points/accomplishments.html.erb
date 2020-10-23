@@ -5,27 +5,27 @@
 <h3>Member Accomplishments</h3>
 
 <p>
-	<strong> Accomplishment Points : </strong>
-	<%= @member.accomplishment_points(false) %>
-	<br/>
-	<strong> All Time Accomplishment Points : </strong>
-	<%= @member.accomplishment_points %>
+  <strong> Accomplishment Points : </strong>
+  <%= @member.accomplishment_points(false) %>
+  <br/>
+  <strong> All Time Accomplishment Points : </strong>
+  <%= @member.accomplishment_points %>
 </p>
 
 <table class="table" summary="Member Accomplishments List">
 
     <tr class="header">
     <th>Name</th>
-		<th>Description</th>
-		<th>Points</th>
-		<th>When</th>
+    <th>Description</th>
+    <th>Points</th>
+    <th>When</th>
     </tr>
     <% @member.accomplishments.where(:semester_id == @sem_id).each do |accomplishments| %>
     <tr>
         <td><%= accomplishments.name %></td>
-				<td><%= accomplishments.description %></td>
-				<td><%= accomplishments.points %></td>
-				<td><%= accomplishments.created_at%></td>
+        <td><%= accomplishments.description %></td>
+        <td><%= accomplishments.points %></td>
+        <td><%= accomplishments.created_at%></td>
     </tr>
     <% end %>
 </table>

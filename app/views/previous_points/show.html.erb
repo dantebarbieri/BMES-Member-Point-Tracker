@@ -2,14 +2,14 @@
 <p><i>Click on the table columns for a breakdown of the category.</p></i>
 
 <table class="table" summary="Point Breakdown">
-	<tr>
-		<h5><th><%= link_to 'Events Points Received', action: 'events' %></th></h5>
-		<h5><th><%= link_to 'Manual Points Received', action: 'manual_points' %></th></h5>
-		<h5><th><%= link_to 'Accomplishment Points Spent', action: 'accomplishments' %></th></h5>
-	</tr>
-	<tr>
-		<td><%= @member.attendance_points(true) %></td>
-		<td><%= @member.manual_points_received(true) %></td>
-		<td><%= @member.accomplishment_points(true) %></td>
-	</tr>
+  <tr>
+    <h5><th><%= link_to 'Events Points Received', action: 'events' %></th></h5>
+    <h5><th><%= link_to 'Manual Points Received', action: 'manual_points' %></th></h5>
+    <h5><th><%= link_to 'Accomplishment Points Spent', action: 'accomplishments' %></th></h5>
+  </tr>
+  <tr>
+    <td><%= @member.attendance_points(true) %></td>
+    <td><%= @member.manual_points_received(true) %></td>
+    <td><%= @member.accomplishment_points(true) %></td>
+  </tr>
 </table>
