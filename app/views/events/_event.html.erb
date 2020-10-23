@@ -1,0 +1,28 @@
+<tr>
+  <td><%= event.name %></td>
+  <td><%= event.date %></td>
+  <td><%= event.time.strftime("%H:%M:%S") %></td>
+  <td><%= event.event_type %></td>
+  <td><%= event.hidden %></td>
+  <td><%= event.attendance_points %></td>
+  <td>
+  <%= link_to("", event_path(event), :class => 'fa fa-info-circle fa-lg') %>
+  </td>
+  <td>
+    <%= link_to("", edit_event_path(event), :class => 'fa fa-edit fa-lg') %>
+  </td>
+  <td>
+    <%= link_to("", postpone_event_path(event), :remote => true, 
+        'data-toggle' => "modal", 'data-target' => '#modal-window', 
+        :class => 'fa fa-clock-o fa-lg') 
+    %>
+    <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content"></div>
+      </div>
+    </div>
+  </td>
+  <td>
+    <%= link_to("", delete_event_path(event), :class => 'fa fa-trash fa-lg') %>
+  </td>
+</tr>

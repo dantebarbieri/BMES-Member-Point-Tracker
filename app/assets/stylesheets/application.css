@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
 /* Modify the backgorund color */ 
 .navbar-custom { 
     background-color:#590000; 
