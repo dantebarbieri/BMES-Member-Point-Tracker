@@ -2,6 +2,7 @@
 
 class Semester < ApplicationRecord
   has_many :accomplishments_members
+  has_many :manual_points
 
   def self.in_current_semester?(date = Date.today)
     Semester.current_semester.each do |semester|
