@@ -10,17 +10,6 @@
 
 <%= render 'filter_events_form' %>
 <table class="table" summary="Events list">
-  <!--<tr>
-  <%= form_for(:search, class: 'form-inline', url: events_path, method: :get, remote: true) do |f| %>
-    <%= f.text_field :name %>
-    <%= f.text_field :date %>
-  <% end %>
-  <%= form_tag(events_path, method: :get) do %>
-    <td>
-      <%= submit_tag "Clear", class: "btn btn-primary" %>
-    </td>
-  <% end %>
-  </tr>-->
   <tr class="header">
     <th><%= sortable "name", "Name" %></th>
     <th><%= sortable "date", "Date" %></th>
@@ -31,33 +20,9 @@
     <th>Details</th>
     <th>Edit</th>
     <th>Postpone</th>
-    <!-- Postpone will eventually be a modal with buttons -->
     <th>Delete</th>
   </tr>
   <%= render @events %>
-  <!--
-  <% @events.each do |event| %>
-  <tr>
-    <td><%= event.name %></td>
-    <td><%= event.date %></td>
-    <td><%= event.time.strftime("%H:%M:%S") %></td>
-    <td><%= event.event_type %></td>
-    <td><%= event.hidden %></td>
-    <td><%= event.attendance_points %></td>
-    <td>
-    <%= link_to("", event_path(event), :class => 'fa fa-info-circle fa-lg') %>
-    </td>
-    <td>
-      <%= link_to("", edit_event_path(event), :class => 'fa fa-edit fa-lg') %>
-    </td>
-    <td>
-      <%= link_to("", postpone_event_path(event), :class => 'fa fa-clock-o fa-lg') %>
-    </td>
-    <td>
-      <%= link_to("", delete_event_path(event), :class => 'fa fa-trash fa-lg') %>
-    </td>
-  </tr>
-  <% end %>-->
 </table>
 
 <%= link_to("Add New Event", new_event_path, :class => "btn btn-primary") %>

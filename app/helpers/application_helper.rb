@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# heavily modified from: http://railscasts.com/episodes/228-sortable-table-columns?autoplay=true
+
 module ApplicationHelper
   
   # Makes titles have nifty arrows next to them if sorted

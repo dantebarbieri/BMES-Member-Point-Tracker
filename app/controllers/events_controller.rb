@@ -77,11 +77,6 @@ class EventsController < ApplicationController
   end
 
   def filter_params
-    puts params[:search][:date].to_s
-    puts params[:search][:time].to_s
-    puts params[:search][:event_type].to_s
-    puts params[:search][:hidden].to_s
-    puts "sdfsdfdsfsfds"
     params[:search].slice(:name, :date, :time, :event_type, :hidden, :attendance_points)
   end
 

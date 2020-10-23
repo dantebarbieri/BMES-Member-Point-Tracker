@@ -1,3 +1,5 @@
+# from https://www.justinweiss.com/articles/search-and-filter-rails-models-without-bloating-your-controller/
+
 module Filterable
   extend ActiveSupport::Concern
 
