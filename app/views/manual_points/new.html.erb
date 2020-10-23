@@ -1,7 +1,9 @@
-<%= link_to("<< Back to List", manual_points_path, :class => 'back-link') %>
+<h5><%= link_to("Back to List", manual_points_path, :class => 'back-link') %></h5>
 
 <div class="new manual points">
     <h3>New Manual Points</h3>
+
+    <p><i> Assigning New Manual Points to Member </p></i>
     <%= form_for(@manual_points) do |f| %>
         <table class="table" summary="Manual Points">
             <tr>
@@ -10,7 +12,7 @@
             </tr>
             <tr>
                 <th>Category</th>
-                <td><%= f.select(:reason, [["Miscellaneous", "miscellaneous"], ["Volunteer", "volunteer"], ["Transfer Old", "transfer_old"]]) %></td>
+                <td><%= f.select(:reason, :collection => ManualPoint.reasons.keys.map { |w| [w.humanize, w] }) %></td>
             </tr>
             <tr>
                 <th>Reason</th>
@@ -23,6 +25,14 @@
                     <% members << [m.name + ' (' + m.email + ')', m.id] %>
                 <% end %>
                 <td><span><%= f.select(:member_id, members) %></td>
+            </tr>
+            <tr>
+                <th>Semester</th>
+                <% semesters = Array.new %>
+                <% @semesters.each do |s| %>
+                    <% semesters << ["#{s.name} (#{s.dates.begin} – #{s.dates.end})".encode('utf-8'), s.id] %>
+                <% end %>
+                <td><span><%= f.select(:semester_id, semesters) %></td>
             </tr>
         </table>
         

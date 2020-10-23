@@ -1,6 +1,9 @@
+<h5><%= link_to("Back to List", semesters_path, :class => 'back-link') %></h5>
 <% @page_title = "Add a Semester" %>
 
 <h3>Add a Semester</h3>
+
+<p><i>Creating a new semester</p></i>
 
 <%= form_with(:model => @semester) do |f| %>
 
@@ -14,6 +17,6 @@
 	<p>End
 	<%=f.date_field(:end, class: "form-control")%></p>
 
-	<p><%= f.submit("Create Semester", :class => "btn btn-primary") %> <%= link_to "Cancel", semesters_path, class: "btn btn-secondary" %></p>
+	<p><%= f.submit("Create Semester", :class => "btn btn-primary") %></p>
 <% end %>
 <br>

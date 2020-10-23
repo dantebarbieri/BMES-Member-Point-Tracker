@@ -1,5 +1,8 @@
+<h5><%= link_to("Back to List", members_path, :class => 'back-link') %></h5>
 
 <h3>User Details</h3>
+
+<p><i> This is the page to view all the details of each member </p></i>
 
 <table class="table" summary="user details">
 
@@ -33,11 +36,3 @@
     </tr>
 
 </table>
-
-<% unless @user.confirmed? %>
-    <%= link_to("Confirm", {controller: :member_management, action: :confirm, id: @user.id}, method: :patch, :class => 'btn btn-success') %>
-<% end %>
-
-<% unless @user.is_admin? %>
-    <%= link_to("Delete", {controller: :member_management, action: :delete, id: @user.id}, method: :delete, :class => 'btn btn-danger') %>
-<% end %>

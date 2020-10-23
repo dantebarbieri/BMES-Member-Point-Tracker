@@ -1,10 +1,10 @@
-<%= link_to("<< Back to List", accomplishments_path, :class => 'back-link') %>
+<h5><%= link_to("Back to List", accomplishments_path, :class => 'back-link') %></h5>
 
 <% @page_title = "Delete" %>
 
 <h3>Delete</h3>
 
-<p>About to Delete the Following Accomplishments</p>
+<i><p>About to Delete the Following Accomplishments: <%= @accomplishments.name %></p></i>
 
 
 <table class="table">
@@ -26,7 +26,7 @@
 		<td><%= @accomplishments.is_dues %></td>
 	</tr>
 	<tr>
-		<th>Added to Database on</th>
+		<th>Created at</th>
 		<td><%= @accomplishments.created_at %></td>
 	</tr>
 	<tr>
@@ -36,6 +36,6 @@
 </table>
 
 <%= form_for(@accomplishments, :method => 'delete') do |f| %>
-	<p>Are you sure?</p>
+	<i><p>Are you sure?</p></i>
 	<%= f.submit("Delete Accomplishment", :class => "btn btn-primary") %>
 <% end %>

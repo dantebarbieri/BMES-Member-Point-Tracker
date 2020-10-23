@@ -1,9 +1,12 @@
-<%= link_to("<< Back to Event List", events_path, :class => 'btn btn-primary') %>
+<h5><%= link_to("Back to Event List", events_path, :class => 'back-link') %></h5>
 
-<% @page_title = "Event Delete" %>
+<% @page_title = "Delete Events" %>
+
+<h3>Delete</h3>
+
+<p><i>About to Delete an Event</p></i>
 
 <div class="event show">
-  <h3>Event Details</h3>
   <table class=table summary="Event details">
     <tr>
       <th>Name</th>
@@ -26,17 +29,17 @@
       <td><%= @event.attendance_points %></td>
     </tr>
     <tr>
-      <th>Created</th>
+      <th>Created at</th>
       <td><%= @event.created_at %></td>
     </tr>
     <tr>
-      <th>Updated</th>
+      <th>Last Updated on</th>
       <td><%= @event.updated_at %></td>
     </tr>
   </table>
 
   <%= form_for(@event, :method => 'delete') do |f| %>
-    <p>Are you sure you want to permanently delete this event?</p>
+    <i><p>Are you sure?</p></i>
     <div class="form-buttons">
       <%= f.submit("Delete Event", :class => "btn btn-primary") %>
     </div>

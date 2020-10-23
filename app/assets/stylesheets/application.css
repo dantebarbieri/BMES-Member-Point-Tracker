@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+/* Modify the backgorund color */ 
+.navbar-custom { 
+    background-color:#590000; 
+} 
+
+ /* Modify brand and text color */ 
+.navbar-custom .navbar-brand, 
+.navbar-custom .navbar-text { 
+    color: #D3D3D3;
+} 
