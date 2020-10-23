@@ -24,12 +24,10 @@ module ApplicationHelper
         new_direction.push("asc")
         css_class = nil
       end
-      link_to title, params.permit(:sort => [], :direction => []).merge(sort: new_sort, direction: new_direction), {:class => css_class}
+      link_to title, search_params(params.merge(sort: new_sort, direction: new_direction)), {:class => css_class}
     else
       css_class = nil
-      link_to title, params.permit(:sort => [], :direction => []).merge(sort: [column], direction: ["asc"]), {:class => css_class}
+      link_to title, search_params(params.merge(sort: [column], direction: ["asc"])), {:class => css_class}
     end
-
-    
   end
 end

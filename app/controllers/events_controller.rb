@@ -6,10 +6,14 @@ class EventsController < ApplicationController
   include ExistingUser
   include AdminSecured
 
-  helper_method :sort_column
+  helper_method :sort_column, :search_params
 
   def index
-    @events = Event.search(params).order(sort_column)
+    if params[:search].present?
+      @events = Event.filter(filter_params).order(sort_column)
+    else
+      @events = Event.order(sort_column)
+    end
   end
 
   def show
@@ -37,6 +41,10 @@ class EventsController < ApplicationController
 
   def postpone
     @event = Event.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def update
@@ -65,15 +73,32 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :date, :time, :event_type, :hidden, :attendance_points, :direction => [], :sort => [])
+    params.require(:event).permit(:name, :date, :time, :event_type, :hidden, :attendance_points)
+  end
+
+  def filter_params
+    puts params[:search][:date].to_s
+    puts params[:search][:time].to_s
+    puts params[:search][:event_type].to_s
+    puts params[:search][:hidden].to_s
+    puts "sdfsdfdsfsfds"
+    params[:search].slice(:name, :date, :time, :event_type, :hidden, :attendance_points)
+  end
+
+  # old way
+  def search_params(p)
+    p.permit(:direction => [], :sort => [], :search => {})
   end
 
   def sort_column
+    default = "date desc"
     if params.key?("sort") and params.key?("direction")
+      # prevent injection into .order
       order = params[:sort].uniq.zip(params[:direction]).select { |s, d| Event.column_names.include?(s) and %w[asc desc].include?(d) }
-      order.empty? ? "date desc" : order.map { |x,y| x + ' ' + y }.join(', ')
+      # transform to something .order can use
+      order.empty? ? default : order.map { |x,y| x + ' ' + y }.join(', ')
     else
-      "date desc"
+      default
     end
   end
 end
