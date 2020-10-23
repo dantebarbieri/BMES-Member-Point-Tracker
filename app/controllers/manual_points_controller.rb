@@ -128,6 +128,7 @@ class ManualPointsController < ApplicationController
     end
     flash[:notice] = "Transfer points successfully deleted from #{Semester.find_by_id(from).name} to #{Semester.find_by_id(to).name}"
     redirect_to(manual_points_path)
+  end
 
   private
 
