@@ -1,3 +1,31 @@
 // Place all the styles related to the login controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.btn-primary:hover {
+    background-color: #590000; 
+    border-color: #590000
+}
+.back-link:hover {
+    color: #590000;  
+}
+
+.fa-info-circle:hover {
+    color: #590000;
+}
+
+.fa-edit:hover {
+    color: #590000;
+}
+
+.fa-trash:hover {
+    color: #590000;
+}
+.btn-success:hover {
+    background-color: #228B22;
+    border-color: #228B22;
+}
+
+.btn-danger:hover {
+    background-color: #B22222;
+    border-color: #B22222;
+}

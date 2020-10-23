@@ -14,19 +14,13 @@
  *= require_self
  */
 
- /* Bootstrap colors for FontAwesome icons */
-.fa {
-	color: rgb(2, 117, 216);
-}
-.fa-clock-o {
-  color: rgb(240, 173, 78)
-}
-.fa-info-circle {
-  color: rgb(91, 192, 222)
-}
-.fa-edit {
-  color: rgb(91, 192, 222)
-}
-.fa-trash {
-	color: rgb(217, 83, 79);
-}
+/* Modify the backgorund color */ 
+.navbar-custom { 
+    background-color:#590000; 
+} 
+
+ /* Modify brand and text color */ 
+.navbar-custom .navbar-brand, 
+.navbar-custom .navbar-text { 
+    color: #D3D3D3;
+} 

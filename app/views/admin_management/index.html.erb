@@ -1,6 +1,8 @@
 
 <h3>Admin Management</h3>
 
+<p><i> This is the admin management page to view details of each admin as well as grant and revoke access. Only executive admins have access to this.</p></i>
+
 <table class="table" summary="user list">
 
     <tr class="header">
@@ -10,6 +12,7 @@
         <th>Points</th>
         <th>Dues Paid</th>
         <th>Role</th>
+        <th>Details</th>
         <th>Actions</th>
     </tr>
     <% @users.each do |user| %>
@@ -20,10 +23,10 @@
         <td><%= user.total_points %></td>
         <td><%= user.paid_dues? %></td>
         <td><%= (user.role) %></td>
-
+        <td>
+            <%= link_to("", {controller: :admin_management, action: :show, id: user.id}, :class => 'fa fa-info-circle fa-lg') %>
+        </td>
         <td class="actions">
-            <%= link_to("Details", {controller: :admin_management, action: :show, id: user.id}, :class => 'btn btn-primary') %>
-
             <% unless user.is_admin? %>
             	<%= link_to("Grant Admin", {controller: :admin_management, action: :grant, id: user.id}, method: :patch, :class => 'btn btn-success') %>
             <% end %>

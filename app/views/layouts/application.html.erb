@@ -15,57 +15,58 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+   
   </head>
 
-  <body>
+  <body style="background-color:#C0C0C0;">
     <div class="container">
       <h1>BMES Point Tracker</h1>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <%= link_to "Home", root_path, class: 'navbar-brand'%>
+
+      <nav class="navbar navbar-expand-lg navbar-custom navbar-custom">
+        <%= link_to "Home", root_path, class: 'navbar-text'%>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
+          <div class="navbar-nav" >
             <% if @member and @member.is_admin? %>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="accomp_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accomplishments</a>
-                <div class="dropdown-menu" aria-labelledby="accomp_dropdown">
-                  <%= link_to "Create Accomplishments", "/accomplishments", class: 'nav-item nav-link'%>
-                  <%= link_to "Assign Accomplishments", "/accomplishments_members", class: 'nav-item nav-link'%>
+              <li class="nav-item dropdown" >
+                <a class="nav-link navbar-text dropdown-toggle" href="#" id="accomp_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accomplishments</a>
+                <div class="dropdown-menu navbar-custom" aria-labelledby="accomp_dropdown">
+                  <%= link_to "Create Accomplishments", "/accomplishments", class: 'nav-item nav-link navbar-text'%>
+                  <%= link_to "Assign Accomplishments", "/accomplishments_members", class: 'nav-item nav-link navbar-text'%>
               </div>
               </li>
               
-              <%= link_to "Manual Points", "/manual_points", class: 'nav-item nav-link'%>
-              <%= link_to "Events", "/events", class: 'nav-item nav-link'%>
-              <%= link_to "Semesters", semesters_path, class: 'nav-item nav-link'%>
+              <%= link_to "Manual Points", "/manual_points", class: 'nav-item nav-link navbar-text'%>
+              <%= link_to "Events", "/events", class: 'nav-item nav-link navbar-text'%>
+              <%= link_to "Semesters", semesters_path, class: 'nav-item nav-link navbar-text'%>
 
-              <%= link_to "Members", "/members" , class: 'nav-item nav-link'%>
+              <%= link_to "Members", "/members" , class: 'nav-item nav-link navbar-text'%>
 
               <% if @member.executive_admin? %>
-                <%= link_to "Admins", "/admins" , class: 'nav-item nav-link'%>
+                <%= link_to "Admins", "/admins" , class: 'nav-item nav-link navbar-text'%>
               <% end %>
 
             <% end %>
 
             <% if @member %>
-              <%= link_to "Profile", profile_path, class: 'nav-item nav-link'%>
-              <%= link_to "Dashboard", "/dashboard", class: 'nav-item nav-link'%>
+              <%= link_to "Profile", profile_path, class: 'nav-item nav-link navbar-text'%>
+              <%= link_to "Dashboard", "/dashboard", class: 'nav-item nav-link navbar-text'%>
               <% if @member.paid_dues? %>
-                <%= link_to "Point Breakdown", "/points", class: 'nav-item nav-link'%>
+                <%= link_to "Point Breakdown", "/points", class: 'nav-item nav-link navbar-text'%>
               <% end %>
-              <%= link_to "Upcoming Events", "/upcoming_events", class: 'nav-item nav-link' %>
-              <%= link_to "Log Out", "/logout", class: 'nav-item nav-link'%>
+              <%= link_to "Upcoming Events", "/upcoming_events", class: 'nav-item nav-link navbar-text' %>
+              <%= link_to "Log Out", "/logout", class: 'nav-item nav-link navbar-text'%>
             <% end %>
 
             <% unless @member %>
-              <%= link_to "Log In", "auth/auth0", method: :post, class: 'nav-item nav-link'%>
+              <%= link_to "Log In", "auth/auth0", method: :post, class: 'nav-item nav-link navbar-text'%>
 
             <% end %>
           </div>
         </div>
-
       </nav>
       <br>
       <% flash.each do |type, msg| %>

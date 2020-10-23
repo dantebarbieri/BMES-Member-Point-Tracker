@@ -1,12 +1,10 @@
-<%= link_to dashboard_path do %>
-	<i class="fa fa-home fa-3x"></i>
-<% end %>
+<h5><%= link_to("Back to List", semesters_path, :class => 'back-link') %></h5>
 
 <% @page_title = "Delete" %>
 
 <h3>Delete</h3>
 
-<p>About to Delete the Following Semester:</p>
+<i><p>About to Delete the Following Semester</p></i>
 
 <table class="table">
 	<tr>
@@ -24,6 +22,6 @@
 </table>
 
 <%= form_for(@semester, :method => 'delete') do |f| %>
-	<p>Are you sure?</p>
+	<p><i>Are you sure?</p></i>
 	<%= f.submit("Delete Semester", :class => "btn btn-primary") %>
 <% end %>
