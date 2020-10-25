@@ -1,0 +1,28 @@
+<h5><%= link_to("Back to List", manual_points_path, :class => 'back-link') %></h5>
+
+<div class="new manual points">
+    <h3>Delete Semester Transfer Points</h3>
+    <p><i> This will undo the points transfer you did</p></i>
+    <%= form_with(scope: :semester_transfer, url: '/manual_points/confirm_delete_semester_transfer', method: :post) do |f| %>
+        <table class="table" summary="Manual Points">
+            <% semesters = Array.new %>
+            <% @semesters.each do |s| %>
+                <% semesters << ["#{s.name} (#{s.dates.begin} – #{s.dates.end})".encode('utf-8'), s.id] %>
+            <% end %>
+            <tr>
+                <th>From Semester</th>
+                <td><%= f.select(:from_semester_id, semesters) %></td>
+            </tr>
+            <tr>
+                <th>To Semester</th>
+                <td><%= f.select(:to_semester_id, semesters) %></td>
+            </tr>
+        </table>
+        <div class="form-buttons">
+            <%= f.submit("Delete Semester Transfer", :class => "btn btn-primary") %>
+        </div>
+        
+    <% end %>
+</div>
+
+<!-- <p>Find me in app/views/manual_points/new.html.erb</p> -->

@@ -1,7 +1,8 @@
-<%= link_to("<< Back to List", accomplishments_members_path, :class => 'back-link') %>
+<h5><%= link_to("Back to List", accomplishments_members_path, :class => 'back-link') %></h5>
 
 <div class="new accomplishments_members">
-    <h3>Assign Accomplishments to Members</h3>
+    <h3>New</h3>
+    <i><p>Assign New Accomplishment to Member</p></i>
     <%= form_for(@accomplishments_member) do |f| %>
         <table class="table" summary="Accomplishments & Members">
             <tr>

@@ -1,6 +1,8 @@
+<h5><%= link_to("Back to List", admins_path, :class => 'back-link') %></h5>
 
 <h3>Admin Details</h3>
 
+<p><i> This shows the details of each admins </p></i>
 <table class="table" summary="user details">
 
     <tr class="header">
@@ -34,10 +36,4 @@
 
 </table>
 
-<% unless @user.is_admin? %>
-    <%= link_to("Grant Admin", {controller: :admin_management, action: :grant, id: @user.id}, method: :patch, :class => 'btn btn-success') %>
-<% end %>
 
-<% if @user.admin? %>
-    <%= link_to("Revoke Admin", {controller: :admin_management, action: :revoke, id: @user.id}, method: :patch, :class => 'btn btn-danger') %>
-<% end %>

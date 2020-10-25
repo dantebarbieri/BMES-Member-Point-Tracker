@@ -6,7 +6,7 @@ class AccomplishmentsController < ApplicationController
   include AdminSecured
 
   def index
-    @accomplishments = Accomplishment.order(:name, :is_dues)
+    @accomplishments = Accomplishment.order(is_dues: :desc, name: :asc)
   end
 
   def new

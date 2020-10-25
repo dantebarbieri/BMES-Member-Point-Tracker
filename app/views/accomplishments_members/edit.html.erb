@@ -1,7 +1,8 @@
-<%= link_to("<< Back to List", accomplishments_members_path, :class => 'back-link') %>
+<h5><%= link_to("Back to List", accomplishments_members_path, :class => 'back-link') %></h5>
 
 <div class="edit accomplishments_members">
-    <h3>Updating Assignment of Accomplishments to Members</h3>
+    <h3>Update</h3>
+    <i><p>Updating Accomplishment</p></i>
     <%= form_for(@accomplishments_member) do |f| %>
         <table class="table" summary="Accomplishments & Members">
             <tr>
@@ -31,7 +32,7 @@
         </table>
         
         <div class="form-buttons">
-            <%= f.submit("Change Accomplishment given to Member", :class => "btn btn-primary") %>
+            <%= f.submit("Update #{@accomplishments_member.accomplishment.name} for #{@accomplishments_member.member.name}", :class => "btn btn-primary") %>
 
         </div>
         

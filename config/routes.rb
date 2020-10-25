@@ -27,6 +27,13 @@ Rails.application.routes.draw do
     end
   end
 
+  post 'manual_points/create_semester_transfer' => 'manual_points#create_semester_transfer'
+  get 'manual_points/semester_transfer' => 'manual_points#semester_transfer'
+  get 'manual_points/delete_semester_transfer' => 'manual_points#delete_semester_transfer'
+  delete 'manual_points/destroy_semester_transfer' => 'manual_points#destroy_semester_transfer'
+  post 'manual_points/confirm_delete_semester_transfer' => 'manual_points#redirect_confirm_delete_semester_transfer'
+  get 'manual_points/confirm_delete_semester_transfer/:from/:to' => 'manual_points#confirm_delete_semester_transfer'
+
   resources :manual_points do
     member do
       get :delete
