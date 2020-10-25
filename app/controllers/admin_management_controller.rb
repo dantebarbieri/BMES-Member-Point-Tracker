@@ -1,6 +1,7 @@
 class AdminManagementController < ApplicationController
-	include Secured
+  include Secured
   include ExistingUser
+  include AdminSecured
   include ExecutiveSecured
 
 	def index
