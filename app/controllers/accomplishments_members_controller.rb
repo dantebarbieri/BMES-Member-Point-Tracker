@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AccomplishmentsMembersController < ApplicationController
   include Secured
   include ExistingUser
@@ -48,7 +50,7 @@ class AccomplishmentsMembersController < ApplicationController
   def delete
     @accomplishments_member = AccomplishmentsMember.find(params[:id])
   end
-  
+
   def destroy
     @accomplishments_member = AccomplishmentsMember.find(params[:id])
     @accomplishments_member.destroy

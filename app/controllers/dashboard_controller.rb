@@ -6,7 +6,7 @@ class DashboardController < ApplicationController
   include ExistingUser
 
   def show
-    #@member = Member.find_by_email(session[:app_user]['email'])
+    # @member = Member.find_by_email(session[:app_user]['email'])
     @member = Member.find_by_uid(session[:app_user]['uid'])
     @name = @member.name
     @dues_paid = @member.paid_dues?

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 # This spec tests to ensure non-logged in users
-# are pushed away from protected pages. 
+# are pushed away from protected pages.
 require 'rails_helper'
 
 describe '/events requires login' do
@@ -148,4 +150,3 @@ describe '/upcoming_events/show requires login' do
     expect(page).to have_content 'You must log in to access the selected feature.'
   end
 end
-

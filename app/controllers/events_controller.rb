@@ -9,11 +9,11 @@ class EventsController < ApplicationController
   helper_method :sort_column, :search_params
 
   def index
-    if params[:search].present?
-      @events = Event.filter(filter_params).order(sort_column)
-    else
-      @events = Event.order(sort_column)
-    end
+    @events = if params[:search].present?
+                Event.filter(filter_params).order(sort_column)
+              else
+                Event.order(sort_column)
+              end
   end
 
   def show
@@ -82,16 +82,16 @@ class EventsController < ApplicationController
 
   # old way
   def search_params(p)
-    p.permit(:direction => [], :sort => [], :search => {})
+    p.permit(direction: [], sort: [], search: {})
   end
 
   def sort_column
-    default = "date desc"
-    if params.key?("sort") and params.key?("direction")
+    default = 'date desc'
+    if params.key?('sort') && params.key?('direction')
       # prevent injection into .order
       order = params[:sort].uniq.zip(params[:direction]).select { |s, d| Event.column_names.include?(s) and %w[asc desc].include?(d) }
       # transform to something .order can use
-      order.empty? ? default : order.map { |x,y| x + ' ' + y }.join(', ')
+      order.empty? ? default : order.map { |x, y| x + ' ' + y }.join(', ')
     else
       default
     end

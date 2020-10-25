@@ -1,11 +1,12 @@
-# This spec tests to ensure non-exec users
-# are pushed away from protected pages. 
-require 'rails_helper'
+# frozen_string_literal: true
 
+# This spec tests to ensure non-exec users
+# are pushed away from protected pages.
+require 'rails_helper'
 
 describe 'Exec Pages are Protected' do
   before :each do
-    user = {'name' => 'New Admin', 'email' => 'admin@user.com', 'uid' => 'user|3', 'kicked_out' => false}
+    user = { 'name' => 'New Admin', 'email' => 'admin@user.com', 'uid' => 'user|3', 'kicked_out' => false }
     page.set_rack_session(userinfo: user)
     page.set_rack_session(app_user: user)
 
@@ -18,23 +19,20 @@ describe 'Exec Pages are Protected' do
     member.save
   end
 
-
   it 'Denies access to admins' do
     visit '/admins'
     expect(page).to have_content 'You are not an executive.'
   end
 
-
   it 'Denies access to admins/i' do
     visit '/admins/1'
     expect(page).to have_content 'You are not an executive.'
   end
-
 end
 
 describe 'Exec Pages allow Execs' do
   before :each do
-    user = {'name' => 'New Exec', 'email' => 'exec@user.com', 'uid' => 'user|4', 'kicked_out' => false}
+    user = { 'name' => 'New Exec', 'email' => 'exec@user.com', 'uid' => 'user|4', 'kicked_out' => false }
     page.set_rack_session(userinfo: user)
     page.set_rack_session(app_user: user)
 
@@ -47,11 +45,8 @@ describe 'Exec Pages allow Execs' do
     member.save
   end
 
-
   it 'Allows access to admins' do
     visit '/admins'
     expect(page).to have_content 'Admin Management'
   end
-
-
 end
