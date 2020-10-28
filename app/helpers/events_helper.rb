@@ -2,33 +2,26 @@
 
 module EventsHelper
   def name_from_search_params
-    if params[:search].present?
-      params[:search][:name]
-    end
+    params[:search][:name] if params[:search].present?
   end
+
   def date_from_search_params
-    if params[:search].present?
-      params[:search][:date]
-    end
+    params[:search][:date] if params[:search].present?
   end
+
   def time_from_search_params
-    if params[:search].present?
-      params[:search][:time]
-    end
+    params[:search][:time] if params[:search].present?
   end
+
   def hidden_from_search_params
-    if params[:search].present?
-      params[:search][:hidden]
-    end
+    params[:search][:hidden] if params[:search].present?
   end
+
   def event_type_from_search_params
-    if params[:search].present?
-      params[:search][:event_type]
-    end
+    params[:search][:event_type] if params[:search].present?
   end
+
   def attendance_points_from_search_params
-    if params[:search].present?
-      params[:search][:attendance_points]
-    end
+    params[:search][:attendance_points] if params[:search].present?
   end
 end

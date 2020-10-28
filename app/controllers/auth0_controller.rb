@@ -13,7 +13,7 @@ class Auth0Controller < ApplicationController
     @name = @user_info['name']
     @email = @user_info['email']
 
-    session[:app_user] = { 'name' => @name, 'email' => @email, 'uid' => @uid, 'kicked_out' => false}
+    session[:app_user] = { 'name' => @name, 'email' => @email, 'uid' => @uid, 'kicked_out' => false }
 
     redirect_to '/dashboard'
   end

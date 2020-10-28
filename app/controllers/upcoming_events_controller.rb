@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UpcomingEventsController < ApplicationController
   include Secured
   include ExistingUser
