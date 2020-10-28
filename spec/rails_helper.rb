@@ -65,7 +65,6 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include Capybara::DSL
-
 end
 
 Capybara.default_driver = :selenium_chrome

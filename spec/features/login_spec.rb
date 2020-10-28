@@ -1,18 +1,19 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
-feature "Signup" do
-
-  scenario "logged in user can access signup page" do
-    user = {'name' => 'New User', 'email' => 'new@user.com', 'uid' => 'user|1', 'kicked_out' => false}
+feature 'Signup' do
+  scenario 'logged in user can access signup page' do
+    user = { 'name' => 'New User', 'email' => 'new@user.com', 'uid' => 'user|1', 'kicked_out' => false }
     page.set_rack_session(userinfo: user)
     page.set_rack_session(app_user: user)
     visit '/dashboard'
-    #visit "/signup"
-    expect(page).to have_content("You still need to sign up!")
+    # visit "/signup"
+    expect(page).to have_content('You still need to sign up!')
   end
 
-  scenario "Logged in user can fill out signup form." do
-    user = {'name' => 'New User', 'email' => 'new@user.com', 'uid' => 'user|1', 'kicked_out' => false}
+  scenario 'Logged in user can fill out signup form.' do
+    user = { 'name' => 'New User', 'email' => 'new@user.com', 'uid' => 'user|1', 'kicked_out' => false }
     page.set_rack_session(userinfo: user)
     page.set_rack_session(app_user: user)
 
@@ -20,7 +21,6 @@ feature "Signup" do
 
     fill_in 'member_name', with: 'New User Name'
     click_on 'Save Member'
-    expect(page).to have_content("Welcome, New User Name")
+    expect(page).to have_content('Welcome, New User Name')
   end
-
 end
