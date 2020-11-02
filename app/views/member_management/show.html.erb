@@ -23,16 +23,28 @@
         <td><%=@user.class_year %></td>
     </tr>
     <tr>
-        <th>Total Points</th>
-        <td><%=@user.total_points %></td>
+        <th>Role</th>
+        <td><%=@user.role %></td>
     </tr>
     <tr>
         <th>Dues Paid?</th>
         <td><%=@user.paid_dues? %></td>
     </tr>
     <tr>
-        <th>Role</th>
-        <td><%=@user.role %></td>
+        <th>Total Points</th>
+        <td><%=@user.total_points %></td>
+    </tr>
+    <tr>
+        <th>Accomplishment Points</th>
+        <td><%=@user.accomplishment_points %></td>
+    </tr>
+    <tr>
+        <th>Attendance Points</th>
+        <td><%=@user.attendance_points %></td>
+    </tr>
+    <tr>
+        <th>Manually Assigned Points</th>
+        <td><%=@user.manual_points_received %></td>
     </tr>
 
 </table>
