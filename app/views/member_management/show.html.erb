@@ -36,15 +36,16 @@
     </tr>
     <tr>
         <th>Accomplishment Points</th>
-        <td><%=@user.accomplishment_points %></td>
+        <td><%=@user.accomplishment_points %>  <%= link_to("(Details)", {controller: :member_management, action: :show_accomplishments, id: @user.id}, method: :get) %></td>
     </tr>
     <tr>
         <th>Attendance Points</th>
-        <td><%=@user.attendance_points %></td>
+        <td><%=@user.attendance_points %>  <%= link_to("(Details)", {controller: :member_management, action: :show_event_attendance, id: @user.id}, method: :get) %></td>
     </tr>
     <tr>
         <th>Manually Assigned Points</th>
-        <td><%=@user.manual_points_received %></td>
+        <td><%=@user.manual_points_received %>  <%= link_to("(Details)", {controller: :member_management, action: :show_manual_points, id: @user.id}, method: :get) %></td>
     </tr>
 
 </table>
+

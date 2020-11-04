@@ -81,6 +81,9 @@ Rails.application.routes.draw do
   get 'members' => 'member_management#index'
 
   get 'members/:id' => 'member_management#show'
+  get 'members/event_attendance/:id' => 'member_management#show_event_attendance'
+  get 'members/manual_points/:id' => 'member_management#show_manual_points'
+  get 'members/accomplishments/:id' => 'member_management#show_accomplishments'
   patch 'members/confirm/:id' => 'member_management#confirm'
   delete 'members/delete/:id' => 'member_management#delete'
 

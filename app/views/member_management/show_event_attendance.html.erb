@@ -1,0 +1,44 @@
+<h5><%= link_to("Back to Member Details", {controller: :member_management, action: :show, id: @member.id}, method: :get) %></h5>
+
+<% @page_title = "Attendance Points" %>
+<div class="member accomplishment index">
+<h3>Member Attendance to Events Points</h3>
+
+<p><i> Shows all the points you have earned by attending events </p></i>
+
+<p>
+	<strong> Events Points : </strong>
+	<%= @member.attendance_points(false) %>
+	<br/>
+	<strong> All Time Event Points : </strong>
+	<%= @member.accomplishment_points %>
+</p>
+
+<table class="table" summary="Member Events List">
+
+    <tr class="header">
+      <th>Name</th>
+			<th>Points</th>
+			<th>Date</th>
+			<th>Time</th>
+			<th>Type</th>
+			<th>Details</th>
+    </tr>
+    <% @member.events.each do |event| %>
+    <tr>
+			<td><%= event.name %></td>
+			<td><%= event.attendance_points %></td>
+			<td><%= event.date %></td>
+			<td>
+				<% if event.time %>
+					<%= event.time %>
+				<% else %>
+					<%= 'All Day' %>
+				<% end %>
+			</td>
+			<td><%= event.type %></td>
+			<td><%= link_to "", controller: :memberevents, id: event.id, :class => 'fa fa-info-circle fa-lg'%></td>
+    </tr>
+    <% end %>
+</table>
+</div>
