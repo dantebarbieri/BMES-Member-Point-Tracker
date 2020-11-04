@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 # This spec tests to ensure semesters point transfers can occur
 require 'rails_helper'
 
-
 describe 'Semester Point Transfer Features' do
   before :each do
-    user = {'name' => 'New Admin', 'email' => 'admin@user.com', 'uid' => 'user|3', 'kicked_out' => false}
+    user = { 'name' => 'New Admin', 'email' => 'admin@user.com', 'uid' => 'user|3', 'kicked_out' => false }
     page.set_rack_session(userinfo: user)
     page.set_rack_session(app_user: user)
 
@@ -28,6 +29,4 @@ describe 'Semester Point Transfer Features' do
     click_on 'Undo Transfer Points Between Semester'
     expect(page).to have_content 'Delete Semester Transfer Points'
   end
-
-
 end
