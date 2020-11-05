@@ -30,7 +30,7 @@ class Member < ApplicationRecord
 
     total = 0
     events.each do |event|
-      total += event.attendance_points if Semester.in_current_semester?(event.date)
+      total += event.attendance_points if Semester.in_current_semester?(event.start_time.to_date)
     end
     total
   end
@@ -39,12 +39,9 @@ class Member < ApplicationRecord
     return accomplishments.sum(:points) unless current_semester
 
     total = 0
-    semesters = []
-    Semester.current_semester.each do |semester|
-      semesters << semester.id
-    end
+    semester_id = Semester.current_semester.id
     accomplishments_members.each do |accomplishment_member|
-      total += accomplishment_member.accomplishment.points if semesters.include? accomplishment_member.semester_id
+      total += accomplishment_member.accomplishment.points if semester_id == accomplishment_member.semester_id
     end
     total
   end
