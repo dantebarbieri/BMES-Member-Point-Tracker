@@ -1,4 +1,4 @@
-<h5><%= link_to("Back to List", previous_points_path, :class => 'back-link') %></h5>
+<h5><%= link_to("Back to List", {controller: :previous_points, action: :show, id: @sem_id}, :class => 'back-link') %></h5>
 
 <% @page_title = "Member Accomplishments" %>
 <div class="member accomplishment index">
