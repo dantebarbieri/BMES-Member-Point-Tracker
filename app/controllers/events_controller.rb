@@ -27,7 +27,10 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
+    ep = event_params
+    ep[:participation_tracker_id] = nil
+    puts ep
+    @event = Event.new(ep)
     if @event.save
       flash[:notice] = 'Event Created Successfully'
       redirect_to(events_path)
