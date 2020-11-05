@@ -23,7 +23,7 @@
 		<th>Type</th>
 		<th>Details</th>
 	</tr>
-	<% @member.events.where(@curr_semester.dates === :start_time).each do |event| %>
+	<% @member.events.where(start_time: @curr_semester.dates).each do |event| %>
 	<tr>
 		<td><%= event.name %></td>
 		<td><%= event.attendance_points %></td>
