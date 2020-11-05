@@ -16,12 +16,8 @@
         <td><%= f.text_field(:name) %></td>
       </tr>
       <tr>
-        <th>Date</th>
-        <td><%= f.date_select(:date) %></td>
-      </tr>
-      <tr>
-        <th>Time</th>
-        <td><%= f.time_select(:time) %></td>
+        <th>Start Time</th>
+        <td><%= f.datetime_field(:start_time) %></td>
       </tr>
       <tr>
         <th>Type</th>
@@ -35,6 +31,10 @@
       <tr>
         <th>Attendance Points</th>
         <td><%= f.number_field(:attendance_points, in: 0.0..1000.0, step: 0.001) %></td>
+      </tr>
+      <tr>
+        <th>Participation Tracker Id</th>
+        <td><%= f.number_field(:participation_tracker_id, step: 1) %></td>
       </tr>
     </table>
 

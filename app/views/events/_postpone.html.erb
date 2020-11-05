@@ -6,8 +6,7 @@
   <%= form_for(@event, :url => event_path(@event), :method => 'patch') do |f| %>
     <table class=table summary="Event details">
       <tr>
-        <td><%= f.date_field(:date, min: @event.date) %></td>
-        <td><%= f.time_field(:time) %></td>
+        <td><%= f.datetime_field(:start_time, min: @event.start_time) %></td>
       </tr>
     </table>
     <div class="form-buttons">
