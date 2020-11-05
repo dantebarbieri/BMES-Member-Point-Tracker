@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   get 'upcoming_events' => 'upcoming_events#show'
   get 'upcoming_events/show'
   get 'memberevents/index'
-
+  get 'accomplishments_members/download' => 'accomplishments_members#download'
+  get 'member_management/download' => 'member_management#download'
+  get 'events/download' => 'events#download'
   root 'home#show'
 
   get 'home/show'
