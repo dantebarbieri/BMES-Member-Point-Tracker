@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'about' => 'about#index'
   get 'accomplishments_members/index'
   get 'accomplishments_members/show'
   get 'accomplishments_members/new'

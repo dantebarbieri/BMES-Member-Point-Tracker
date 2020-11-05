@@ -5,17 +5,11 @@ class Semester < ApplicationRecord
   has_many :manual_points
 
   def self.in_current_semester?(date = Date.today)
-    Semester.current_semester.each do |semester|
-      case date
-      when semester.dates
-        return true
-      end
-    end
-    false
+    Semester.current_semester.dates.include?(date)
   end
 
   def self.current_semester
-    Semester.get_semesters(Date.today)
+    Semester.get_semesters(Date.today).first
   end
 
   def self.get_semesters(date)
