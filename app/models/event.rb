@@ -8,7 +8,6 @@ class Event < ApplicationRecord
   validates :start_time, presence: true
   validates :event_type, presence: true
   validates :attendance_points, numericality: true, presence: true
-  validates :participation_tracker_id, numericality: true
   enum event_type: { general: 0, mentorship: 10, socials: 20 }
 
   scope :filter_by_name, ->(name) { where('lower(name) LIKE :name', name: "%#{name.downcase}%") }
