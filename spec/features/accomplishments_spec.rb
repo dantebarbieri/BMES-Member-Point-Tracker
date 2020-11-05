@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 # This spec tests to ensure accomplishments can be created and deleted
 require 'rails_helper'
 
-
 describe 'Accomplishments CRUD Features' do
   before :each do
-    user = {'name' => 'New Admin', 'email' => 'admin@user.com', 'uid' => 'user|3', 'kicked_out' => false}
+    user = { 'name' => 'New Admin', 'email' => 'admin@user.com', 'uid' => 'user|3', 'kicked_out' => false }
     page.set_rack_session(userinfo: user)
     page.set_rack_session(app_user: user)
 
@@ -32,10 +33,8 @@ describe 'Accomplishments CRUD Features' do
     fill_in 'accomplishment_points', with: '10.0'
     click_on('Create Accomplishment')
 
-
     click_on(class: 'fa fa-trash fa-lg')
     click_on('Delete Accomplishment')
     expect(page).to have_content 'Destroyed Successfully'
   end
-
 end

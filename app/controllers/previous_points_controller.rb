@@ -15,8 +15,8 @@ class PreviousPointsController < ApplicationController
     points_valid_member
   end
   def events
-    @curr_semester = Semester.where(:semester_id == @sem_id)
     points_valid_member
+    @curr_semester = Semester.find_by_id(@sem_id)
   end
 
   def manual_points
@@ -29,9 +29,9 @@ class PreviousPointsController < ApplicationController
 
   def select_semester
     sem_id = params[:index][:prev_semester_id]
-    puts sem_id
     redirect_to("/previous_points/show/#{sem_id}")
   end
+
   def points_valid_member
     @member = Member.find_by_uid(session[:app_user]['uid'])
     @sem_id = params[:id]

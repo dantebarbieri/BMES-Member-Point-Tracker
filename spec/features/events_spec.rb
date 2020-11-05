@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 # This spec tests to ensure events can be created and deleted
 require 'rails_helper'
 
-
 describe 'Events CRUD Features' do
   before :each do
-    user = {'name' => 'New Admin', 'email' => 'admin@user.com', 'uid' => 'user|3', 'kicked_out' => false}
+    user = { 'name' => 'New Admin', 'email' => 'admin@user.com', 'uid' => 'user|3', 'kicked_out' => false }
     page.set_rack_session(userinfo: user)
     page.set_rack_session(app_user: user)
 
@@ -33,5 +34,4 @@ describe 'Events CRUD Features' do
     click_on('Delete Event')
     expect(page).to have_content 'Event Destroyed Successfully'
   end
-
 end

@@ -1,12 +1,10 @@
 
 <% @page_title = "Event List" %>
 
-<!--<% content_for(:body_attributes) do %>
-  data-turbolinks="false"
-<% end %>-->
-
 <div class="events index">
 <h3>Events</h3>
+
+<p><i>This is the event management page where you can view details and delete events. Only admins have access to this.</i></p>
 
 <%= render 'filter_events_form' %>
 <table class="table" summary="Events list">

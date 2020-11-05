@@ -3,4 +3,6 @@
 <p>This system is a point tracker for BMES. You will be able to view your accomplishments and what you have spent them on,
 the points you have been alloted, and upcoming events as well. This will be 
 viewed on a per semester basis.</p>
-<p><h5><i>Login to view your stats.</p></h5></i>
+<% unless @member %>
+  <p><h5><i>Login to view your stats.</p></h5></i>
+<% end %>

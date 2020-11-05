@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 # This spec tests to ensure semesters can be created and deleted
 require 'rails_helper'
 
-
 describe 'Semester CRUD Features' do
   before :each do
-    user = {'name' => 'New Admin', 'email' => 'admin@user.com', 'uid' => 'user|3', 'kicked_out' => false}
+    user = { 'name' => 'New Admin', 'email' => 'admin@user.com', 'uid' => 'user|3', 'kicked_out' => false }
     page.set_rack_session(userinfo: user)
     page.set_rack_session(app_user: user)
 
@@ -16,7 +17,6 @@ describe 'Semester CRUD Features' do
 
     member.save
   end
-
 
   it 'Can access the Semesters page as admin' do
     visit '/semesters'
@@ -45,5 +45,4 @@ describe 'Semester CRUD Features' do
     click_on 'Delete Semester'
     expect(page).to have_content 'destroyed successfully.'
   end
-
 end

@@ -1,4 +1,4 @@
-<h5><%= link_to("Back to List", points_path, :class => 'back-link') %></h5>
+<h5><%= link_to("Back to List", {controller: :previous_points, action: :show, id: @sem_id}, :class => 'back-link') %></h5>
 
 <% @page_title = "Member Manual Points" %>
 <div class="member points index">
@@ -8,7 +8,7 @@
 
 <p>
 	<strong> Manual Points : </strong>
-	<%= @member.manual_points_received(false) %>
+	<%= @member.manual_points_received(true) %>
 	<br/>
 	<strong> All Time Manual Points : </strong>
 	<%= @member.manual_points_received %>
@@ -22,12 +22,12 @@
 		<th>Category</th>
 		<th>When</th>
     </tr>
-    <% @member.manual_points.where(:semester_id == @sem_id).each do |manual_points| %>
+    <% @member.manual_points.where(semester_id: @sem_id).each do |manual_points| %>
     <tr>
 		<td><%= manual_points.points %></td>
 		<td><%= manual_points.reason_message %></td>
-		<td><%= manual_points.reason%></td>
-		<td><%= manual_points.created_at%></td>
+		<td><%= manual_points.reason %></td>
+		<td><%= manual_points.created_at %></td>
     </tr>
     <% end %>
 </table>
