@@ -23,4 +23,17 @@ class Event < ApplicationRecord
     start_date, end_date = date.split(' - ')
     start_date..end_date
   end
+
+  def self.to_csv
+   attributes = %w{name time type points id}
+
+   CSV.generate(headers: true) do |csv|
+     csv << attributes
+
+     all.each do |user|
+       csv << attributes.map{ |attr| user.send(attr) }
+     end
+   end
+ end
+
 end

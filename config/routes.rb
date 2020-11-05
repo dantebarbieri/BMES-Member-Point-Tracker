@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'previous_points/accomplishments/:id' => 'previous_points#accomplishments'
+  get 'previous_points/manual_points/:id' => 'previous_points#manual_points'
+  get 'previous_points/events/:id' => 'previous_points#events'
+  get 'previous_points/index'
+  get 'previous_points/show/:id' => 'previous_points#show'
+  get 'previous_points' => 'previous_points#index'
+  post 'previous_points/select_semester' => 'previous_points#select_semester'
   get 'accomplishments_members/index'
   get 'accomplishments_members/show'
   get 'accomplishments_members/new'
