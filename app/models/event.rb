@@ -11,7 +11,7 @@ class Event < ApplicationRecord
   enum event_type: { general: 0, mentorship: 10, socials: 20 }
 
   scope :filter_by_name, ->(name) { where('lower(name) LIKE :name', name: "%#{name.downcase}%") }
-  scope :filter_by_start_time, ->(start_time) { where(start_time: start_time.all_day) }
+  scope :filter_by_start_time, ->(start_time) { where(start_time: start_time.to_date.all_day) }
   scope :filter_by_hidden, ->(hidden) { where(hidden: hidden) }
   scope :filter_by_event_type, ->(event_type) { where(event_type: event_type) }
   scope :filter_by_attendance_points, ->(attendance_points) { where(attendance_points: attendance_points) }

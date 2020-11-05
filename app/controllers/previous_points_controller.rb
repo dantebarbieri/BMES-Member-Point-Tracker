@@ -13,7 +13,9 @@ class PreviousPointsController < ApplicationController
 
   def show
     points_valid_member
+    puts @sem_id
   end
+  
   def events
     points_valid_member
     @curr_semester = Semester.find_by_id(@sem_id)
@@ -35,6 +37,7 @@ class PreviousPointsController < ApplicationController
   def points_valid_member
     @member = Member.find_by_uid(session[:app_user]['uid'])
     @sem_id = params[:id]
+    puts @sem_id
     unless @member.paid_dues?
       flash[:alert] = 'You must pay dues to see your points.'
       redirect_to('/dashboard')
