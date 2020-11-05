@@ -22,7 +22,7 @@
 		<th>Category</th>
 		<th>When</th>
     </tr>
-    <% @member.manual_points.where(:semester_id == @sem_id).each do |manual_points| %>
+    <% @member.manual_points.where(semester_id: @sem_id).each do |manual_points| %>
     <tr>
 		<td><%= manual_points.points %></td>
 		<td><%= manual_points.reason_message %></td>
