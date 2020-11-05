@@ -23,10 +23,17 @@
 .navbar-custom .navbar-text { 
     color: #D3D3D3;
 } 
+.navbar-custom2 { 
+    background-color: #696969;
+} 
+ /* Modify brand and text color */ 
+.navbar-custom2 .navbar-brand, 
+.navbar-custom2 .navbar-text2 { 
+    color: #D3D3D3;
+}
 .navbar-toggler{
     background-color: #D3D3D3;
-    color: #590000;
-    
+    color: #590000;  
 }
 .navbar-collapse {
     color: #590000;  
