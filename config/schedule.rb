@@ -27,5 +27,6 @@ every 1.minute do
 
   rake 'sample:test'
   rake 'participation_tracker:update_events'
+  rake 'participation_tracker:update_events_members'
 
 end

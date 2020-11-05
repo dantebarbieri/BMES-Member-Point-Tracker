@@ -36,4 +36,21 @@ namespace :participation_tracker do
       end
     end
   end
+
+  desc "fetch the attendance data for each linked event"
+  task update_events_members: :environment do
+    events = Event.where.not(participation_tracker_id: nil)
+    events.each do |event|
+      attendees = request_api("https://guarded-plateau-56846.herokuapp.com/api/v1/event?id=#{event.participation_tracker_id}")["attendees"]
+      attendees.each do |attendee|
+        member = Member.find_by_email(attendee["email"])
+        if member then
+          puts "#{attendee["email"]} went to #{event.name}."
+          member.events << event
+        else
+          puts "#{attendee["email"]} is not owned by any account in the Member Point Tracker."
+        end
+      end
+    end
+  end
 end
