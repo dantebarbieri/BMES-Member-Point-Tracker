@@ -78,6 +78,7 @@ class ManualPointsController < ApplicationController
         next unless member.manual_points.where(reason_message: transfer_reason(from, to)).empty?
 
         mp = member.total_points
+        next if mp <= 0
         mp = mp > points ? points : mp
         @manual_points = ManualPoint.new(points: mp, reason: 'transfer_old', reason_message: transfer_reason(from, to), member_id: member.id, semester_id: to)
         if @manual_points.save

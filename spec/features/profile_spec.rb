@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 # This spec tests to ensure user profiles can be edited
 require 'rails_helper'
 
-
 describe 'Profile Edit Features' do
   before :each do
-    user = {'name' => 'New Admin', 'email' => 'admin@user.com', 'uid' => 'user|3', 'kicked_out' => false}
+    user = { 'name' => 'New Admin', 'email' => 'admin@user.com', 'uid' => 'user|3', 'kicked_out' => false }
     page.set_rack_session(userinfo: user)
     page.set_rack_session(app_user: user)
 
@@ -25,6 +26,4 @@ describe 'Profile Edit Features' do
     click_on 'Save Member'
     expect(page).to have_content 'NewName'
   end
-
-
 end

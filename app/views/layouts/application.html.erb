@@ -19,37 +19,18 @@
 
   </head>
 
-  <body style="background-color:#C0C0C0;">
-    <div class="container">
+  <body style="background-color:#C0C0C0; height: 100vh;">
+    <div class="container" style="display: flex; flex-direction: column; height: 100%; justify-content: space-between;">
+      <div>
+      <div>
       <h1>BMES Point Tracker</h1>
 
-      <nav class="navbar navbar-expand-lg navbar-custom navbar-custom">
-        <%= link_to "Home", root_path, class: 'navbar-text'%>
+      <nav class="navbar navbar-expand-lg navbar-custom navbar-custom" style="margin-bottom: 1.5em; border-radius: 5px 5px 0px 0px;">
+        <%= link_to "Home", root_path, class: 'navbar-text', style: 'padding: 0px 0.75em;'%>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav" >
-            <% if @member and @member.is_admin? %>
-              <li class="nav-item dropdown" >
-                <a class="nav-link navbar-text dropdown-toggle" href="#" id="accomp_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accomplishments</a>
-                <div class="dropdown-menu navbar-custom" aria-labelledby="accomp_dropdown">
-                  <%= link_to "Create Accomplishments", "/accomplishments", class: 'nav-item nav-link navbar-text'%>
-                  <%= link_to "Assign Accomplishments", "/accomplishments_members", class: 'nav-item nav-link navbar-text'%>
-              </div>
-              </li>
-
-              <%= link_to "Manual Points", "/manual_points", class: 'nav-item nav-link navbar-text'%>
-              <%= link_to "Events", "/events", class: 'nav-item nav-link navbar-text'%>
-              <%= link_to "Semesters", semesters_path, class: 'nav-item nav-link navbar-text'%>
-
-              <%= link_to "Members", "/members" , class: 'nav-item nav-link navbar-text'%>
-
-              <% if @member.executive_admin? %>
-                <%= link_to "Admins", "/admins" , class: 'nav-item nav-link navbar-text'%>
-              <% end %>
-
-            <% end %>
 
             <% if @member %>
               <%= link_to "Profile", profile_path, class: 'nav-item nav-link navbar-text'%>
@@ -69,19 +50,48 @@
           </div>
         </div>
       </nav>
-      <br>
-      <% flash.each do |type, msg| %>
-        <% if (type == "notice") %>
-          <div class="alert alert-success">
-            <%= msg %>
-          </div>
-        <% elsif (type == "alert") %>
-          <div class="alert alert-danger">
-            <%= msg %>
-          </div>
+      </div>
+        <div style="height: 100%; overflow-y: auto;">
+        <% flash.each do |type, msg| %>
+          <% if (type == "notice") %>
+            <div class="alert alert-success">
+              <%= msg %>
+            </div>
+          <% elsif (type == "alert") %>
+            <div class="alert alert-danger">
+              <%= msg %>
+            </div>
+          <% end %>
         <% end %>
+        <%= yield %>
+        </div>
+      </div>
+    
+    <%if @member and @member.is_admin? %>
+      <nav class="navbar navbar-expand-lg navbar-custom navbar-custom" style="float: bottom; margin-top: 3em; border-radius: 0px 0px 5px 5px; margin-bottom: 5px;">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltBottomMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltBottomMarkup">
+            <div class="navbar-nav" >
+	              <%= link_to "About", {controller: :about, action: :index}, class: 'nav-item nav-link navbar-text' %>
+                <%= link_to "Create Accomplishments", "/accomplishments", class: 'nav-item nav-link navbar-text'%>
+                <%= link_to "Assign Accomplishments", "/accomplishments_members", class: 'nav-item nav-link navbar-text'%>
+                
+                <%= link_to "Manual Points", "/manual_points", class: 'nav-item nav-link navbar-text'%>
+                <%= link_to "Events", "/events", class: 'nav-item nav-link navbar-text'%>
+                <%= link_to "Semesters", semesters_path, class: 'nav-item nav-link navbar-text'%>
+
+                <%= link_to "Members", "/members" , class: 'nav-item nav-link navbar-text'%>
+
+                <% if @member.executive_admin? %>
+                  <%= link_to "Admins", "/admins" , class: 'nav-item nav-link navbar-text'%>
+                <% end %>
+
+            </div>
+          </div>
+        </nav>
       <% end %>
-      <%= yield %>
+
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

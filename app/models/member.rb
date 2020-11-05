@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class Member < ApplicationRecord
-  has_many :accomplishments_members
+  has_many :accomplishments_members, dependent: :destroy
   has_many :accomplishments, through: :accomplishments_members
-  has_many :manual_points
+  has_many :manual_points, dependent: :destroy
   has_and_belongs_to_many :events
   enum role: { unconfirmed: 0, member: 10, admin: 20, executive_admin: 30 }
 
@@ -30,7 +30,7 @@ class Member < ApplicationRecord
 
     total = 0
     events.each do |event|
-      total += event.attendance_points if Semester.in_current_semester?(event.date)
+      total += event.attendance_points if Semester.in_current_semester?(event.start_time.to_date)
     end
     total
   end
@@ -39,12 +39,9 @@ class Member < ApplicationRecord
     return accomplishments.sum(:points) unless current_semester
 
     total = 0
-    semesters = []
-    Semester.current_semester.each do |semester|
-      semesters << semester.id
-    end
+    semester_id = Semester.current_semester.id
     accomplishments_members.each do |accomplishment_member|
-      total += accomplishment_member.accomplishment.points if semesters.include? accomplishment_member.semester_id
+      total += accomplishment_member.accomplishment.points if semester_id == accomplishment_member.semester_id
     end
     total
   end

@@ -10,6 +10,8 @@ class PointsController < ApplicationController
 
   def events
     points_valid_member
+    sem = Semester.current_semester
+    @events = @member.events.where(start_time: sem.dates.begin..sem.dates.end)
   end
 
   def manual_points
