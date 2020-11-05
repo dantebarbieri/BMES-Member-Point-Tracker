@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   get 'previous_points/index'
   get 'previous_points/show'
+  get 'about' => 'about#index'
   get 'accomplishments_members/index'
   get 'accomplishments_members/show'
   get 'accomplishments_members/new'
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   get 'upcoming_events' => 'upcoming_events#show'
   get 'upcoming_events/show'
   get 'memberevents/index'
+
   root 'home#show'
 
   get 'home/show'
@@ -74,7 +76,7 @@ Rails.application.routes.draw do
   patch 'edit' => 'profile#update'
 
   get 'points' => 'points#index'
-  
+
   get 'points/events'
   get 'points/manual_points'
   get 'points/accomplishments'
@@ -82,11 +84,14 @@ Rails.application.routes.draw do
   get 'members' => 'member_management#index'
 
   get 'members/:id' => 'member_management#show'
+  get 'members/event_attendance/:id' => 'member_management#show_event_attendance'
+  get 'members/manual_points/:id' => 'member_management#show_manual_points'
+  get 'members/accomplishments/:id' => 'member_management#show_accomplishments'
   patch 'members/confirm/:id' => 'member_management#confirm'
   delete 'members/delete/:id' => 'member_management#delete'
 
   get 'admins' => 'admin_management#index'
-  
+
   get 'admins/:id' => 'admin_management#show'
   patch 'admins/grant/:id' => 'admin_management#grant'
   patch 'admins/revoke/:id' => 'admin_management#revoke'

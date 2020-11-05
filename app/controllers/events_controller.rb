@@ -6,8 +6,16 @@ class EventsController < ApplicationController
   include ExistingUser
   include AdminSecured
 
+  helper_method :sort_column, :search_params
+
+  # filter is set up in controllers/concerns/filterable and are handled by scopes in Event
+  # sorting is set up in application_helper
   def index
-    @events = Event.order(:date)
+    @events = if params[:search].present?
+                Event.filter(filter_params).order(sort_column)
+              else
+                Event.order(sort_column)
+              end
   end
 
   def show
@@ -19,7 +27,10 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
+    ep = event_params
+    ep[:participation_tracker_id] = nil
+    puts ep
+    @event = Event.new(ep)
     if @event.save
       flash[:notice] = 'Event Created Successfully'
       redirect_to(events_path)
@@ -35,6 +46,10 @@ class EventsController < ApplicationController
 
   def postpone
     @event = Event.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def update
@@ -63,6 +78,27 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :date, :time, :event_type, :hidden, :attendance_points)
+    params.require(:event).permit(:name, :start_time, :event_type, :hidden, :attendance_points, :participation_tracker_id)
+  end
+
+  def filter_params
+    params[:search].slice(:name, :start_time, :event_type, :hidden, :attendance_points, :participation_tracker_id)
+  end
+
+  # old way
+  def search_params(p)
+    p.permit(direction: [], sort: [], search: {})
+  end
+
+  def sort_column
+    default = 'start_time desc'
+    if params.key?('sort') && params.key?('direction')
+      # prevent injection into .order
+      order = params[:sort].uniq.zip(params[:direction]).select { |s, d| Event.column_names.include?(s) and %w[asc desc].include?(d) }
+      # transform to something .order can use
+      order.empty? ? default : order.map { |x, y| x + ' ' + y }.join(', ')
+    else
+      default
+    end
   end
 end

@@ -13,12 +13,8 @@
       <td><%= @event.name %></td>
     </tr>
     <tr>
-      <th>Date</th>
-      <td><%= @event.date %></td>
-    </tr>
-    <tr>
-      <th>Time</th>
-      <td><%= @event.time.strftime("%H:%M:%S") %></td>
+      <th>Start Time</th>
+      <td><%= @event.start_time %></td>
     </tr>
     <tr>
       <th>Type</th>
@@ -27,6 +23,10 @@
     <tr>
       <th>Attendance Points</th>
       <td><%= @event.attendance_points %></td>
+    </tr>
+    <tr>
+      <th>Participation Tracker Id</th>
+      <td><%= @event.participation_tracker_id %></td>
     </tr>
     <tr>
       <th>Created at</th>

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AccomplishmentsMembersController < ApplicationController
   include Secured
   include ExistingUser
@@ -13,6 +15,14 @@ class AccomplishmentsMembersController < ApplicationController
 
   def new
     requisite_data
+    unless @semesters.any?
+      flash[:alert] = 'You cannot give an accomplishment to a member without a semester.'
+      redirect_to "/semesters/new"
+    end
+    unless @accomplishments.any?
+      flash[:alert] = 'You cannot give an accomplishment to a member without an accomplishment.'
+      redirect_to "/accomplishments/new"
+    end
     @accomplishments_member = AccomplishmentsMember.new
   end
 
@@ -48,7 +58,7 @@ class AccomplishmentsMembersController < ApplicationController
   def delete
     @accomplishments_member = AccomplishmentsMember.find(params[:id])
   end
-  
+
   def destroy
     @accomplishments_member = AccomplishmentsMember.find(params[:id])
     @accomplishments_member.destroy

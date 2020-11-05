@@ -1,0 +1,16 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="postpone_event">Postpone Event</h4>
+  <button type="button" class="close" data-dismiss="modal">x</button>
+</div>
+<div class="modal-body">
+  <%= form_for(@event, :url => event_path(@event), :method => 'patch') do |f| %>
+    <table class=table summary="Event details">
+      <tr>
+        <td><%= f.datetime_field(:start_time, min: @event.start_time) %></td>
+      </tr>
+    </table>
+    <div class="form-buttons">
+      <%= f.submit("Save", :class => "btn btn-primary") %>
+    </div>
+  <% end %>
+</div>

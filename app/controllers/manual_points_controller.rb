@@ -75,20 +75,21 @@ class ManualPointsController < ApplicationController
     else
       members = Member.all
       members.each do |member|
-        if member.manual_points.where(reason_message: transfer_reason(from, to)).empty?
-          mp = member.total_points
-          mp = mp > points ? points : mp
-          @manual_points = ManualPoint.new(points: mp, reason: 'transfer_old', reason_message: transfer_reason(from, to), member_id: member.id, semester_id: to)
-          if @manual_points.save
-            flash[:notice] = 'Points Manually Created Successfully'
-          else
-            flash[:notice] = ''
-            flash[:alert] = "An unexpected error occurred transfering points for #{member.name} (#{member.email})."
-            @manual_points = ManualPoint.new
-            @semesters = Semester.order(dates: :desc)
-            redirect_to(manual_points_path)
-            return nil
-          end
+        next unless member.manual_points.where(reason_message: transfer_reason(from, to)).empty?
+
+        mp = member.total_points
+        next if mp <= 0
+        mp = mp > points ? points : mp
+        @manual_points = ManualPoint.new(points: mp, reason: 'transfer_old', reason_message: transfer_reason(from, to), member_id: member.id, semester_id: to)
+        if @manual_points.save
+          flash[:notice] = 'Points Manually Created Successfully'
+        else
+          flash[:notice] = ''
+          flash[:alert] = "An unexpected error occurred transfering points for #{member.name} (#{member.email})."
+          @manual_points = ManualPoint.new
+          @semesters = Semester.order(dates: :desc)
+          redirect_to(manual_points_path)
+          return nil
         end
       end
       flash[:notice] = "Points successfully transferred from #{Semester.find_by_id(from).name} to #{Semester.find_by_id(to).name}"
@@ -123,9 +124,7 @@ class ManualPointsController < ApplicationController
     from = params[:from]
     to = params[:to]
     @manual_points = ManualPoint.where(reason_message: transfer_reason(from, to))
-    @manual_points.each do |manual_point|
-      manual_point.destroy
-    end
+    @manual_points.each(&:destroy)
     flash[:notice] = "Transfer points successfully deleted from #{Semester.find_by_id(from).name} to #{Semester.find_by_id(to).name}"
     redirect_to(manual_points_path)
   end

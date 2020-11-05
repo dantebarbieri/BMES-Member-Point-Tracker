@@ -1,0 +1,32 @@
+<h5><%= link_to("Back to Member Details", {controller: :member_management, action: :show, id: @member.id}, method: :get) %></h5>
+
+<% @page_title = "Member Accomplishments" %>
+<div class="member accomplishment index">
+<h3>Member Accomplishments</h3>
+
+<p>
+	<strong> Accomplishment Points : </strong>
+	<%= @member.accomplishment_points(true) %>
+	<br/>
+	<strong> All Time Accomplishment Points : </strong>
+	<%= @member.accomplishment_points %>
+</p>
+
+<table class="table" summary="Member Accomplishments List">
+
+    <tr class="header">
+        <th>Name</th>
+		<th>Description</th>
+		<th>Points</th>
+		<th>When</th>
+    </tr>
+    <% @member.accomplishments.each do |accomplishments| %>
+    <tr>
+        <td><%= accomplishments.name %></td>
+		<td><%= accomplishments.description %></td>
+		<td><%= accomplishments.points %></td>
+		<td><%= accomplishments.created_at%></td>
+    </tr>
+    <% end %>
+</table>
+</div>
