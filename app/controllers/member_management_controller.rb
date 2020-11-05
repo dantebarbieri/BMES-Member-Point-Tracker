@@ -15,6 +15,18 @@ class MemberManagementController < ApplicationController
     @user = Member.find(params[:id])
   end
 
+  def show_manual_points
+    @member = Member.find(params[:id])
+  end
+
+  def show_event_attendance
+    @member = Member.find(params[:id])
+  end
+
+  def show_accomplishments
+    @member = Member.find(params[:id])
+  end
+
   def confirm
     user = Member.find(params[:id])
     name = user.name
