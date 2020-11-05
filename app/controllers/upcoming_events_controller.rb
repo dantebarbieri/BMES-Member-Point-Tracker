@@ -5,6 +5,6 @@ class UpcomingEventsController < ApplicationController
   include ExistingUser
 
   def show
-    @events = Event.order(:date)
+    @events = Event.order(:start_time)
   end
 end
