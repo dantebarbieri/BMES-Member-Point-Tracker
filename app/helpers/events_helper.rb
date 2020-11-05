@@ -5,12 +5,8 @@ module EventsHelper
     params[:search][:name] if params[:search].present?
   end
 
-  def date_from_search_params
-    params[:search][:date] if params[:search].present?
-  end
-
-  def time_from_search_params
-    params[:search][:time] if params[:search].present?
+  def start_time_from_search_params
+    params[:search][:start_time] if params[:search].present?
   end
 
   def hidden_from_search_params
@@ -23,5 +19,9 @@ module EventsHelper
 
   def attendance_points_from_search_params
     params[:search][:attendance_points] if params[:search].present?
+  end
+
+  def participation_tracker_id_from_search_params
+    params[:search][:participation_tracker_id] if params[:search].present?
   end
 end
