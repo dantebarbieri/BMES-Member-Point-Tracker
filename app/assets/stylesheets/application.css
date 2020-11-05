@@ -18,7 +18,9 @@
 .navbar-custom { 
     background-color:#590000; 
 } 
-
+.container {
+    width: 1400px;
+}
  /* Modify brand and text color */ 
 .navbar-custom .navbar-brand, 
 .navbar-custom .navbar-text { 
