@@ -38,3 +38,4 @@
     </tr>
     <% end %>
 </table>
+<%= link_to( 'Download Member Point Data' ,{ :controller => :member_management, :action => :download, format: 'csv'}, { :class => "btn btn-primary" } ) %>

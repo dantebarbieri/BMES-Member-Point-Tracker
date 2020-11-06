@@ -16,7 +16,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-   
+
   </head>
 
   <body style="background-color:#C0C0C0; height: 100vh;">
@@ -37,6 +37,7 @@
               <%= link_to "Dashboard", "/dashboard", class: 'nav-item nav-link navbar-text'%>
               <% if @member.paid_dues? %>
                 <%= link_to "Point Breakdown", "/points", class: 'nav-item nav-link navbar-text'%>
+                <%= link_to "Previous Points", "/previous_points", class: 'nav-item nav-link navbar-text'%>
               <% end %>
               <%= link_to "Upcoming Events", "/upcoming_events", class: 'nav-item nav-link navbar-text' %>
               <%= link_to "Log Out", "/logout", class: 'nav-item nav-link navbar-text'%>

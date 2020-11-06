@@ -7,6 +7,7 @@ class AccomplishmentsMembersController < ApplicationController
 
   def index
     @accomplishments_members = AccomplishmentsMember.order(:accomplishment_id, :member_id)
+
   end
 
   def show
@@ -66,6 +67,13 @@ class AccomplishmentsMembersController < ApplicationController
     redirect_to(accomplishments_members_path)
   end
 
+  def download
+    @accomplishments_members = AccomplishmentsMember.order(:accomplishment_id, :member_id)
+    respond_to do |format|
+      format.html
+      format.csv { send_data @accomplishments_members.to_csv, filename: "accomplishments-#{Date.today}.csv" }
+    end
+  end
   private
 
   def accomplishments_member_params

@@ -75,6 +75,13 @@ class EventsController < ApplicationController
     redirect_to(events_path)
   end
 
+  def download
+    @events = Event.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @events.to_csv, filename: "events-#{Date.today}.csv" }
+    end
+  end
   private
 
   def event_params

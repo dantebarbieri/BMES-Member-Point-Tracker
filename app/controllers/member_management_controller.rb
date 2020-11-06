@@ -45,4 +45,12 @@ class MemberManagementController < ApplicationController
 
     redirect_to members_path, alert: ('The member [' + name.to_str + '] was deleted.')
   end
+
+  def download
+    @users = Member.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @users.to_csv, filename: "users-#{Date.today}.csv" }
+    end
+  end
 end
