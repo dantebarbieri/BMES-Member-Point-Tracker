@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'previous_points/accomplishments/:id' => 'previous_points#accomplishments'
+  get 'previous_points/manual_points/:id' => 'previous_points#manual_points'
+  get 'previous_points/events/:id' => 'previous_points#events'
+  get 'previous_points/index'
+  get 'previous_points/show/:id' => 'previous_points#show'
+  get 'previous_points' => 'previous_points#index'
+  post 'previous_points/select_semester' => 'previous_points#select_semester'
+  get 'about' => 'about#index'
   get 'accomplishments_members/index'
   get 'accomplishments_members/show'
   get 'accomplishments_members/new'
@@ -9,8 +17,14 @@ Rails.application.routes.draw do
   get 'upcoming_events' => 'upcoming_events#show'
   get 'upcoming_events/show'
   get 'memberevents/index'
-
+  get 'accomplishments_members/download' => 'accomplishments_members#download'
+  get 'member_management/download' => 'member_management#download'
+  get 'member_management/download_attendance' => 'member_management#download_attendance'
+  get 'events/download' => 'events#download'
   root 'home#show'
+  get 'manual_points/download' => 'manual_points#download'
+  get 'semesters/download' => 'semesters#download'
+  get 'accomplishments/download' => 'accomplishments#download'
 
   get 'home/show'
 
@@ -81,6 +95,9 @@ Rails.application.routes.draw do
   get 'members' => 'member_management#index'
 
   get 'members/:id' => 'member_management#show'
+  get 'members/event_attendance/:id' => 'member_management#show_event_attendance'
+  get 'members/manual_points/:id' => 'member_management#show_manual_points'
+  get 'members/accomplishments/:id' => 'member_management#show_accomplishments'
   patch 'members/confirm/:id' => 'member_management#confirm'
   delete 'members/delete/:id' => 'member_management#delete'
 

@@ -6,11 +6,7 @@
   </td>
   <!-- TODO make this a range -->
   <td>
-    <%= f.date_field :date, value: date_from_search_params, include_blank: true %>
-  </td>
-  <!-- TODO make this a range -->
-  <td>
-    <%= f.time_field :time, value: time_from_search_params, include_blank: true %>
+    <%= f.datetime_field :start_time, value: start_time_from_search_params, include_blank: true %>
   </td>
   <td>
     <%= f.select(:event_type, 
@@ -26,9 +22,12 @@
   <td>
     <%= f.number_field :attendance_points, step: 0.01, value: attendance_points_from_search_params %>
   </td>
+  <td>
+    <%= f.number_field :participation_tracker_id, step: 1, value: participation_tracker_id_from_search_params %>
+  </td>
 
   <td>
-    <%= f.submit "Search", class: 'btn btn-success' %>
+    <%= f.submit "Search", class: 'btn btn-primary' %>
   </td>
   
 <% end %>

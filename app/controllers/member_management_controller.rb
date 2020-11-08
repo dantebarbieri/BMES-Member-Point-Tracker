@@ -15,6 +15,18 @@ class MemberManagementController < ApplicationController
     @user = Member.find(params[:id])
   end
 
+  def show_manual_points
+    @member = Member.find(params[:id])
+  end
+
+  def show_event_attendance
+    @member = Member.find(params[:id])
+  end
+
+  def show_accomplishments
+    @member = Member.find(params[:id])
+  end
+
   def confirm
     user = Member.find(params[:id])
     name = user.name
@@ -32,5 +44,21 @@ class MemberManagementController < ApplicationController
     user.destroy
 
     redirect_to members_path, alert: ('The member [' + name.to_str + '] was deleted.')
+  end
+
+  def download
+    @users = Member.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @users.to_csv, filename: "users-#{Date.today}.csv" }
+    end
+  end
+
+  def download_attendance
+    @users = Member.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @users.to_attendance_csv, filename: "users-#{Date.today}.csv" }
+    end
   end
 end

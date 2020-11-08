@@ -1,0 +1,32 @@
+<h5><%= link_to("Back to List", {controller: :previous_points, action: :show, id: @sem_id}, :class => 'back-link') %></h5>
+
+<% @page_title = "Member Accomplishments" %>
+<div class="member accomplishment index">
+<h3>Member Accomplishments</h3>
+
+<p>
+	<strong> Accomplishment Points : </strong>
+	<%= @member.accomplishment_points(true) %>
+	<br/>
+	<strong> All Time Accomplishment Points : </strong>
+	<%= @member.accomplishment_points %>
+</p>
+
+<table class="table" summary="Member Accomplishments List">
+
+    <tr class="header">
+        <th>Name</th>
+		<th>Description</th>
+		<th>Points</th>
+		<th>When</th>
+    </tr>
+    <% @member.accomplishments_members.where(semester_id: @sem_id).each do |accomplishments_members| %>
+		<% accomplishment = accomplishments_members.accomplishment %>
+    <tr>
+    <td><%= accomplishment.name %></td>
+		<td><%= accomplishment.description %></td>
+		<td><%= accomplishment.points %></td>
+		<td><%= accomplishment.created_at%></td>
+    </tr>
+    <% end %>
+</table>

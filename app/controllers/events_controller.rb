@@ -8,6 +8,8 @@ class EventsController < ApplicationController
 
   helper_method :sort_column, :search_params
 
+  # filter is set up in controllers/concerns/filterable and are handled by scopes in Event
+  # sorting is set up in application_helper
   def index
     @events = if params[:search].present?
                 Event.filter(filter_params).order(sort_column)
@@ -25,7 +27,10 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
+    ep = event_params
+    ep[:participation_tracker_id] = nil
+    puts ep
+    @event = Event.new(ep)
     if @event.save
       flash[:notice] = 'Event Created Successfully'
       redirect_to(events_path)
@@ -70,14 +75,22 @@ class EventsController < ApplicationController
     redirect_to(events_path)
   end
 
+  def download
+    @events = Event.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @events.to_csv, filename: "events-#{Date.today}.csv" }
+    end
+  end
+
   private
 
   def event_params
-    params.require(:event).permit(:name, :date, :time, :event_type, :hidden, :attendance_points)
+    params.require(:event).permit(:name, :start_time, :event_type, :hidden, :attendance_points, :participation_tracker_id)
   end
 
   def filter_params
-    params[:search].slice(:name, :date, :time, :event_type, :hidden, :attendance_points)
+    params[:search].slice(:name, :start_time, :event_type, :hidden, :attendance_points, :participation_tracker_id)
   end
 
   # old way
@@ -86,7 +99,7 @@ class EventsController < ApplicationController
   end
 
   def sort_column
-    default = 'date desc'
+    default = 'start_time desc'
     if params.key?('sort') && params.key?('direction')
       # prevent injection into .order
       order = params[:sort].uniq.zip(params[:direction]).select { |s, d| Event.column_names.include?(s) and %w[asc desc].include?(d) }

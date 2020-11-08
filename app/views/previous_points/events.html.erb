@@ -1,0 +1,36 @@
+<h5><%= link_to("Back to List", {controller: :previous_points, action: :show, id: @sem_id}, :class => 'back-link') %></h5>
+
+<% @page_title = "Attendance Points" %>
+<div class="member accomplishment index">
+<h3>Member Attendance to Events Points</h3>
+
+<p><i> Shows all the points you have earned by attending events </p></i>
+
+<p>
+	<strong> Events Points : </strong>
+	<%= @member.attendance_points(true) %>
+	<br/>
+	<strong> All Time Event Points : </strong>
+	<%= @member.attendance_points %>
+</p>
+
+<table class="table" summary="Member Events List">
+
+	<tr class="header">
+		<th>Name</th>
+		<th>Points</th>
+		<th>Start Time</th>
+		<th>Type</th>
+		<th>Details</th>
+	</tr>
+	<% @member.events.where(start_time: @curr_semester.dates).each do |event| %>
+	<tr>
+		<td><%= event.name %></td>
+		<td><%= event.attendance_points %></td>
+		<td><%= event.start_time %></td>
+		<td><%= event.event_type %></td>
+		<td><%= link_to "", controller: :memberevents, id: event.id, :class => 'fa fa-info-circle fa-lg'%></td>
+	</tr>
+	<% end %>
+</table>
+</div>

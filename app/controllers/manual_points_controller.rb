@@ -78,6 +78,8 @@ class ManualPointsController < ApplicationController
         next unless member.manual_points.where(reason_message: transfer_reason(from, to)).empty?
 
         mp = member.total_points
+        next if mp <= 0
+
         mp = mp > points ? points : mp
         @manual_points = ManualPoint.new(points: mp, reason: 'transfer_old', reason_message: transfer_reason(from, to), member_id: member.id, semester_id: to)
         if @manual_points.save
@@ -126,6 +128,14 @@ class ManualPointsController < ApplicationController
     @manual_points.each(&:destroy)
     flash[:notice] = "Transfer points successfully deleted from #{Semester.find_by_id(from).name} to #{Semester.find_by_id(to).name}"
     redirect_to(manual_points_path)
+  end
+
+  def download
+    @manual_points = ManualPoint.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @manual_points.to_csv, filename: "manual-points-#{Date.today}.csv" }
+    end
   end
 
   private

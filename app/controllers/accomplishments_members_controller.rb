@@ -15,6 +15,14 @@ class AccomplishmentsMembersController < ApplicationController
 
   def new
     requisite_data
+    unless @semesters.any?
+      flash[:alert] = 'You cannot give an accomplishment to a member without a semester.'
+      redirect_to '/semesters/new'
+    end
+    unless @accomplishments.any?
+      flash[:alert] = 'You cannot give an accomplishment to a member without an accomplishment.'
+      redirect_to '/accomplishments/new'
+    end
     @accomplishments_member = AccomplishmentsMember.new
   end
 
@@ -56,6 +64,14 @@ class AccomplishmentsMembersController < ApplicationController
     @accomplishments_member.destroy
     flash[:notice] = "Accomplishment #{@accomplishments_member.accomplishment.name} Removed From #{@accomplishments_member.member.name} Successfully"
     redirect_to(accomplishments_members_path)
+  end
+
+  def download
+    @accomplishments_members = AccomplishmentsMember.order(:semester_id, :accomplishment_id, :member_id)
+    respond_to do |format|
+      format.html
+      format.csv { send_data @accomplishments_members.to_csv, filename: "assigned-accomplishments-#{Date.today}.csv" }
+    end
   end
 
   private

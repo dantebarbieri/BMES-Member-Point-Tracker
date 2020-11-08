@@ -4,8 +4,7 @@
 <table class="table" summary="Events list">
     <tr class="header">
         <th>Name</th>
-        <th>Date</th>
-        <th>Time</th>
+        <th>Start Time</th>
         <th>Type</th>
         <th>Attendance Points</th>
         <th>Details</th>
@@ -14,8 +13,7 @@
     <% unless event.hidden %>
         <tr>
             <td><%= event.name %></td>
-            <td><%= event.date %></td>
-            <td><%= event.time.strftime("%H:%M:%S") %></td>
+            <td><%= event.start_time %></td>
             <td><%= event.event_type %></td>
             <td><%= event.attendance_points %></td>
             <td class="actions">

@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 # This spec tests to ensure manual points can be created and deleted
 require 'rails_helper'
 
-
 describe 'Manual Points CRUD Features' do
   before :each do
-    user = {'name' => 'New Admin', 'email' => 'admin@user.com', 'uid' => 'user|3', 'kicked_out' => false}
+    user = { 'name' => 'New Admin', 'email' => 'admin@user.com', 'uid' => 'user|3', 'kicked_out' => false }
     page.set_rack_session(userinfo: user)
     page.set_rack_session(app_user: user)
 
@@ -34,5 +35,4 @@ describe 'Manual Points CRUD Features' do
     click_on('Delete Manual Points')
     expect(page).to have_content 'Points Manually Deleted Successfully'
   end
-
 end

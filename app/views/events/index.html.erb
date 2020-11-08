@@ -1,22 +1,20 @@
 
 <% @page_title = "Event List" %>
 
-<!--<% content_for(:body_attributes) do %>
-  data-turbolinks="false"
-<% end %>-->
-
 <div class="events index">
 <h3>Events</h3>
+
+<p><i>This is the event management page where you can view details and delete events. Only admins have access to this.</i></p>
 
 <%= render 'filter_events_form' %>
 <table class="table" summary="Events list">
   <tr class="header">
     <th><%= sortable "name", "Name" %></th>
-    <th><%= sortable "date", "Date" %></th>
-    <th><%= sortable "time", "Time" %></th>
+    <th><%= sortable "start_time", "Start Time" %></th>
     <th><%= sortable "event_type", "Type" %></th>
     <th><%= sortable "hidden", "Hidden?" %></th>
     <th><%= sortable "attendance_points", "Attendance Points" %></th>
+    <th><%= sortable "participation_tracker_id", "Participation Tracker Id" %></th>
     <th>Details</th>
     <th>Edit</th>
     <th>Postpone</th>
@@ -24,8 +22,8 @@
   </tr>
   <%= render @events %>
 </table>
-
 <%= link_to("Add New Event", new_event_path, :class => "btn btn-primary") %>
+<%= link_to( 'Download Event Data' ,{ :controller => :events, :action => :download, format: 'csv'}, { :class => "btn btn-primary" } ) %>
 
 <!-- <p>Find me in app/views/events/index.html.erb</p> -->
 </div>

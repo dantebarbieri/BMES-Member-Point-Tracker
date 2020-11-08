@@ -33,6 +33,7 @@
 </table>
 
 <%= link_to("Give Accomplishment to Member", new_accomplishments_member_path, :class => "btn btn-primary") %>
+<%= link_to("Download Accomplishment Assignment Data", { :controller => :accomplishments_members, :action => :download, format: 'csv'}, { :class => "btn btn-primary" } ) %>
 
 <!-- <p>Find me in app/views/manual_points/index.html.erb</p> -->
 </div>
