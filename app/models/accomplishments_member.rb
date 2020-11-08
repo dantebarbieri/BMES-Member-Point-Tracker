@@ -5,7 +5,7 @@ class AccomplishmentsMember < ApplicationRecord
   belongs_to :accomplishment
   belongs_to :semester
   def self.to_csv
-   attributes = %w{member accomplishment semester}
+   attributes = %w{id member_id accomplishment_id semester_id}
 
    CSV.generate(headers: true) do |csv|
      csv << attributes

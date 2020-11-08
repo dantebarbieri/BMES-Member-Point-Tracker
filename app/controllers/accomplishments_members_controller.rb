@@ -68,10 +68,10 @@ class AccomplishmentsMembersController < ApplicationController
   end
 
   def download
-    @accomplishments_members = AccomplishmentsMember.order(:accomplishment_id, :member_id)
+    @accomplishments_members = AccomplishmentsMember.order(:semester_id, :accomplishment_id, :member_id)
     respond_to do |format|
       format.html
-      format.csv { send_data @accomplishments_members.to_csv, filename: "accomplishments-#{Date.today}.csv" }
+      format.csv { send_data @accomplishments_members.to_csv, filename: "assigned-accomplishments-#{Date.today}.csv" }
     end
   end
   private

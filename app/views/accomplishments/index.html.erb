@@ -38,3 +38,4 @@
 </table>
 
 <%= link_to("Add New Accomplishment", new_accomplishment_path, :class => "btn btn-primary") %>
+<%= link_to("Download Accomplishment Data", { :controller => :accomplishments, :action => :download, format: 'csv'}, { :class => "btn btn-primary" } ) %>

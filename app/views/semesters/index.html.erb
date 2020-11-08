@@ -35,3 +35,4 @@
 	</tbody>
 </table>
 <%= link_to "New Semester", new_semester_path, class: "btn btn-primary" %>
+<%= link_to( 'Download Semester Data' ,{ :controller => :semesters, :action => :download, format: 'csv'}, { :class => "btn btn-primary" } ) %>

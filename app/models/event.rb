@@ -24,7 +24,7 @@ class Event < ApplicationRecord
   end
 
   def self.to_csv
-   attributes = %w{name start_time event_type attendance_points participation_tracker_id}
+   attributes = %w{id name start_time event_type attendance_points hidden participation_tracker_id}
 
    CSV.generate(headers: true) do |csv|
      csv << attributes

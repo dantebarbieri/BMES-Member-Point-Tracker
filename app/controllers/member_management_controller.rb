@@ -53,4 +53,12 @@ class MemberManagementController < ApplicationController
       format.csv { send_data @users.to_csv, filename: "users-#{Date.today}.csv" }
     end
   end
+
+  def download_attendance
+    @users = Member.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @users.to_attendance_csv, filename: "users-#{Date.today}.csv" }
+    end
+  end
 end

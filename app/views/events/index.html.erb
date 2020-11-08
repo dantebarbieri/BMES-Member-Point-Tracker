@@ -22,9 +22,8 @@
   </tr>
   <%= render @events %>
 </table>
-<%= link_to( 'Download Event Data' ,{ :controller => :events, :action => :download, format: 'csv'}, { :class => "btn btn-primary" } ) %>
-
 <%= link_to("Add New Event", new_event_path, :class => "btn btn-primary") %>
+<%= link_to( 'Download Event Data' ,{ :controller => :events, :action => :download, format: 'csv'}, { :class => "btn btn-primary" } ) %>
 
 <!-- <p>Find me in app/views/events/index.html.erb</p> -->
 </div>
