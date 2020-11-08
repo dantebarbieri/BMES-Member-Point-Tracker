@@ -54,7 +54,7 @@ class AccomplishmentsController < ApplicationController
   end
 
   def download
-    @accomplishments = Accomplishments.order(is_dues: :desc, name: :asc)
+    @accomplishments = Accomplishment.order(is_dues: :desc, name: :asc)
     respond_to do |format|
       format.html
       format.csv { send_data @accomplishments.to_csv, filename: "accomplishments-#{Date.today}.csv" }
