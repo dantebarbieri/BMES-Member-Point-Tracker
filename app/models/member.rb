@@ -27,6 +27,7 @@ class Member < ApplicationRecord
 
   def attendance_points(current_semester = false)
     return events.sum(:attendance_points) unless current_semester
+
     total = 0
     events.where(start_time: Semester.current_semester.dates).each do |event|
       puts event.start_time.to_date
@@ -105,25 +106,25 @@ class Member < ApplicationRecord
   end
 
   def self.to_csv
-    attributes = %w{id name email class_year role}
-    headers = %w{id name email class_year role points_this_semester total_points}
- 
+    attributes = %w[id name email class_year role]
+    headers = %w[id name email class_year role points_this_semester total_points]
+
     CSV.generate(headers: true) do |csv|
       csv << headers
- 
+
       all.each do |user|
-        csv << (attributes.map{ |attr| user.send(attr) } << user.total_points(true) << user.total_points)
+        csv << (attributes.map { |attr| user.send(attr) } << user.total_points(true) << user.total_points)
       end
     end
   end
 
   def self.to_attendance_csv
-    attributes = %w{event_id participation_tracker_id}
-    headers = %w{member_id event_id participation_tracker_event_id}
- 
+    attributes = %w[event_id participation_tracker_id]
+    headers = %w[member_id event_id participation_tracker_event_id]
+
     CSV.generate(headers: true) do |csv|
       csv << headers
- 
+
       all.each do |user|
         user.events.each do |event|
           csv << [user.id, event.id, event.participation_tracker_id]

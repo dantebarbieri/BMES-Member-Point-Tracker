@@ -17,14 +17,14 @@ class Semester < ApplicationRecord
   end
 
   def self.to_csv
-    attributes = %w{id name}
-    headers = %w{id name start_date end_date}
- 
+    attributes = %w[id name]
+    headers = %w[id name start_date end_date]
+
     CSV.generate(headers: true) do |csv|
       csv << headers
- 
+
       all.each do |user|
-        csv << (attributes.map{ |attr| user.send(attr) } << user.dates.begin << user.dates.end)
+        csv << (attributes.map { |attr| user.send(attr) } << user.dates.begin << user.dates.end)
       end
     end
   end

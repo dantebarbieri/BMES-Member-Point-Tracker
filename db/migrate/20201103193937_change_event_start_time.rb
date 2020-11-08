@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChangeEventStartTime < ActiveRecord::Migration[6.0]
   def up
     add_column :events, :start_time, :datetime
