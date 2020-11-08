@@ -28,7 +28,7 @@ class Member < ApplicationRecord
   def attendance_points(current_semester = false)
     return events.sum(:attendance_points) unless current_semester
     total = 0
-    events.where(start_time: semester.dates).each do |event|
+    events.where(start_time: Semester.current_semester.dates).each do |event|
       puts event.start_time.to_date
       total += event.attendance_points
     end
