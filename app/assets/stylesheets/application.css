@@ -21,7 +21,7 @@
  /* Modify brand and text color */ 
 .navbar-custom .navbar-brand, 
 .navbar-custom .navbar-text { 
-    color: black;
+    color: white;
 } 
 .navbar-custom2 { 
     background-color: #C0C0C0;
