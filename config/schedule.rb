@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Use this file to easily define all of your cron jobs.
 #
 # It's helpful, but not entirely necessary to understand cron before proceeding.
@@ -21,12 +23,10 @@
 
 env :PATH, ENV['PATH']
 
-set :output, "log/cron.log"
+set :output, 'log/cron.log'
 
 every 1.minute do
-
   rake 'sample:test'
   rake 'participation_tracker:update_events'
   rake 'participation_tracker:update_events_members'
-
 end

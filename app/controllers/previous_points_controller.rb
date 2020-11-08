@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PreviousPointsController < ApplicationController
   include Secured
   include ExistingUser
@@ -15,7 +17,7 @@ class PreviousPointsController < ApplicationController
     points_valid_member
     puts @sem_id
   end
-  
+
   def events
     points_valid_member
     @curr_semester = Semester.find_by_id(@sem_id)

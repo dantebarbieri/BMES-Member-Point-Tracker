@@ -82,6 +82,7 @@ class EventsController < ApplicationController
       format.csv { send_data @events.to_csv, filename: "events-#{Date.today}.csv" }
     end
   end
+
   private
 
   def event_params

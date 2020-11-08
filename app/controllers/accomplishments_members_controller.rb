@@ -7,7 +7,6 @@ class AccomplishmentsMembersController < ApplicationController
 
   def index
     @accomplishments_members = AccomplishmentsMember.order(:accomplishment_id, :member_id)
-
   end
 
   def show
@@ -18,11 +17,11 @@ class AccomplishmentsMembersController < ApplicationController
     requisite_data
     unless @semesters.any?
       flash[:alert] = 'You cannot give an accomplishment to a member without a semester.'
-      redirect_to "/semesters/new"
+      redirect_to '/semesters/new'
     end
     unless @accomplishments.any?
       flash[:alert] = 'You cannot give an accomplishment to a member without an accomplishment.'
-      redirect_to "/accomplishments/new"
+      redirect_to '/accomplishments/new'
     end
     @accomplishments_member = AccomplishmentsMember.new
   end
@@ -74,6 +73,7 @@ class AccomplishmentsMembersController < ApplicationController
       format.csv { send_data @accomplishments_members.to_csv, filename: "assigned-accomplishments-#{Date.today}.csv" }
     end
   end
+
   private
 
   def accomplishments_member_params
