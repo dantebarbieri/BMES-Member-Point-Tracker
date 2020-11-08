@@ -57,6 +57,14 @@ class SemestersController < ApplicationController
     end
   end
 
+  def download
+    @semesters = Semester.order(:dates)
+    respond_to do |format|
+      format.html
+      format.csv { send_data @semesters.to_csv, filename: "semesters-#{Date.today}.csv" }
+    end
+  end
+
   private
 
   def semester_params

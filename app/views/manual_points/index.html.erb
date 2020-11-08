@@ -36,6 +36,7 @@
 <%= link_to("Add New Manual Points", new_manual_point_path, :class => "btn btn-primary") %>
 <%= link_to("Transfer Points Between Semester", 'manual_points/semester_transfer', :class => "btn btn-primary") %>
 <%= link_to("Undo Transfer Points Between Semester", 'manual_points/delete_semester_transfer', :class => "btn btn-primary") %>
+<%= link_to( 'Download Manual Points Data' ,{ :controller => :manual_points, :action => :download, format: 'csv'}, { :class => "btn btn-primary" } ) %>
 
 <!-- <p>Find me in app/views/manual_points/index.html.erb</p> -->
 </div>

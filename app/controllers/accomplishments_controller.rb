@@ -53,6 +53,14 @@ class AccomplishmentsController < ApplicationController
     @accomplishments = Accomplishment.find(params[:id])
   end
 
+  def download
+    @accomplishments = Accomplishments.order(is_dues: :desc, name: :asc)
+    respond_to do |format|
+      format.html
+      format.csv { send_data @accomplishments.to_csv, filename: "accomplishments-#{Date.today}.csv" }
+    end
+  end
+
   private
 
   def accomplishments_params

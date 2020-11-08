@@ -129,6 +129,14 @@ class ManualPointsController < ApplicationController
     redirect_to(manual_points_path)
   end
 
+  def download
+    @manual_points = ManualPoint.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @manual_points.to_csv, filename: "manual-points-#{Date.today}.csv" }
+    end
+  end
+
   private
 
   def manual_points_params
