@@ -7,6 +7,7 @@
       - <%= @page_title %>
     <% end %>
     </title>
+    <%= favicon_link_tag asset_path('bmes-logo.png') %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -23,7 +24,7 @@
     <div class="container" style="display: flex; flex-direction: column; height: 100%; justify-content: space-between;">
       <div>
       <div>
-      <h1>BMES Point Tracker</h1>
+      <h1>BMES Member Point Tracker</h1>
 
       <nav class="navbar navbar-expand-lg navbar-custom navbar-custom" style="border-radius: 0px 0px 0px 0px;">
         <%= link_to "Home", root_path, class: 'navbar-text', style: 'padding: 0px 0.75em;'%>
