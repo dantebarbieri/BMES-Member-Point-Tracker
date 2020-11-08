@@ -21,15 +21,15 @@
  /* Modify brand and text color */ 
 .navbar-custom .navbar-brand, 
 .navbar-custom .navbar-text { 
-    color: #D3D3D3;
+    color: black;
 } 
 .navbar-custom2 { 
-    background-color: #696969;
+    background-color: #C0C0C0;
 } 
  /* Modify brand and text color */ 
 .navbar-custom2 .navbar-brand, 
 .navbar-custom2 .navbar-text2 { 
-    color: #D3D3D3;
+    color: black;
 }
 .navbar-toggler{
     background-color: #D3D3D3;
@@ -181,7 +181,7 @@
 }
 .alert {
   color: #117099;
-  background-color: #C0C0C0;
+  background-color: white;
   font-weight: bold;
   border-color: #117099;
   font-size: 20px;
@@ -189,7 +189,7 @@
 
 .notice {
   color: #117099;
-  background-color: #C0C0C0;
+  background-color: white;
   font-weight: bold;
   border-color: #117099;
   font-size: 20px;
@@ -206,3 +206,10 @@
   color: #117099;
 }
 
+.img1 {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 300px;
+  border-color: white;
+}
