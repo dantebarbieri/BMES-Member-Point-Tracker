@@ -135,8 +135,4 @@ describe 'Admin Pages Allow Access to Admins' do
     expect(page).to have_content 'User Management'
   end
 
-  it 'Allows access to /accomplishments_members/new' do
-    visit '/accomplishments_members/new'
-    expect(page).to have_content 'Assign New Accomplishment to Member'
-  end
 end
