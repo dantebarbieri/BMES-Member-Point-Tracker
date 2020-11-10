@@ -17,7 +17,7 @@ namespace :participation_tracker do
   desc 'fetch and handle event list from bmes participation tracker'
   task update_events: :environment do
     events = Event.all
-    request_api('https://guarded-plateau-56846.herokuapp.com/api/v1/events')['events'].each do |pt_event|
+    request_api('https://participation-tracker.herokuapp.com/api/v1/events')['events'].each do |pt_event|
       event_exists = false
       events.each do |event|
         unless event.participation_tracker_id
@@ -42,7 +42,7 @@ namespace :participation_tracker do
   task update_events_members: :environment do
     events = Event.where.not(participation_tracker_id: nil)
     events.each do |event|
-      attendees = request_api("https://guarded-plateau-56846.herokuapp.com/api/v1/event?id=#{event.participation_tracker_id}")['attendees']
+      attendees = request_api("https://participation-tracker.herokuapp.com/api/v1/event?id=#{event.participation_tracker_id}")['attendees']
       attendees.each do |attendee|
         member = Member.find_by_email(attendee['email'])
         if member
